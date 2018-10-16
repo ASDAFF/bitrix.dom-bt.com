@@ -9,11 +9,29 @@ $curPage = $APPLICATION->GetCurPage(true);
 $assetInstance = Asset::getInstance();
 
 Loc::loadLanguageFile(__FILE__);
+
+// START WebSEO.kz Michael Nossov:
+	$wsasset = \Bitrix\Main\Page\Asset::getInstance();
+	//$wscanonical = 'https://' . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $APPLICATION->GetCurPage(true));
+	$wspagenum = '';
+	if(isset($_REQUEST['PAGEN_1']) && !empty($_REQUEST['PAGEN_1']) && intval($_REQUEST['PAGEN_1']) > 1){
+		//$wscanonical .= '?PAGEN_1='.$_REQUEST['PAGEN_1'];
+		// Если эта страница с пагинацией, то добавляем в Title и Description фразу "Страница 2", "Страница 3" и т.д. (кроме первой страницы)
+		$wspagenum = ' → Страница '.$_REQUEST['PAGEN_1'];
+		$wsdesc = $APPLICATION->GetProperty('description');
+		if($wsdesc){
+			$APPLICATION->SetPageProperty('description', $wsdesc.$wspagenum);
+        }
+	}
+    // ко всем страницам сайта длбавляем канонический URL
+    // $wsasset->addString('<link rel="canonical" href="' . $wscanonical . '">');
+// END WebSEO.kz
+
 ?>
 <!DOCTYPE html>
 <html lang="ru"<?if($APPLICATION->GetProperty("smt_sticky_footer")):?> class="smt-sticky-footer"<?endif?>>
 <head>
-    <title><?$APPLICATION->ShowTitle()?></title>
+    <title><?$APPLICATION->ShowTitle()?><?=$wspagenum?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?$APPLICATION->ShowHead();?>

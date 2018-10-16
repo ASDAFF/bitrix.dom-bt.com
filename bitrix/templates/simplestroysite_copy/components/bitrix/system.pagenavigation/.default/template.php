@@ -20,6 +20,32 @@ if(!$arResult["NavShowAlways"])
 
 $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryString"]."&amp;" : "");
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");
+
+	// START WebSEO.kz Michael Nossov:
+	$wsasset = \Bitrix\Main\Page\Asset::getInstance();
+	$ws_uri_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+	//$wsuri = $ws_uri_protocol . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $APPLICATION->GetCurPage(true));
+	$wsuri = $ws_uri_protocol . $_SERVER['HTTP_HOST'] . $arResult["sUrlPath"];
+	if ($arResult["NavPageNomer"] != 1) {
+		// если это не первая страница, то добавляем метатег rel=prev
+		// только к первой не добавляется окончание ?PAGEN_1=1
+		$wspprev = '';
+		if($arResult["NavPageNomer"] != 2){
+			$wspprev = '?PAGEN_'.$arResult["NavNum"].'='.($arResult["NavPageNomer"]-1);
+		}
+		$wsasset->addString('<link rel="prev" href="' . $wsuri . $wspprev.'">');
+		
+		$wsasset->addString('<link rel="canonical" href="' . $wsuri . '?PAGEN_'.$arResult["NavNum"].'='.$arResult["NavPageNomer"].'">');
+	}
+	else{
+		$wsasset->addString('<link rel="canonical" href="' . $wsuri . '">');
+    }
+	if($arResult["NavPageNomer"] != $arResult["NavPageCount"]) {
+		// если это не последняя страница, то добавляем метатег rel=next
+		$wsasset->addString('<link rel="next" href="' . $wsuri . '?PAGEN_'.$arResult["NavNum"].'='.($arResult["NavPageNomer"]+1).'">');
+	}
+	// END WebSEO.kz
+ 
 ?>
 <ul class="smt-pagination">
 <?if($arResult["bDescPageNumbering"] === true):?>
