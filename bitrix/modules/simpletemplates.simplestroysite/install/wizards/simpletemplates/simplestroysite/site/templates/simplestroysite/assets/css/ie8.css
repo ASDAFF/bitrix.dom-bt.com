@@ -1,7 +1,0 @@
-.smt-slide__content {
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#40000000, endColorstr=#40000000)";
-}
-
-.smt-project-item:hover .smt-image-box-inline__over, .smt-image_hover:hover .smt-image__over {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-}

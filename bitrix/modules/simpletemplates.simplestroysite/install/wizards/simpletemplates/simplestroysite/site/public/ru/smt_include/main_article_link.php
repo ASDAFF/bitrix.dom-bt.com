@@ -1,1 +1,0 @@
-<a href="<?=SITE_DIR?>blog/" class="btn smt-btn">Посмотреть все статьи</a>

@@ -1,1 +1,0 @@
-<h2 class="smt-widget__header h2 smt-header smt-header-underline-center"><a href="">Новости и статьи</a></h2>

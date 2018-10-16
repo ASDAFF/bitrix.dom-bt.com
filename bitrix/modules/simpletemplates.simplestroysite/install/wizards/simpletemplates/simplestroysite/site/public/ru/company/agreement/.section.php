@@ -1,6 +1,0 @@
-<?
-$sSectionName = "Соглашение";
-$arDirProperties = Array(
-
-);
-?>

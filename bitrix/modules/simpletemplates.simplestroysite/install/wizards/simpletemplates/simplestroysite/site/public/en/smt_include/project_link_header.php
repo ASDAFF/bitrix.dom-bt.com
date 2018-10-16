@@ -1,1 +1,0 @@
-<div class="h2 smt-header smt-header-underline-center">Похожие проекты</div>

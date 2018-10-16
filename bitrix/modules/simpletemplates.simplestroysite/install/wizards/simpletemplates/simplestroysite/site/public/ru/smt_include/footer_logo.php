@@ -1,1 +1,0 @@
-<div class="h4 smt-header smt-header-underline-left">Simple<span class="smt-color-primary">Stroy</span>Site</div>

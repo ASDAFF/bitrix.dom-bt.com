@@ -1,4 +1,0 @@
-<?
-$MESS["SMT_BPSC_HEADER_PRICE"] = "Cost";
-$MESS["SMT_BPSC_HEADER_CURRENCY"] = "&#36;";
-?>
