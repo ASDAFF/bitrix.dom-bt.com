@@ -1,0 +1,1 @@
+<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/step2use.optimg/admin/s2u_iblock_templates.php");?>

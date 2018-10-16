@@ -1,0 +1,19 @@
+td.popupmenu div.popupitem .playlist-edit {background-image:url(/bitrix/components/bitrix/player/images/playlist_edit.gif);}
+
+.videojs-player-container {
+	text-align: center;
+	background-color: #F5F7F8;
+}
+.videojs-adjusted {
+	margin: 0 auto;
+	-webkit-transition: width 0.5s;
+	-moz-transition: width 0.5s;
+	-ms-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+.videojs-player-container .video-js {
+	margin: 0 auto;
+	background-color: #F5F7F8;
+}

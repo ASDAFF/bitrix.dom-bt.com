@@ -1,0 +1,38 @@
+.sp-block-table table {
+    width: 100%;
+    border-collapse: separate;
+    background: #fff;
+    border: 1px solid #aaa !important;
+}
+
+.sp-block-table td{
+    border: 1px solid #aaa;
+    padding: 5px;
+    min-width: 24px;
+    height: 22px;
+}
+
+.sp-block-table td p {
+    margin: 0;
+    padding: 0;
+}
+
+.sp-block-table .active{
+    background: #FFEBC1;
+}
+
+.sp-block-table .bold{
+    font-weight: bold;
+}
+
+.sp-block-table .center{
+    text-align: center;
+}
+
+.sp-block-table .right{
+    text-align: right;
+}
+
+.sp-block-table .sp-buttons {
+    /*text-align: center;*/
+}

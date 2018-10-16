@@ -1,0 +1,22 @@
+<?
+$simpletemplates_simplestroysite_default_option = array(
+	"smt_main_color" => "#FFCD4B",
+	"smt_main_button_color" => "#000000",
+	"smt_main_color_link" => "#FFCD4B",
+	"smt_main_text_color" => "#222222",
+	"smt_main_menu_color" => "#323232",
+	"smt_main_show_slider" => "Y",
+	"smt_main_show_benefits" => "Y",
+	"smt_main_show_about" => "Y",
+	"smt_main_show_services" => "Y",
+	"smt_main_show_projects" => "Y",
+	"smt_main_show_gallery" => "Y",
+	"smt_main_show_responses" => "Y",
+	"smt_main_show_form" => "Y",
+	"smt_main_show_action" => "Y",
+	"smt_main_show_article" => "Y",
+	"smt_main_show_news" => "Y",
+	"smt_main_show_banner" => "Y",
+	"smt_main_show_text" => "Y",
+	"smt_main_main_blocks" => "slider,benefits,about,projects,gallery,info1,action,info2,banner",
+);

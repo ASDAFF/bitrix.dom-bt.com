@@ -1,0 +1,10 @@
+{
+  "title": "Видео Youtube",
+  "sort": "300",
+  "js": [
+    "/bitrix/admin/sprint.editor/assets/bindWithDelay.js"
+  ],
+  "templates": [
+    "iframe.html"
+  ]
+}

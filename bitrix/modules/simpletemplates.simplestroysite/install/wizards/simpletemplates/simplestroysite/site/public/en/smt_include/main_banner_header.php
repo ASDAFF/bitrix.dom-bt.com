@@ -1,0 +1,1 @@
+<h2 class="smt-widget__header h2 smt-header smt-header-underline-center">Специальные предложения</h2>

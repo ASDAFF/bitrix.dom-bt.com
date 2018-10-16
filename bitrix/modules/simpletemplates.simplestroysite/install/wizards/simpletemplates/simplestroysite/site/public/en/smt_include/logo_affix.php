@@ -1,0 +1,1 @@
+<span class="fa fa-building-o"></span>SIMPLE<b>STROY</b>SITE

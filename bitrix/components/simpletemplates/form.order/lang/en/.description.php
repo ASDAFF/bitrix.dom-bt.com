@@ -1,0 +1,5 @@
+<?
+$MESS ['SMT_SFOC_IBLOCK_ELEMENT_ADD_FORM_NAME'] = "Order form";
+$MESS ['SMT_SFOC_IBLOCK_ELEMENT_ADD_FORM_DESCRIPTION'] = "Order form";
+$MESS ['SMT_SFOC_PATH_NAME'] = "Simpletemplates.ru";
+?>

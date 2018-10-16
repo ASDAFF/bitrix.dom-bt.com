@@ -1,0 +1,62 @@
+
+.sp-block-gallery .sp-item {
+    position: relative;
+    width: 98px;
+    height: 55px;
+    background: #ccc;
+    text-align: center;
+    border: 2px solid #eee;
+    cursor: pointer;
+    margin: 3px;
+    float: left;
+}
+
+
+.sp-block-gallery .sp-placeholder {
+    border: 2px dotted black;
+    width: 98px;
+    height: 55px;
+    margin: 3px;
+    float: left;
+}
+
+.sp-block-gallery .sp-item-desc {
+    width: 80%;
+}
+
+
+.sp-block-gallery .sp-edit{
+    background: #ddd;
+}
+
+.sp-block-gallery .sp-active{
+    border: 2px solid #d00;
+}
+
+
+.sp-block-gallery .sp-result {
+    background: #eee;
+    min-height: 55px;
+    padding: 5px;
+}
+
+.sp-block-gallery .sp-source{
+    background: #FFEBC1;
+    display: none;
+}
+
+.sp-block-gallery.sp-show .sp-source{
+    display: block;
+}
+
+.sp-block-gallery .sp-download-url{
+    width: 80%;
+}
+
+
+.sp-block-gallery .sp-fields{
+    padding: 10px;
+}
+.sp-block-gallery .sp-field{
+    margin-bottom: 10px;
+}

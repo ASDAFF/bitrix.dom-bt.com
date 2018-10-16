@@ -1,0 +1,1 @@
+<a href="tel:#MACROS_SITE_PHONE#">#MACROS_SITE_PHONE#</a>
