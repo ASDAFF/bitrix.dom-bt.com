@@ -1,0 +1,31 @@
+<?
+$MESS["CP_BCE_TPL_PROP_EMPTY"] = "не выбрано";
+$MESS["CP_BCE_TPL_MAIN_BLOCK_PROPERTY_CODE"] = "Свойства, отображаемые в блоке";
+$MESS["IBLOCK_LINE_ELEMENT_COUNT"] = "Количество элементов выводимых в одной строке таблицы";
+$MESS["SMT_BPSP_LINK_SHOW_MODE"] = "Режим вывода ссылок";
+$MESS["SMT_BPSP_DISPLAY_NAME"] = "Выводить название элемента";
+$MESS["SMT_BPSP_DISPLAY_PICTURE"] = "Выводить изображение для анонса";
+$MESS["SMT_BPSP_DISPLAY_PREVIEW_TEXT"] = "Выводить текст анонса";
+$MESS["SMT_BPSP_DISPLAY_DATE"] = "Выводить дату";
+$MESS["SMT_BPSP_DISPLAY_DESCRIPTION"] = "Выводить описание раздела";
+$MESS["SMT_BPSP_DISPLAY_BUTTON"] = "Выводить кнопку";
+$MESS["SMT_BPSP_DISPLAY_IMAGE_NAME"] = "Выводить название внутри изображения";
+$MESS["SMT_BPSP_DISPLAY_IMAGE_PREVIEW_TEXT"] = "Выводить текст анонса внутри изображения";
+$MESS["SMT_BPSP_PICTURE_RESIZE"] = "Ресайз изображения";
+$MESS["SMT_BPSP_PICTURE_RESIZE_MODE"] = "Ресайз режим";
+$MESS["SMT_BPSP_PICTURE_RESIZE_SOURCE"] = "Ресайз поле";
+$MESS["SMT_BPSP_PICTURE_RESOLUTION"] = "Ресайз соотношение";
+$MESS["SMT_BPSP_PICTURE_RESIZE_WIDTH"] = "Ресайз ширина";
+$MESS["SMT_BPSP_PICTURE_RESIZE_HEIGHT"] = "Ресайз высота";
+$MESS["SMT_BPSP_SLIDER"] = "Включить слайдер";
+$MESS["SMT_BPSP_SLIDER_GALLERY"] = "Включить слайдер (gallery)";
+$MESS["SMT_BPSP_SLIDER_ITEMS"] = "Количество элементов в слайдере";
+$MESS["SMT_BPSP_SLIDER_MARGIN"] = "Отступы в слайдере";
+$MESS["SMT_BPSP_SLIDER_NAV"] = "Показывать стрелки в слайдере";
+$MESS["SMT_BPSP_SLIDER_DOTS"] = "Показывать навигацию в слайдере";
+$MESS["SMT_BPSP_SLIDER_CUSTOM"] = "Слайдер свойства (JSON)";
+$MESS["SMT_BPSP_SLIDER_VERTICAL_ALIGN"] = "Слайдер вертикальное выравнивание";
+$MESS["SMT_BPSP_SLIDER_RESPONSIVE"] = "Настройки адаптивности";
+$MESS["SMT_BPSP_SLIDER_RESPONSIVE_ITEMS"] = "Количество элементов размер экрана ";
+$MESS["SMT_BPSP_SLIDER_RESPONSIVE_CUSTOM"] = "Дополнительные настройки (JSON) размер экрана ";
+?>

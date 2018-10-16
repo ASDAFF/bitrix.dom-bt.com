@@ -1,0 +1,1 @@
+<h2 class="smt-header smt-header-underline-left">Детали проекта</h2>

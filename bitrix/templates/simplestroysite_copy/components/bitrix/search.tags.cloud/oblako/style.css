@@ -1,0 +1,13 @@
+#sl {
+display: inline-block;
+color:#30abe2;
+border: 1px solid #30abe2;
+padding:5px 10px;
+margin-bottom:20px;
+    cursor: pointer;
+}
+
+#sl:hover {
+background-color: #30abe2;
+color:#fff;
+}

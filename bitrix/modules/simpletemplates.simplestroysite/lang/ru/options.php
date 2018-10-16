@@ -1,0 +1,31 @@
+<?
+$MESS["SMT_OPTIONS_MAIN_COLOR"] = "Основной цвет шаблона";
+$MESS["SMT_OPTIONS_BUTTON_COLOR"] = "Цвет шрифта кнопок";
+$MESS["SMT_OPTIONS_COLOR_LINK"] = "Цвет ссылок";
+$MESS["SMT_OPTIONS_TEXT_COLOR"] = "Цвет текста";
+$MESS["SMT_OPTIONS_MENU_COLOR"] = "Цвет текста в меню";
+$MESS["SMT_OPTIONS_MAIN_SHOW_SLIDER"] = "Показывать блок Слайдер на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_BENEFITS"] = "Показывать блок Преимущества на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_ABOUT"] = "Показывать блок О компании на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_SERVICES"] = "Показывать блок Услуги на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_PROJECTS"] = "Показывать блок Проекты на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_GALLERY"] = "Показывать блок Галерея на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_RESPONSES"] = "Показывать блок Отзывы на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_FORM"] = "Показывать блок Форма заказа на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_ACTION"] = "Показывать блок Баннер на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_ARTICLE"] = "Показывать блок Статьи на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_NEWS"] = "Показывать блок Новости на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_BANNER"] = "Показывать блок Баннеры на главной странице";
+$MESS["SMT_OPTIONS_MAIN_SHOW_TEXT"] = "Показывать блок Текст на главной странице";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS"] = "Порядок отображения блоков на главной странице";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_SLIDER"] = "Слайдер";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_BENEFITS"] = "Преимущества";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_ABOUT"] = "О компании";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_PROJECTS"] = "Проекты";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_GALLERY"] = "Галерея";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_INFO1"] = "Инфоблок (отзывы + форма заказа)";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_ACTION"] = "Широкий баннер";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_INFO2"] = "Инфоблок (Статьи + Новости)";
+$MESS["SMT_OPTIONS_MAIN_BLOCKS_BANNER"] = "Баннеры";
+$MESS["SMT_OPTIONS_FORMS_DISABLE_AGREEMENT"] = "Отключить пользовательское соглашание во всех формах";
+?>

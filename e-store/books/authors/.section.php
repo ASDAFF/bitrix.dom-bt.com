@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Авторы";
+$arDirProperties = array(
+
+);
+?>
