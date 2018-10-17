@@ -191,7 +191,7 @@ function RestoreDefaults()
 	<input type='button' <?if(!$USER->IsAdmin())echo ' disabled';?> title='<?echo GetMessage('BUTTON_DEF')?>' OnClick='RestoreDefaults();' value='<?echo GetMessage('BUTTON_DEF')?>'>
 <?$tabControl->End();?>
 </form>
-<script type="text/javascript" >
+<script >
 function altasib_func()
 {
 	var mst = document.getElementById('ALX_COMMON_CRM').checked ? 'Y' : 'N';

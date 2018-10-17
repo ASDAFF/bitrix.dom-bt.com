@@ -5,7 +5,7 @@ if (isset($templateData['JS_OBJ']))
 	if (!isset($_SESSION["IBLOCK_RATING"][$templateData['ELEMENT_ID']]) && 'Y' != $arParams['READ_ONLY'])
 	{
 ?>
-<script type="text/javascript">
+<script>
 BX.ready(
 	BX.defer(function(){
 		if (!!window.<? echo $templateData['JS_OBJ']; ?>)

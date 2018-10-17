@@ -116,7 +116,7 @@ class CAdminInformer
 	<span class="adm-informer-arrow"></span>
 </div>
 
-<script type="text/javascript">
+<script>
 	BX.ready( function(){BX.adminInformer.Init('.$visibleCount.'); } );
 </script>';
 

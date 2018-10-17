@@ -544,7 +544,7 @@ class CSticker
 	{
 		if(is_array(self::$Params))
 		{
-			return '<script type="text/javascript">BX.ready(function(){'.CSticker::AppendLangMessages()." window.oBXSticker = new BXSticker(".CUtil::PhpToJSObject(self::$Params['JSCONFIG']).", ".CUtil::PhpToJSObject(self::$Params['STICKERS']).", BXST_MESS);});</script>";
+			return '<script>BX.ready(function(){'.CSticker::AppendLangMessages()." window.oBXSticker = new BXSticker(".CUtil::PhpToJSObject(self::$Params['JSCONFIG']).", ".CUtil::PhpToJSObject(self::$Params['STICKERS']).", BXST_MESS);});</script>";
 		}
 	}
 

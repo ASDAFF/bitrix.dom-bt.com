@@ -249,7 +249,7 @@ class WizardTemplate extends CWizardTemplate
 			<p id="noscript">{$noscriptInfo}</p>
 		</noscript>
 
-		<script type="text/javascript">
+		<script>
 		<!--
 
 			function SubmitForm(button)
@@ -330,7 +330,7 @@ class WizardTemplate extends CWizardTemplate
 		</td>
 	</tr>
 </table>
-<script type="text/javascript">PreloadImages("{$wizardPath}/");</script>
+<script>PreloadImages("{$wizardPath}/");</script>
 <div class="instal-bg"><div class="instal-bg-inner"></div></div>
 </body>
 </html>

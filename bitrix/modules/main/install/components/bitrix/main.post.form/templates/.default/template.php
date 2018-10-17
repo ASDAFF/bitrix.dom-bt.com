@@ -73,7 +73,7 @@ foreach($arParams["BUTTONS"] as $val)
 	?><div class="feed-add-post-form feed-add-post-edit-form">
 		<?= $arParams["~HTML_BEFORE_TEXTAREA"]?>
 		<div class="feed-add-post-text">
-			<script type="text/javascript">
+			<script>
 				<?
 				if (is_array($GLOBALS["arExtranetGroupID"]))
 				{
@@ -141,7 +141,7 @@ foreach($arParams["BUTTONS"] as $val)
 					{
 						$arParams["ADDITIONAL"][$key] = array("text" => $val, "onclick" => "BX.PopupMenu.Data['menu-more".$arParams["FORM_ID"]."'].popupWindow.close();");
 					}
-					?><script type="text/javascript">window['more<?=$arParams["FORM_ID"]?>']=<?=CUtil::PhpToJSObject($arParams["ADDITIONAL"])?>;</script><?
+					?><script>window['more<?=$arParams["FORM_ID"]?>']=<?=CUtil::PhpToJSObject($arParams["ADDITIONAL"])?>;</script><?
 					?><div class="feed-add-post-form-but-more" <?
 						?>onclick="BX.PopupMenu.show('menu-more<?=$arParams["FORM_ID"]?>', this, window['more<?=$arParams["FORM_ID"]?>'], {offsetLeft: 42, offsetTop: 3, lightShadow: false, angle: top, events : {onPopupClose : function(popupWindow) {BX.removeClass(this.bindElement, 'feed-add-post-form-but-more-act');}}}); BX.addClass(this, 'feed-add-post-form-but-more-act');"><?
 						?><?=GetMessage("MPF_MORE")?><?
@@ -225,7 +225,7 @@ foreach($arParams["BUTTONS"] as $val)
 			?><input type="text" id="post-tags-popup-input-<?=$arParams["FORM_ID"]?>" tabindex="<?=($arParams["TEXT"]["TABINDEX"]++)?>" name="<?=$arParams["TAGS"]["NAME"]?>" size="30" value=""><?
 		}?>
 		</div>
-		<script type="text/javascript">
+		<script>
 			var BXPostFormTags_<?=$arParams["FORM_ID"]?> = new BXPostFormTags("<?=$arParams["FORM_ID"]?>", "bx-b-tag-input-<?=$arParams["FORM_ID"]?>");
 			var BXPostFormImportant_<?=$arParams["FORM_ID"]?> = new BXPostFormImportant("<?=$arParams["FORM_ID"]?>", "bx-b-important-<?=$arParams["FORM_ID"]?>", <?=(isset($arParams["IMPORTANT"]) && isset($arParams["IMPORTANT"]["INPUT_NAME"]) ? '"'.$arParams["IMPORTANT"]["INPUT_NAME"].'"' : 'false')?>);
 		</script>
@@ -248,7 +248,7 @@ foreach($arParams["BUTTONS"] as $val)
 	{
 		CModule::IncludeModule('intranet'); // for gov/public messages
 		?>
-		<script type="text/javascript">
+		<script>
 			BX.ready(function(){
 			window.MPFMentionInit('<?=$arParams["FORM_ID"]?>', {
 				editorId : '<?= $arParams["LHE"]["id"]?>',

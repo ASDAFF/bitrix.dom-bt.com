@@ -386,7 +386,7 @@ while($cult = $cultureRes->fetch())
 	$cultures[] = $cult;
 }
 ?>
-<script type="text/javascript">
+<script>
 function BXSetCulture()
 {
 	var selObj = BX('bx_culture_select');
@@ -568,7 +568,7 @@ endforeach;
 					if($bFirst):
 						$bFirst = false;
 					?>
-					<script type="text/javascript">
+					<script>
 						function bx_preview_template(index)
 						{
 							var templateSigns = <?=CUtil::PhpToJSObject($templateSigns)?>;

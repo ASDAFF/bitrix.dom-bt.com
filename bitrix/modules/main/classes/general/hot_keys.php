@@ -678,7 +678,7 @@ class CHotKeys
 			$retStr = ' if(window.BXHotKeys!==undefined) { '.$retStr.' } ';
 
 		if($scriptTags == true)
-			$retStr = '<script type="text/javascript">'.$retStr.'</script>';
+			$retStr = '<script>'.$retStr.'</script>';
 
 		return $retStr;
 	}

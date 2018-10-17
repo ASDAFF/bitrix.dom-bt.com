@@ -30,13 +30,13 @@ if ($arAuthResult['CAPTCHA'])
 
 if ($bOnHit):
 ?>
-<script type="text/javascript">
+<script>
 BX.ready(function(){BX.defer(BX.adminLogin.setAuthResult, BX.adminLogin)(<?=CUtil::PhpToJsObject($arAuthResult)?>);});
 </script>
 <?
 else:
 ?>
-<script type="text/javascript" bxrunfirst="true">
+<script bxrunfirst="true">
 top.BX.adminLogin.setAuthResult(<?=CUtil::PhpToJsObject($arAuthResult)?>);
 </script>
 <?

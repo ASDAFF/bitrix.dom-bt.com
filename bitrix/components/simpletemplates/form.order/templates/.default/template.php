@@ -33,7 +33,7 @@ if ($arResult["ERRORS"]) {
 ?>
 <?if (strlen($arResult["MESSAGE"]) > 0):?>
 	<?if($arParams["REDIRECT_URL"]):?>
-	<script type="text/javascript">
+	<script>
 		window.location = '<?=htmlspecialcharsEx($arParams["REDIRECT_URL"])?>';
 	</script>
 	<?else:?>
@@ -66,7 +66,11 @@ if ($arResult["ERRORS"]) {
 			<? $label = trim($label);?>
 			<?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["PROPERTY_TYPE"] && $arResult["PROPERTY_LIST_FULL"][$propertyID]["PROPERTY_TYPE"] == "L" && $arResult["PROPERTY_LIST_FULL"][$propertyID]["LIST_TYPE"] == "C"):?>
 				<?if($label):?>
-					<label class="text-uppercase" for="smt-order-form-field-<?=$arParams["FORM_SUFFIX"]?>-<?=strtolower($propertyID)?>">
+	                <?php
+					$wslabelsuf = $arParams["FORM_SUFFIX"].'-'.strtolower($propertyID);
+                    $wslabelfor = ($wslabelsuf == 'orderformmain-167' || $wslabelsuf == 'questionform-209') ? '': ' for="smt-order-form-field-'.$wslabelsuf.'"';
+                    ?>
+					<label class="text-uppercase"<?=$wslabelfor?>>
 						<?=$label?>
 						<?if(in_array($propertyID, $arResult["PROPERTY_REQUIRED"])):?><span class="smt-required-star">*</span><?endif?>
 					</label>
@@ -78,7 +82,11 @@ if ($arResult["ERRORS"]) {
 			<?else:?>
 				<div class="form-group has-feedback<?=$classError?><?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_GROUP_CLASS"]):?> <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_GROUP_CLASS"])?><?endif?>">
 					<?if($label):?>
-						<label class="text-uppercase" for="smt-order-form-field-<?=$arParams["FORM_SUFFIX"]?>-<?=strtolower($propertyID)?>">
+						<?php
+						$wslabelsuf = $arParams["FORM_SUFFIX"].'-'.strtolower($propertyID);
+						$wslabelfor = ($wslabelsuf == 'orderformmain-167' || $wslabelsuf == 'questionform-209') ? '': ' for="smt-order-form-field-'.$wslabelsuf.'"';
+						?>
+						<label class="text-uppercase"<?=$wslabelfor?>>
 							<?=$label?>
 							<?if(in_array($propertyID, $arResult["PROPERTY_REQUIRED"])):?><span class="smt-required-star">*</span><?endif?>
 						</label>

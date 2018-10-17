@@ -535,7 +535,7 @@ $editTab->Buttons();
 $editTab->End();
 ?>
 </form>
-<script type="text/javascript">
+<script>
 <?foreach ($arSites as $site):
 	$subLang = $site['ID'];?>
 	jsVoteTypeChanged('<?=$arRatingVoteType[$subLang]?>', '<?=$subLang?>', '<?=$arRatingVoteTemplate[$subLang]?>');

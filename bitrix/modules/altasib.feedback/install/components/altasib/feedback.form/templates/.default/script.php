@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 if(typeof ALX_ReloadCaptcha!='function'){
 	function ALX_ReloadCaptcha(csid,ALX){
 		document.getElementById("alx_cm_CAPTCHA_"+ALX).src='/bitrix/tools/captcha.php?captcha_sid='+csid+'&rnd='+Math.random();

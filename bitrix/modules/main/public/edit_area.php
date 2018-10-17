@@ -44,7 +44,7 @@ class CEditArea
 		$areaId = $this->__GetAreaId();
 
 		if ($this->bDrawIcons)
-			$res .= '<script type="text/javascript">if(window.BX&&BX.admin)BX.admin.setComponentBorder(\'bx_incl_area_'.$areaId.'\')</script>';
+			$res .= '<script>if(window.BX&&BX.admin)BX.admin.setComponentBorder(\'bx_incl_area_'.$areaId.'\')</script>';
 
 		$this->includeLevel--;
 		return $res;
@@ -213,7 +213,7 @@ class CEditArea
 
 				$this->bDrawIcons = true;
 
-				$res = '<script type="text/javascript">if(window.BX)BX.ready(function() {(new BX.'.($arParams['COMPONENT_ID'] == 'page_edit_control' ? 'CPageOpener' : 'CMenuOpener').'('.CUtil::PhpToJsObject($arJSParams).')).Show()});</script>';
+				$res = '<script>if(window.BX)BX.ready(function() {(new BX.'.($arParams['COMPONENT_ID'] == 'page_edit_control' ? 'CPageOpener' : 'CMenuOpener').'('.CUtil::PhpToJsObject($arJSParams).')).Show()});</script>';
 			}
 			else
 			{
@@ -290,7 +290,7 @@ class CEditArea
 
 	function __GetEditAreas()
 	{
-		$res = '<script type="text/javascript">';
+		$res = '<script>';
 		$res_ready = '';
 		foreach ($this->arEditAreas as $areaId => $arIcons)
 		{

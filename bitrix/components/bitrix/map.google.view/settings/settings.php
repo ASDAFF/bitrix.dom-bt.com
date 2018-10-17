@@ -34,8 +34,8 @@ if ($_REQUEST['MAP_DATA'])
 	}
 }
 ?>
-<script type="text/javascript" src="/bitrix/components/bitrix/map.google.view/settings/settings_load.js"></script>
-<script type="text/javascript">
+<script src="/bitrix/components/bitrix/map.google.view/settings/settings_load.js"></script>
+<script>
 BX.loadCSS('/bitrix/components/bitrix/map.google.view/settings/settings.css');
 var arPositionData = <?echo is_array($arData) && count($arData) > 0 ? CUtil::PhpToJsObject($arData) : '{}'?>;
 window._global_BX_UTF = <?echo defined('BX_UTF') && BX_UTF == true ? 'true' : 'false'?>;
@@ -93,7 +93,7 @@ $APPLICATION->IncludeComponent('bitrix:map.google.system', '', array(
 		<div id="bx_google_addpoint_message" style="display: none;"><?echo GetMessage('MYMV_SET_POINTS_ADD_DESCRIPTION')?> <a href="javascript:void(0)" onclick="jsGoogleCE.addPoint(); return false;"><?echo GetMessage('MYMV_SET_POINTS_ADD_FINISH')?></a>.</div>
 	</div>
 </div>
-<script type="text/javascript">
+<script>
 if (null != window.jsGoogleCESearch)
 	jsGoogleCESearch.clear();
 

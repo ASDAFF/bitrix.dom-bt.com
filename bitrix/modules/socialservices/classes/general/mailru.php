@@ -130,7 +130,7 @@ class CSocServMyMailRu extends CSocServAuth
 			$url = $GLOBALS['APPLICATION']->GetCurPageParam(('auth_service_id='.self::ID.'&auth_service_error='.$bSuccess), $aRemove);
 
 		echo '
-<script type="text/javascript">
+<script>
 if(window.opener)
 	window.opener.location = \''.CUtil::JSEscape($url).'\';
 window.close();

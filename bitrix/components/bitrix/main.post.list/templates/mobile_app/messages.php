@@ -5,7 +5,7 @@
  * @var string $thumbFile
 */
 ?>
-<script type="text/javascript">
+<script>
 <? if (IsModuleInstalled("socialnetwork")): ?>
 BX.ready(function()
 {

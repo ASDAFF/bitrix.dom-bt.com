@@ -1073,7 +1073,7 @@ if (!$bAllLinesLoaded)
 	<?echo GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH"); ?>
 	<a href="<?echo $APPLICATION->GetCurPage(); ?>?lang=<?echo LANG ?>&<?echo $strParams ?>"><?echo GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH_STEP"); ?></a><br>
 
-	<script type="text/javascript">
+	<script>
 	function DoNext()
 	{
 		window.location="<?echo $APPLICATION->GetCurPage(); ?>?lang=<?echo LANG ?>&<?echo $strParams ?>";
@@ -1165,7 +1165,7 @@ if ($STEP == 2)
 	<tr>
 		<td width="40%">&nbsp;</td>
 		<td width="60%">
-			<script type="text/javascript">
+			<script>
 			function DeactivateAllExtra()
 			{
 				document.getElementById("table_r").disabled = true;

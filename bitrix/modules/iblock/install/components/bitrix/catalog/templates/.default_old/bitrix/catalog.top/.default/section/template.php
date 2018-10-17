@@ -345,7 +345,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 				'COMPARE_PATH' => $arParams['COMPARE_PATH']
 			);
 		}
-		?><script type="text/javascript">
+		?><script>
 		var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script><?
 	}
@@ -558,7 +558,7 @@ if ($arParams['DISPLAY_COMPARE'])
 				);
 			}
 				?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
 				<?
@@ -627,7 +627,7 @@ var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObjec
 				);
 			}
 ?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
 <?

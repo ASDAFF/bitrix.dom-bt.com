@@ -200,7 +200,7 @@ class CIBlockPropertyMapGoogle extends CIBlockPropertyMapInterface
 
 //http://jabber.bx/view.php?id=17908
 ?>
-<script type="text/javascript">
+<script>
 	BX.ready(function(){
 		var tabArea = BX.findParent(BX("BX_GMAP_<?=$MAP_ID?>"), {className: "adm-detail-content"});
 		if (tabArea && tabArea.id)
@@ -722,7 +722,7 @@ class CIBlockPropertyMapYandex extends CIBlockPropertyMapInterface
 <?
 		echo EndNote();
 ?>
-<script type="text/javascript">
+<script>
 function setYandexKey(domain, input)
 {
 	LoadMap_<?echo $MAP_ID?>(document.getElementById(input).value);
@@ -850,7 +850,7 @@ function saveYandexKey(domain, input)
 
 //http://jabber.bx/view.php?id=17908
 ?>
-<script type="text/javascript">
+<script>
 	BX.ready(function(){
 		var tabArea = BX.findParent(BX("BX_YMAP_<?=$MAP_ID?>"), {className: "adm-detail-content"});
 		if (tabArea && tabArea.id)
@@ -1348,7 +1348,7 @@ function saveYandexKey(domain, input)
 				false, array('HIDE_ICONS' => 'Y')
 			);
 ?>
-<script type="text/javascript">
+<script>
 	BX.ready(function(){
 		var tabArea = BX.findParent(BX("BX_YMAP_<?=$MAP_ID?>"), {className: "adm-detail-content"});
 		if (tabArea && tabArea.id)

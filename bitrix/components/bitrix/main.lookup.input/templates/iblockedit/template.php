@@ -101,7 +101,7 @@ if ($arParams['MAX_WIDTH'] > 0)
 }
 
 ?>
-<script type="text/javascript">
+<script>
 BX.ready(
 	BX.defer(function(){
 		window.jsMLI_<?=$control_id?> = new JCMainLookupAdminSelector(<? echo CUtil::PhpToJSObject($arSelectorParams); ?>);

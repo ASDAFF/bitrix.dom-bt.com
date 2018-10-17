@@ -330,6 +330,6 @@ if ($isAjax)
 }
 ?>
 </div>
-<script type="text/javascript">
+<script>
 	var CatalogCompareObj = new BX.Iblock.Catalog.CompareClass("bx_catalog_compare_block");
 </script>

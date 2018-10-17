@@ -234,7 +234,7 @@ foreach ($arResult['ITEMS'] as $keyRow => $arOneRow)
 				'AJAX_PATH' => POST_FORM_ACTION_URI
 			);
 ?>
-<script type="text/javascript">
+<script>
 	var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
 <?
@@ -406,7 +406,7 @@ foreach ($arResult['ITEMS'] as $keyRow => $arOneRow)
 						'AJAX_PATH' => POST_FORM_ACTION_URI
 					);
 ?>
-<script type="text/javascript">
+<script>
 	var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
 <?
@@ -448,7 +448,7 @@ if (1 < $intRowsCount)
 	);
 ?>
 
-<script type="text/javascript">
+<script>
 var my = new JCCatalogTopSliderList(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 
 </script>

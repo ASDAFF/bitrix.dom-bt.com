@@ -324,7 +324,7 @@ $oFilter = new CAdminFilter(
 	)
 );
 ?>
-<script type="text/javascript">
+<script>
 var savedNS;
 var stop;
 function StartRebuild()

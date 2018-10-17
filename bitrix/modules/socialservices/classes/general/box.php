@@ -279,7 +279,7 @@ class CSocServBoxAuth extends CSocServAuth
 		}
 
 		$JSScript = '
-		<script type="text/javascript">
+		<script>
 		'.$location.'
 		</script>
 		';

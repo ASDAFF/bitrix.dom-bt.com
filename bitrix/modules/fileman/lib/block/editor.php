@@ -951,7 +951,7 @@ HTML
 		$result .= "blockEditorParams['resultNode'] = BX('" . htmlspecialcharsbx($this->ownResultId) . "');\n";
 		$result .= "BX.BlockEditorManager.create(blockEditorParams);\n";
 
-		$result = "\n" . '<script type="text/javascript">BX.ready(function(){' . "\n" . $result . '})</script>' . "\n";
+		$result = "\n" . '<script>BX.ready(function(){' . "\n" . $result . '})</script>' . "\n";
 		$result = $this->showEditor() . $result;
 
 

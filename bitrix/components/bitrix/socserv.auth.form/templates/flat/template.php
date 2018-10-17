@@ -29,7 +29,7 @@ foreach($arPost as $key => $value)
 	}
 }
 ?>
-<script type="text/javascript">
+<script>
 function BxSocServPopup(id)
 {
 	var content = BX("bx_socserv_form_"+id);

@@ -201,7 +201,7 @@ while($cult = $cultureRes->fetch())
 	$cultures[] = $cult;
 }
 ?>
-<script type="text/javascript">
+<script>
 function BXSetCulture()
 {
 	var selObj = BX('bx_culture_select');

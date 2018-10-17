@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Reindex"]=="Y")
 			));
 			echo $message->Show();
 			?>
-			<script type="text/javascript">
+			<script>
 				jsSelectUtils.selectOption(BX('iblock'), <?echo $IBLOCK_ID?>);
 				DoNext(<?echo CUtil::PhpToJSObject($NS)?>);
 			</script>
@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Reindex"]=="Y")
 			));
 			echo $message->Show();
 			?>
-			<script type="text/javascript">
+			<script>
 				jsSelectUtils.deleteOption(BX('iblock'), <?echo $IBLOCK_ID?>);
 				<?
 				if (!empty($iblockDropDown) && $NS['iblock'] <= 0)
@@ -182,7 +182,7 @@ else
 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 	?>
-	<script type="text/javascript">
+	<script>
 	var savedNS,
 		stop,
 		interval = 0;

@@ -961,7 +961,7 @@ class CAdminForm extends CAdminTabControl
 			{
 				echo '
 <input type="hidden" name="bxpublic" value="Y" /><input type="hidden" name="save" value="Y" />
-<script type="text/javascript">'.$this->publicObject.'.SetButtons(['.$this->publicObject.'.btnSave, '.$this->publicObject.'.btnCancel]);</script>
+<script>'.$this->publicObject.'.SetButtons(['.$this->publicObject.'.btnSave, '.$this->publicObject.'.btnCancel]);</script>
 ';
 			}
 			elseif (is_array($arJSButtons))
@@ -969,7 +969,7 @@ class CAdminForm extends CAdminTabControl
 				$arJSButtons = array_values($arJSButtons);
 				echo '
 <input type="hidden" name="bxpublic" value="Y" />
-<script type="text/javascript">'.$this->publicObject.'.SetButtons([
+<script>'.$this->publicObject.'.SetButtons([
 ';
 				foreach ($arJSButtons as $key => $btn)
 				{

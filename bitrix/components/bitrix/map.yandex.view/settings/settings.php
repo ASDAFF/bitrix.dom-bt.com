@@ -34,8 +34,8 @@ if ($_REQUEST['MAP_DATA'])
 	}
 }
 ?>
-<script type="text/javascript" src="/bitrix/components/bitrix/map.yandex.view/settings/settings_load.js"></script>
-<script type="text/javascript">
+<script src="/bitrix/components/bitrix/map.yandex.view/settings/settings_load.js"></script>
+<script>
 BX.loadCSS('/bitrix/components/bitrix/map.yandex.view/settings/settings.css');
 window._global_BX_UTF = <?echo defined('BX_UTF') && BX_UTF == true ? 'true' : 'false'?>;
 window.jsYandexMess = {

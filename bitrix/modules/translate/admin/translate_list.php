@@ -609,7 +609,7 @@ if ($TRANS_RIGHT == 'W')
 	$tabControl->Buttons();
 ?>
 	<input type="submit" id="tr_submit" value="<?=GetMessage("TR_UPLOAD_SUBMIT_BUTTON")?>" class="adm-btn-save">
-	<script type="text/javascript">
+	<script>
 	BX.bind(BX('F_ACTION_2'), 'click', function(){
 		if (!confirm('<? echo GetMessageJS('CONFRIM_REWRITE_LANG_FILES'); ?>'))
 		{

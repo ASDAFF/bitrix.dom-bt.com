@@ -240,11 +240,11 @@ $this->setFrameMode(true);
 <div class="smt-popup mfp-hide" id="smt-popup-order">
     <section class="smt-widget smt-widget_no-margin">
         <header>
-            <div class="smt-header smt-header-underline-left h4"><?$APPLICATION->IncludeFile(
+            <h4 class="smt-header smt-header-underline-left h4"><?$APPLICATION->IncludeFile(
                     SITE_DIR."smt_include/form_order_header.php",
                     Array(),
                     Array("MODE"=>"html")
-                );?></div>
+                );?></h4>
         </header>
         <div class="smt-widget__content">
             <?$APPLICATION->IncludeFile(
@@ -258,11 +258,11 @@ $this->setFrameMode(true);
 <div class="smt-popup mfp-hide" id="smt-popup-consult">
     <section class="smt-widget smt-widget_no-margin">
         <header>
-            <div class="smt-header smt-header-underline-left h4"><?$APPLICATION->IncludeFile(
+            <h4 class="smt-header smt-header-underline-left h4"><?$APPLICATION->IncludeFile(
                     SITE_DIR."smt_include/form_consult_header.php",
                     Array(),
                     Array("MODE"=>"html")
-                );?></div>
+                );?></h4>
         </header>
         <div class="smt-widget__content">
             <?$APPLICATION->IncludeFile(

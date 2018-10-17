@@ -63,7 +63,7 @@ $APPLICATION->IncludeComponent(
 
 ?>
 </div>
-<script type="text/javascript">
+<script>
 	(function () {
 		var list = BX('USER_CONSENT_AGREEMENT_EDIT').querySelectorAll('.webform-small-button');
 		list = BX.convert.nodeListToArray(list);

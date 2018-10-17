@@ -373,7 +373,7 @@ if ((($res = CCheckListResult::GetList(Array(),Array("REPORT"=>"N"))->Fetch()) |
 	<?endforeach;?>
 	</ul>
 
-	<script type="text/javascript">
+	<script>
 		function ShowHint (el)
 		{
 			el.BXHINT = new BX.CHint({

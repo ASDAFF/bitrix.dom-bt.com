@@ -71,7 +71,7 @@ if (strlen($arResult["BACKURL"]) > 0)
 					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
 				</span>
 				</noscript>
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure').style.display = 'inline-block';
 </script>
 <?endif?>
@@ -164,7 +164,7 @@ document.getElementById('bx_auth_secure').style.display = 'inline-block';
 
 </form>
 </noindex>
-<script type="text/javascript">
+<script>
 document.bform.USER_NAME.focus();
 </script>
 

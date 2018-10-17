@@ -45,7 +45,7 @@ ob_start();
 				if ($arParams["AUTHOR_URL"] != "")
 				{
 					?>
-					<script type="text/javascript">BX.tooltip('#AUTHOR_ID#', "bpc_#FULL_ID#", '<?=$tooltip_ajax_page?>', '', false, #AUTHOR_TOOLTIP_PARAMS#);</script>
+					<script>BX.tooltip('#AUTHOR_ID#', "bpc_#FULL_ID#", '<?=$tooltip_ajax_page?>', '', false, #AUTHOR_TOOLTIP_PARAMS#);</script>
 					<?
 				}
 				?>
@@ -165,7 +165,7 @@ else
 	if ($arParams["PREORDER"] == "Y"): ?><?=$arParams["NAV_STRING"]?><? endif;
 }
 ?>
-<script type="text/javascript">
+<script>
 BX.ready(function(){
 	window["UC"]["<?=$arParams["ENTITY_XML_ID"]?>"] = new FCList({
 			ENTITY_XML_ID : '<?=$arParams["ENTITY_XML_ID"]?>',

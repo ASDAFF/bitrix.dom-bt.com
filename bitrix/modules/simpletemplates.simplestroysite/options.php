@@ -124,7 +124,7 @@ if (
     }
 }
 ?>
-<script type="text/javascript">
+<script>
     function initDraggableOrderControl(params)
     {
         var data = JSON.parse(params.data);
@@ -302,7 +302,7 @@ if (
                     <?elseif($type[0]=="drag_options"):?>
                         <input type="hidden" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($arOption[0])?>" id="<?echo htmlspecialcharsbx($arOption[0])?>">
                         <div id="<?echo htmlspecialcharsbx($arOption[0])?>_container"></div>
-                        <script type="text/javascript">
+                        <script>
                             BX.ready(function() {
                                 initDraggableOrderControl({data: '<?=Bitrix\Main\Web\Json::encode($arAllBlocks)?>', oInput: BX('<?echo htmlspecialcharsbx($arOption[0])?>'), oCont: BX('<?echo htmlspecialcharsbx($arOption[0])?>_container')});
                             });

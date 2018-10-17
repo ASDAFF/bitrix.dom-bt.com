@@ -143,7 +143,7 @@ $tabControl->BeginNextTab();
 <?
 $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 ?>
-			<script type="text/javascript">
+			<script>
 				function ShortUriChangeHandler(val)
 				{
 					var d = document.getElementById("id_short_uri_span");

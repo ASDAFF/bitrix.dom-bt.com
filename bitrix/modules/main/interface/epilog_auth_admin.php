@@ -11,7 +11,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/interface/lang_files.php
 
 	<div style="display: none;" id="window_wrapper"></div>
 
-<script type="text/javascript">
+<script>
 BX.ready(BX.defer(function(){
 	BX.addClass(document.body, 'login-animate');
 	BX.addClass(document.body, 'login-animate-popup');

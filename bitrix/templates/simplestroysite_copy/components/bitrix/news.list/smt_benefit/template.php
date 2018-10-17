@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <?if(!empty($arResult["ITEMS"])):?>
-<section class="smt-widget smt-widget_border smt-widget-benefit">
+<div class="smt-widget smt-widget_border smt-widget-benefit">
 	<div class="container">
 		<?if($arParams["SMT_SLIDER"] == "Y"):?>
 		<div class="smt-owl-carousel-js">
@@ -90,5 +90,5 @@ $this->setFrameMode(true);
 		</div>
 		<?endif?>
 	</div>
-</section>
+</div>
 <?endif;?>

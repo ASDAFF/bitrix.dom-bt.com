@@ -3518,7 +3518,7 @@ abstract class CAllMain
 
 				CUtil::InitJSCore(array('ajax', 'ls'));
 
-				$jsMsg = '<script type="text/javascript">'."\n".
+				$jsMsg = '<script>'."\n".
 					($bShowMess? 'bxSession.mess.messSessExpired = \''.CUtil::JSEscape(GetMessage("MAIN_SESS_MESS", array("#TIMEOUT#"=>round($sessTimeout/60)))).'\';'."\n" : '').
 					'bxSession.Expand('.$sessTimeout.', \''.bitrix_sessid().'\', '.($bShowMess? 'true':'false').', \''.$key.'\');'."\n".
 					'</script>';

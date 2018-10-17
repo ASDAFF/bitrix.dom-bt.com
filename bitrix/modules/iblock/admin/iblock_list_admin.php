@@ -3508,7 +3508,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 //We need javascript not in excel mode
 if((!$bExcel) && $bCatalog && $bCurrency)
 {
-	?><script type="text/javascript">
+	?><script>
 		top.arCatalogShowedGroups = new Array();
 		top.arExtra = new Array();
 		top.arCatalogGroups = new Array();
@@ -3626,7 +3626,7 @@ if ($boolSKU && $boolSKUFiltrable)
 
 $filterUrl = $APPLICATION->GetCurPageParam(); //$APPLICATION->GetCurPage().'?type='.urlencode($type).'&IBLOCK_ID='.urlencode($IBLOCK_ID).'&lang='.urlencode(LANG);
 $oFilter = new CAdminFilter($sTableID."_filter", $arFindFields, array("table_id" => $sTableID, "url" => $filterUrl));
-?><script type="text/javascript">
+?><script>
 var arClearHiddenFields = [];
 
 function clearFilterFields()

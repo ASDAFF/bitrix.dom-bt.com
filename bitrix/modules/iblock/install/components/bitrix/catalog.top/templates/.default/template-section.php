@@ -239,7 +239,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 			),
 			'AJAX_PATH' => POST_FORM_ACTION_URI
 		);
-		?><script type="text/javascript">
+		?><script>
 		var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script><?
 	}
@@ -406,7 +406,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 					'AJAX_PATH' => POST_FORM_ACTION_URI
 				);
 				?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
 				<?
@@ -417,7 +417,7 @@ var <? echo $strObName; ?> = new JCCatalogTopSection(<? echo CUtil::PhpToJSObjec
 }
 ?><div style="clear: both;"></div>
 </div>
-<script type="text/javascript">
+<script>
 BX.message({
 	setButtonBuyName: '<? echo GetMessageJS("CATALOG_SET_BUTTON_BUY"); ?>',
 	setButtonBuyUrl: '<? echo $arParams["BASKET_URL"]; ?>',

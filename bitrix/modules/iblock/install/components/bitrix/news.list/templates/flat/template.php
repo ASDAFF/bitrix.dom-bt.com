@@ -64,7 +64,7 @@ $this->addExternalCss($this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].
 						<?endforeach?>
 					</ul>
 				</div>
-				<script type="text/javascript">
+				<script>
 					BX.ready(function() {
 						new JCNewsSlider('<?=CUtil::JSEscape($this->GetEditAreaId($arItem['ID']));?>', {
 							imagesContainerClassName: 'bx-newslist-slider-container',

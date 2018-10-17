@@ -65,7 +65,7 @@ $this->addExternalJs('/bitrix/js/api.reviews/history/history.min.js');
 	<?
 	ob_start();
 	?>
-	<script type="text/javascript">
+	<script>
 		jQuery(document).ready(function ($) {
 			$.fn.apiReviewsSort();
 		});

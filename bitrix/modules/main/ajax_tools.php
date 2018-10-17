@@ -168,7 +168,7 @@ class CAjax
 			$rndGenerator = new \Bitrix\Main\Type\RandomSequence("BX_AJAX");
 		$rnd = $rndGenerator->randString(6);
 		return '
-<form '.trim($form_params).'><input type="hidden" name="'.BX_AJAX_PARAM_ID.'" id="'.BX_AJAX_PARAM_ID.'_'.$ajax_id.'_'.$rnd.'" value="'.$ajax_id.'" /><input type="hidden" name="AJAX_CALL" value="Y" /><script type="text/javascript">
+<form '.trim($form_params).'><input type="hidden" name="'.BX_AJAX_PARAM_ID.'" id="'.BX_AJAX_PARAM_ID.'_'.$ajax_id.'_'.$rnd.'" value="'.$ajax_id.'" /><input type="hidden" name="AJAX_CALL" value="Y" /><script>
 function _processform_'.$rnd.'(){
 	var obForm = top.BX(\''.BX_AJAX_PARAM_ID.'_'.$ajax_id.'_'.$rnd.'\').form;
 	top.BX.bind(obForm, \'submit\', function() {'.CAjax::GetFormEventValue($container_id, $bReplace, $bShadow, '"').'});

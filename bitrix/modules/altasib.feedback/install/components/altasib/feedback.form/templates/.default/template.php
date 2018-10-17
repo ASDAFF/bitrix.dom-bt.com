@@ -14,7 +14,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
 
 <?                $this->addExternalJS($this->__folder."/form_script.js");?>
 
-                <script type="text/javascript">
+                <script>
                         if(typeof ALXpopup_<?=$ALX?>=='undefined'&&typeof ALXpopup!='undefined'&&typeof BX!='undefined')
                                 var ALXpopup_<?=$ALX?>=BX.clone(ALXpopup);
 
@@ -76,7 +76,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
 <?        } else { ?>
 <?                if ($arParams['ALX_LINK_POPUP'] !== 'Y'):?>
 
-                <script type="text/javascript">
+                <script>
                         if(typeof ALXpopup_<?=$ALX?>=='undefined'&&typeof ALXpopup!='undefined'&&typeof BX!='undefined')
                                 var ALXpopup_<?=$ALX?>=BX.clone(ALXpopup);
 
@@ -119,7 +119,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
                         is_array($arParams["MASKED_INPUT_PHONE"]) &&
                         !empty($arParams["MASKED_INPUT_PHONE"])){
 ?>
-                <script type="text/javascript">
+                <script>
                         $(function($){
                                 if(typeof $.mask!='undefined'){
 <?                        foreach($arParams["MASKED_INPUT_PHONE"] as $propCode):
@@ -145,7 +145,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
 <?                require("form.php"); // include form ?>
                 </div>
 
-                <script type="text/javascript">
+                <script>
                         $(document).ready(function(){
                                 var file_w_<?=$ALX?> = parseInt($("#alx_feed_back_<?=$ALX?> .afbf_feedback_poles").width() / 5);
 
@@ -206,7 +206,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
                                 <a href="<?=$APPLICATION->GetCurUri()?>"><?=$arParams['LINK_SEND_MORE_TEXT']?></a>
                         </div>
                 <?endif;?>
-                <script type="text/javascript">
+                <script>
                         var param = {'width':'350','filledWithErrors':'N','fid':'<?=$ALX?>'}
                         if(typeof ALXpopup_<?=$ALX?>=='undefined'&&typeof ALXpopup!='undefined'&&typeof BX!='undefined')
                                 var ALXpopup_<?=$ALX?>=BX.clone(ALXpopup);
@@ -218,7 +218,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
                 </script>
         <? elseif ($arParams["CHECK_ERROR"] == "Y" && count($arResult["FORM_ERRORS"]) > 0): ?>
                 <? if($arParams["USE_CAPTCHA"]):?>
-                        <script type="text/javascript">
+                        <script>
                                 <?if($arParams["CAPTCHA_TYPE"] != 'recaptcha'):?>
                                         <?if($arParams["CHANGE_CAPTCHA"] == "Y"):?>
                                         <?/**/?>        ALX_ChangeCaptcha('<?=$ALX?>');<?/**/?>
@@ -231,7 +231,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
                         </script>
                 <? endif?>
                 <? if ($arParams['ALX_LINK_POPUP'] !== 'Y'):?>
-                        <script type="text/javascript">
+                        <script>
                                 if(typeof ALXpopup_<?=$ALX?>=='undefined'&&typeof ALXpopup!='undefined'&&typeof BX!='undefined')
                                         var ALXpopup_<?=$ALX?>=BX.clone(ALXpopup);
 
@@ -253,7 +253,7 @@ $ALX = "FID" . $arParams["FORM_ID"];
                         <div class="afbf_error_text"><?=GetMessage('ALX_FILL_INPUTS_MSG');?></div>
                 </div>
         <? endif;?>
-        <script type="text/javascript">
+        <script>
                 validateForm($('.alx-feedb-data, #alx_feed_back_<?=$ALX?>.alx_feed_back').find('form'));
                 <?if (strlen($arResult["FORM_ERRORS"]["CAPTCHA_WORD"]["ALX_CP_WRONG_CAPTCHA"])>0):?>
                 ALX_captcha_Error();

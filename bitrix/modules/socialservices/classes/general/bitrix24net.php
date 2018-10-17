@@ -288,7 +288,7 @@ class CSocServBitrix24Net extends CSocServAuth
 			? 'if(window.opener) window.opener.location = \''.$url.'\'; window.close();'
 			: 'window.location = \''.$url.'\';';
 ?>
-<script type="text/javascript">
+<script>
 <?=$location?>
 </script>
 <?

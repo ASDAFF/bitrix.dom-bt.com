@@ -537,7 +537,7 @@ else
 												$arM["scripts"]["script"] = array($arM["scripts"]["script"]);
 											foreach($arM["scripts"]["script"] as $v)
 											{
-												?><script type="text/javascript" src="<?=$v?>"></script><?
+												?><script src="<?=$v?>"></script><?
 											}
 										}
 										?>

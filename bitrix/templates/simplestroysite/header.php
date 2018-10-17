@@ -52,7 +52,7 @@ Loc::loadLanguageFile(__FILE__);
     <script src="' . SITE_TEMPLATE_PATH . '/assets/js/ie8.js" data-skip-moving="true"></script>
     <script src="' . SITE_TEMPLATE_PATH . '/vendors/jquery/dist/jquery.min.js" data-skip-moving="true"></script>
     <script src="' . SITE_TEMPLATE_PATH . '/vendors/jquery-migrate/jquery-migrate.min.js" data-skip-moving="true"></script>
-    <script type="text/javascript">
+    <script>
         $.noConflict();
     </script>
     <script src="' . SITE_TEMPLATE_PATH . '/vendors/respond/dest/respond.matchmedia.addListener.min.js" data-skip-moving="true"></script>
@@ -156,7 +156,7 @@ Loc::loadLanguageFile(__FILE__);
                                 </div>                            
                                 <div class="smt-toggle">
                                     <div class="smt-toggle__content">
-                                        <button type="button" class="smt-toggle-button collapsed" data-toggle="collapse" data-target="#smt-navbar" aria-expanded="false" aria-controls="navbar">
+                                        <button type="button" class="smt-toggle-button collapsed" data-toggle="collapse" data-target="#smt-navbar" aria-expanded="false" aria-controls="smt-navbar">
                                             <span class="sr-only">Toggle navigation</span>
                                             <span class="icon-bar"></span>
                                             <span class="icon-bar"></span>

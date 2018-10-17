@@ -309,7 +309,7 @@ foreach($arGROUPS as $value)
 <tr>
 	<td></td>
 	<td style="padding-bottom:10px;">
-<script type="text/javascript">
+<script>
 
 function settingsSetGroupID(el)
 {

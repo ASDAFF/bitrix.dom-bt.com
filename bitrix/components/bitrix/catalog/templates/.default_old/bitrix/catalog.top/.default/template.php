@@ -118,7 +118,7 @@ if (!empty($arResult['ITEMS']))
 			break;
 	}
 ?>
-<script type="text/javascript">
+<script>
 BX.message({
 	MESS_BTN_BUY: '<? echo ('' != $arParams['MESS_BTN_BUY'] ? CUtil::JSEscape($arParams['MESS_BTN_BUY']) : GetMessageJS('CT_BCT_TPL_MESS_BTN_BUY')); ?>',
 	MESS_BTN_ADD_TO_BASKET: '<? echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? CUtil::JSEscape($arParams['MESS_BTN_ADD_TO_BASKET']) : GetMessageJS('CT_BCT_TPL_MESS_BTN_ADD_TO_BASKET')); ?>',

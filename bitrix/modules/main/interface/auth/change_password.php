@@ -46,7 +46,7 @@ $bNeedCaptcha = (COption::GetOptionString("main", "captcha_restoring_password", 
 	</div>
 </div>
 
-<script type="text/javascript">
+<script>
 BX.message({
 	'AUTH_NEW_PASSWORD_CONFIRM_WRONG':'<?=GetMessageJS('AUTH_NEW_PASSWORD_CONFIRM_WRONG')?>'
 });

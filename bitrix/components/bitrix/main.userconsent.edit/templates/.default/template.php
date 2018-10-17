@@ -17,7 +17,7 @@ foreach ($arResult['ERRORS'] as $error)
 if ($arResult['IS_SAVED'])
 {
 	?>
-	<script type="text/javascript">
+	<script>
 		(function () {
 			if (window.top == window)
 			{
@@ -35,7 +35,7 @@ if ($arResult['IS_SAVED'])
 	return;
 }
 ?>
-<script type="text/javascript">
+<script>
 	BX.ready(function () {
 		new MainUserConsentEditManager(<?=\Bitrix\Main\Web\Json::encode(array(
 			'mess' => array(

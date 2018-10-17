@@ -1,5 +1,5 @@
 <div class="afbf_feedback_poles">
-	<script type="text/javascript">
+	<script>
 		$(document).ready(function(){
 			if(typeof $.dropdown!='undefined'){
 				$(".afbf_item_pole .afbf_select").dropdown({
@@ -351,7 +351,7 @@
 								<span class="afbf_captcha_reload" onclick="grecaptcha.reset();return false;"></span>
 							</div>
 							
-							<script type="text/javascript">
+							<script>
 							var AltasibFeedbackOnload_<?=$ALX?> = function(){
 								grecaptcha.render('html_element_recaptcha_<?=$ALX?>',{'sitekey':'<?=$arResult["SITE_KEY"];?>',
 									'theme':'<?=$arParams["RECAPTCHA_THEME"];?>','type':'<?=$arParams["RECAPTCHA_TYPE"];?>'});
@@ -429,7 +429,7 @@
 		});
 	</script>
 	<?$path_userconsent = $this->__folder."/bitrix/main.userconsent.request/altasib_fb";?>
-	<script type="text/javascript" src="<?=$path_userconsent?>/user_consent.js"></script>
+	<script src="<?=$path_userconsent?>/user_consent.js"></script>
 	<link href="<?=$path_userconsent?>/user_consent.css" type="text/css"  rel="stylesheet" />
 
 	<?//include($path.'/lang/ru/user_consent.php');?>	 

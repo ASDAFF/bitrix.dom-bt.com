@@ -50,7 +50,7 @@ if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_L
 	if ($loadCurrency)
 	{
 		?>
-		<script type="text/javascript">
+		<script>
 			 BX.Currency.setCurrencies(<?=$templateData['CURRENCIES']?>);
 		</script>
 		<?

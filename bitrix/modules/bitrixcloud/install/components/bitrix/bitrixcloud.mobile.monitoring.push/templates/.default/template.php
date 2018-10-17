@@ -24,7 +24,7 @@ if($arResult["DOMAIN"] == "")
 						'<a href="javascript:void(0);">'.htmlspecialcharsEx($converter->Decode($domainName)).'</a>'.
 					'</li>'.
 				'</ul>'.
-				'<script type="text/javascript">'.
+				'<script>'.
 					'BX.ready(function(){ bcPush.makeFastButton("li_id_'.$domainName.'", "'.$domLink.'");});'.
 				'</script>'
 		);
@@ -80,7 +80,7 @@ $APPLICATION->IncludeComponent(
 
 ?>
 
-<script type="text/javascript">
+<script>
 
 	app.setPageTitle({title: "<?=GetMessage('BCMMP_TITLE')?>"});
 

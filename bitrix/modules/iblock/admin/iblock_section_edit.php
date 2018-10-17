@@ -364,7 +364,7 @@ if(
 		{
 			if ($bAutocomplete)
 			{
-				?><script type="text/javascript">
+				?><script>
 				window.opener.<? echo $strLookup; ?>.AddValue(<? echo $ID;?>);
 				window.close();
 				</script><?
@@ -392,7 +392,7 @@ if(
 			{
 				while(ob_end_clean());
 				?>
-					<script type="text/javascript">
+					<script>
 						top.BX.ajax.post(
 							'/bitrix/admin/<?echo $l = CUtil::JSEscape(CIBlock::GetAdminSectionEditLink($IBLOCK_ID, 0, array(
 								"find_section_section" => intval($find_section_section),
@@ -618,7 +618,7 @@ if($arTranslit["TRANSLITERATION"] == "Y")
 {
 	CJSCore::Init(array('translit'));
 	?>
-	<script type="text/javascript">
+	<script>
 		var linked=<?if($bLinked) echo 'true'; else echo 'false';?>;
 		function set_linked()
 		{
@@ -684,7 +684,7 @@ if($arTranslit["TRANSLITERATION"] == "Y")
 	<?
 }
 ?>
-<script type="text/javascript">
+<script>
 	var InheritedPropertiesTemplates = new JCInheritedPropertiesTemplates(
 		'<?echo $tabControl->GetName()?>_form',
 		'/bitrix/admin/iblock_templates.ajax.php?ENTITY_TYPE=S&IBLOCK_ID=<?echo intval($IBLOCK_ID)?>&ENTITY_ID=<?echo intval($ID)?>'
@@ -1548,7 +1548,7 @@ if($arIBlock["SECTION_PROPERTY"] === "Y")
 			<?endforeach?>
 			</select>
 			<input type="button" value="<?echo GetMessage("IBSEC_E_PROP_TABLE_ACTION_ADD")?>" onclick="javascript:addSectionProperty(<?echo $arIBlock["ID"];?>, 'select_SECTION_PROPERTY', 'shadow_SECTION_PROPERTY', 'table_SECTION_PROPERTY')">
-			<script type="text/javascript">
+			<script>
 			<?echo CIBlockSectionPropertyLink::getDisplayTypesJsFunction();?>
 			var last_mode = 'flat';
 			var target_id = '';

@@ -120,7 +120,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem)
 		"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 	);
 	?>
-		<script type="text/javascript">
+		<script>
 			BX.ready(function(){
 				window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 			});
@@ -150,7 +150,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem)
 	<div class="bx_filter_parameters_box_title" onclick="smartFilter.hideFilterProps(this)"><?=$arItem["NAME"]?></div>
 	<?if ($arItem["FILTER_HINT"] <> ""):?>
 		<div class="bx_filter_parameters_box_hint" id="item_title_hint_<?echo $arItem["ID"]?>"></div>
-		<script type="text/javascript">
+		<script>
 			new top.BX.CHint({
 				parent: top.BX("item_title_hint_<?echo $arItem["ID"]?>"),
 				show_timeout: 10,
@@ -242,7 +242,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem)
 			"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 		);
 		?>
-			<script type="text/javascript">
+			<script>
 				BX.ready(function(){
 					window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 				});

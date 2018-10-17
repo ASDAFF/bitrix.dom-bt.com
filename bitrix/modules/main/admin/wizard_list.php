@@ -39,7 +39,7 @@ if(($arID = $lAdmin->GroupAction()) && $isAdmin)
 			break;
 		case "export":
 			?>
-			<script type="text/javascript">
+			<script>
 				exportWizard('<?=CUtil::JSEscape($ID)?>');
 			</script>
 			<?
@@ -134,7 +134,7 @@ $APPLICATION->SetTitle(GetMessage("MAIN_WIZARD_ADMIN_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<script type="text/javascript">
+<script>
 <!--
 function exportWizard(val)
 {

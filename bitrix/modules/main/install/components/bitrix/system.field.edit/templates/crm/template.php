@@ -36,7 +36,7 @@ $listPrefix = array('DEAL' => 'D', 'CONTACT' => 'C', 'COMPANY' => 'CO', 'LEAD' =
 		<?endif;?>
 	</div>
 </div>
-<script type="text/javascript">
+<script>
 	BX.ready(function() {
 		BX['<?=$jsObject?>'] = new BX.CrmEntitySelector({
 			randomString: '<?=$randString?>',

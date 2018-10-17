@@ -51,7 +51,7 @@ if(!empty($arParams["~AUTH_RESULT"])):
 <?if($arResult["SECURE_AUTH"]):?>
 				<div class="bx-authform-psw-protected" id="bx_auth_secure" style="display:none"><div class="bx-authform-psw-protected-desc"><span></span><?echo GetMessage("AUTH_SECURE_NOTE")?></div></div>
 
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure').style.display = '';
 </script>
 <?endif?>
@@ -65,7 +65,7 @@ document.getElementById('bx_auth_secure').style.display = '';
 <?if($arResult["SECURE_AUTH"]):?>
 				<div class="bx-authform-psw-protected" id="bx_auth_secure_conf" style="display:none"><div class="bx-authform-psw-protected-desc"><span></span><?echo GetMessage("AUTH_SECURE_NOTE")?></div></div>
 
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure_conf').style.display = '';
 </script>
 <?endif?>
@@ -102,6 +102,6 @@ document.getElementById('bx_auth_secure_conf').style.display = '';
 
 </div>
 
-<script type="text/javascript">
+<script>
 document.bform.USER_LOGIN.focus();
 </script>

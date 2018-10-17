@@ -311,7 +311,7 @@ $stat_class = ($arParams['USE_STAT'] ? ' api-stat-on' : ' api-stat-off');
 <?
 ob_start();
 ?>
-<script type="text/javascript">
+<script>
 	jQuery(document).ready(function ($) {
 		$.fn.apiReviews();
 	});

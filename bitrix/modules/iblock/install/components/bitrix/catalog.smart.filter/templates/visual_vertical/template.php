@@ -117,7 +117,7 @@ $templateData = array(
 						"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 					);
 					?>
-					<script type="text/javascript">
+					<script>
 						BX.ready(function(){
 							window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 						});
@@ -223,7 +223,7 @@ $templateData = array(
 									"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 								);
 								?>
-								<script type="text/javascript">
+								<script>
 									BX.ready(function(){
 										window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 									});

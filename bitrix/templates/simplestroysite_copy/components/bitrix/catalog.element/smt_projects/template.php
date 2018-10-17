@@ -98,7 +98,14 @@ $this->setFrameMode(true);
                 <div class="owl-carousel owl-theme owl-theme_smt owl-theme_smt-dots<?if($arParams["SMT_SLIDER_VERTICAL_ALIGN"] == "Y"):?> owl-carousel-centered<?endif?>"<?if($arResult["SMT_SLIDER_PROPERTIES_JSON"]):?> data-owl-options='<?=$arResult["SMT_SLIDER_PROPERTIES_JSON"]?>'<?endif?>>
                     <?if($arResult["DETAIL_PICTURE"]["SRC"] && $arResult["PREVIEW_PICTURE"]["SRC"]):?>
                         <a class="smt-image smt-image-inline-block" href="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>">
-                            <img src="<?=$arResult["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+	                        <?php
+                                $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер1';
+		                        //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+		                        $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                        $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+		                        $restored = implode('/', $coded); // Собрать перекодированный url обратно
+	                        ?>
+                            <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                             <span class="smt-image__over"></span>
                             <?if($arResult["PROPERTIES"]["LABEL"]["VALUE"]):?>
                                 <div class="smt-image-box-inline-label"><?=$arResult["PROPERTIES"]["LABEL"]["VALUE"]?></div>
@@ -108,7 +115,14 @@ $this->setFrameMode(true);
                     <?if($arResult['GALLERY1']):?>
                         <?foreach ($arResult['GALLERY1'] as $arItemGallery):?>
                             <a class="smt-image" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
-                                <img src="<?=$arItemGallery["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+	                            <?php
+                                    $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер2';
+		                            //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+		                            $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                            $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+		                            $restored = implode('/', $coded); // Собрать перекодированный url обратно
+                                ?>
+                                <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                                 <span class="smt-image__over"></span>
                                 <?if($arResult["PROPERTIES"]["LABEL"]["VALUE"]):?>
                                     <div class="smt-image-box-inline-label"><?=$arResult["PROPERTIES"]["LABEL"]["VALUE"]?></div>
@@ -122,14 +136,28 @@ $this->setFrameMode(true);
             <div class="smt-photo-gallery-js">
                 <?if($arResult["DETAIL_PICTURE"]["SRC"] && $arResult["PREVIEW_PICTURE"]["SRC"]):?>
                 <a class="smt-image smt-image-inline-block" href="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>">
-                    <img src="<?=$arResult["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+	                <?php
+                        $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер3';
+		                //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+		                $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+		                $restored = implode('/', $coded); // Собрать перекодированный url обратно
+                    ?>
+                    <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                     <span class="smt-image__over"></span>
                 </a>
                 <?endif?>
                 <?if($arResult['GALLERY1']):?>
                     <?foreach ($arResult['GALLERY1'] as $arItemGallery):?>
                         <a class="smt-image smt-image-inline-block" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
-                            <img src="<?=$arItemGallery["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+	                        <?php
+                                $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер4';
+		                        //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+		                        $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                        $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+		                        $restored = implode('/', $coded); // Собрать перекодированный url обратно
+                                ?>
+                            <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                             <span class="smt-image__over"></span>
                         </a>
                     <?endforeach;?>
@@ -343,7 +371,14 @@ $this->setFrameMode(true);
                         <div class="owl-carousel owl-theme owl-theme_smt owl-theme_smt-dots<?if($arParams["SMT_SLIDER_GALLERY_VERTICAL_ALIGN"] == "Y"):?> owl-carousel-centered<?endif?>"<?if($arResult["SMT_SLIDER_GALLERY_PROPERTIES_JSON"]):?> data-owl-options='<?=$arResult["SMT_SLIDER_GALLERY_PROPERTIES_JSON"]?>'<?endif?>>
                             <?foreach ($arResult['GALLERY2'] as $arItemGallery):?>
                                 <a class="smt-image smt-image-inline-block" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
-                                    <img src="<?=$arItemGallery["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+	                                <?php
+                                        $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер5';
+		                                //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+		                                $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                                $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+		                                $restored = implode('/', $coded); // Собрать перекодированный url обратно
+                                        ?>
+                                    <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                                     <span class="smt-image__over"></span>
                                 </a>
                             <?endforeach;?>
@@ -353,7 +388,14 @@ $this->setFrameMode(true);
                     <div class="smt-photo-gallery-js">
                         <?foreach ($arResult['GALLERY2'] as $arItemGallery):?>
                             <a class="smt-image smt-image-inline-block" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
-                                <img src="<?=$arItemGallery["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+	                            <?php
+                                    $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер6';
+		                            //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+		                            $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                            $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+		                            $restored = implode('/', $coded); // Собрать перекодированный url обратно
+	                            ?>
+                                <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                                 <span class="smt-image__over"></span>
                             </a>
                         <?endforeach;?>

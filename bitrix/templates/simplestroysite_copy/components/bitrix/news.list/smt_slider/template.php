@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <?if(!empty($arResult["ITEMS"])):?>
-<section class="smt-slider smt-slider_js">
+<div class="smt-slider smt-slider_js">
 <div class="owl-carousel owl-theme_slider"<?if($arResult["SMT_SLIDER_PROPERTIES_JSON"]):?> data-owl-options='<?=$arResult["SMT_SLIDER_PROPERTIES_JSON"]?>'<?endif?>>
 <?foreach($arResult["ITEMS"] as $arItem):?>
     <?
@@ -94,5 +94,5 @@ $this->setFrameMode(true);
     </div>
 <?endforeach;?>
 </div>
-</section>
+</div>
 <?endif?>    

@@ -6,7 +6,7 @@ $arResult["TOTAL_VALUE"] = intval($arResult["TOTAL_POSITIVE_VOTES"]) - intval($a
 	<span id="rating-vote-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>-result" class="rating-vote-result rating-vote-result-<?=($arResult['TOTAL_VALUE'] < 0 ? 'minus' : 'plus')?>" title="<?=htmlspecialcharsbx($arResult['VOTE_TITLE'])?>"> <?=htmlspecialcharsbx($arResult['TOTAL_VALUE'])?></span>
 	<a id="rating-vote-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>-plus" class="rating-vote-plus <?=($arResult['VOTE_BUTTON'] == 'PLUS'? 'rating-vote-plus-active': '')?>" title="<?=$arResult['VOTE_AVAILABLE'] == 'N'? '' : ($arResult['VOTE_BUTTON'] == 'PLUS'? GetMessage("RATING_COMPONENT_CANCEL"): GetMessage("RATING_COMPONENT_PLUS"))?>"></a>&nbsp;<a id="rating-vote-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>-minus" class="rating-vote-minus <?=($arResult['VOTE_BUTTON'] == 'MINUS'? 'rating-vote-minus-active': '')?>"  title="<?=$arResult['VOTE_AVAILABLE'] == 'N'? '' : ($arResult['VOTE_BUTTON'] == 'MINUS'? GetMessage("RATING_COMPONENT_CANCEL"): GetMessage("RATING_COMPONENT_MINUS"))?>"></a>
 </span>
-<script type="text/javascript">
+<script>
 BX.ready(function(){
 <?if ($arResult['AJAX_MODE'] == 'Y'):?>
 	BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/standart/style.css');

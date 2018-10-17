@@ -94,7 +94,7 @@ $tabControl->BeginNextTab();
 		<td><?echo GetMessage("TR_SEARCH_SUBFOLDERS")?>:</td>
 		<td><input type="checkbox" name="search_subfolders2" value="Y" checked="checked"></td>
 	</tr>
-<script type="text/javascript">
+<script>
 var _trBTNSearch = [
 	{
 		'title': '<?=GetMessage("TR_SEARCH_SUBMIT_BUTTON");?>',

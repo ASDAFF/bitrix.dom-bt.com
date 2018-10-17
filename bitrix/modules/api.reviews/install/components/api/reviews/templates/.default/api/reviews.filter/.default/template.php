@@ -59,7 +59,7 @@ if(method_exists($this, 'setFrameMode'))
 <?
 ob_start();
 ?>
-	<script type="text/javascript">
+	<script>
 		jQuery(document).ready(function ($) {
 			$.fn.apiReviewsFilter();
 		});

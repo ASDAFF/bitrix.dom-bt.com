@@ -68,7 +68,7 @@ if(($arID = $lAdmin->GroupAction()) && $edit_php)
 				break;
 			case "export":
 			?>
-<script type="text/javascript">
+<script>
 exportData('<?=CUtil::JSEscape($ID)?>');
 </script>
 			<?

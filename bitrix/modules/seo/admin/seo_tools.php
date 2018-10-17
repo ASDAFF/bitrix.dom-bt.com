@@ -977,7 +977,7 @@ $tabControl->Buttons(array("disabled"=>$bReadOnly));
 $tabControl->End();
 ?>
 </form>
-<script type="text/javascript">
+<script>
 window.BXToggle = function(id)
 {
 	with(document.getElementById(id)){if (style.display=='none')style.display='';else style.display='none';};

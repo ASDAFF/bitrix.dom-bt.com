@@ -60,7 +60,13 @@ $this->setFrameMode(true);
 						<?else:?>
 						<span class="<?=implode(' ', $imageLinkClass)?>">
 						<?endif?>
-						<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+						<?php
+						//$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
+						$arr = explode('/', $arItem["PREVIEW_PICTURE"]["SRC"]);
+						$coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
+						$restored = implode('/', $coded); // Собрать перекодированный url обратно
+						?>
+						<img src="<?=$restored?>" class="smt-image__image" alt="<?=$arItem["NAME"]?>">
 						<div class="smt-image__over"></div>
 						<?if($arParams["DISPLAY_IMAGE_NAME"] == "Y" || $arParams["DISPLAY_IMAGE_PREVIEW_TEXT"] == "Y"):?>
 							<span class="smt-image__over-text">

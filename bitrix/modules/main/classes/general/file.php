@@ -1071,7 +1071,7 @@ class CAllFile
 		if(!defined("ADMIN_SECTION") && $SHOWIMAGEFIRST!==true)
 		{
 			echo
-'<script type="text/javascript">
+'<script>
 function ImgShw(ID, width, height, alt)
 {
 	var scroll = "no";

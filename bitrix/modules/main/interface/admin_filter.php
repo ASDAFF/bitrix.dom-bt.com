@@ -659,7 +659,7 @@ class CAdminFilter
 		}
 
 		echo '
-<script type="text/javascript">
+<script>
 	var '.$this->id.' = {};
 	BX.ready(function(){
 		'.$this->id.' = new BX.AdminFilter("'.$this->id.'", ['.$sRowIds.']);

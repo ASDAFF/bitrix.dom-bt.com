@@ -114,7 +114,7 @@ if ($_POST["type"] == "desktop")
 		CUserOptions::SetOption("intranet", "~gadgets_admin_index", $arUserOptions, false, false);
 
 		?>
-		<script type="text/javascript">
+		<script>
 		<?
 		if ($is_multiple && $action === "new")
 		{
@@ -139,7 +139,7 @@ if ($_POST["type"] == "desktop")
 		require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 
 		?>
-		<script type="text/javascript">
+		<script>
 			BX.ready(function()
 				{
 					if (BX('SETTINGS_COLUMNS'))
@@ -223,7 +223,7 @@ elseif ($_POST["type"] == "gadget")
 
 				CUserOptions::SetOption("intranet", "~gadgets_admin_index", $arUserOptions, false, false);
 
-				?><script type="text/javascript">
+				?><script>
 				top.BX.closeWait(); top.BX.WindowManager.Get().AllowClose(); top.BX.WindowManager.Get().Close();
 				top.BX.reload();
 				</script><?
@@ -357,7 +357,7 @@ elseif ($_POST["type"] == "gadget")
 				?>
 				</table>
 				</form>
-				<script type="text/javascript">
+				<script>
 					top.BX.WindowManager.Get().SetButtons([top.BX.WindowManager.Get().btnSave, top.BX.WindowManager.Get().btnCancel]);
 				</script>
 				</div>

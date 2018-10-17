@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 	<?if($arParams["DISPLAY_PICTURE"] == "Y"):?>
 	<?if($arResult["DETAIL_PICTURE"]["SRC"] && $arResult["PREVIEW_PICTURE"]["SRC"]):?>
 		<div class="smt-image smt-image-inline-block smt-image_hover smt-image_show-text">
-			<img src="<?=$arResult["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image">
+			<img src="<?=$arResult["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image" alt="<?=$arResult["NAME"]?>">
 			<span class="smt-image__over"></span>
 			<?if($arParams["DISPLAY_IMAGE_NAME"] == "Y" || $arParams["DISPLAY_IMAGE_PREVIEW_TEXT"] == "Y"):?>
 				<span class="smt-image__over-text">

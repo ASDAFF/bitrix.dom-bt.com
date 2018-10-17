@@ -73,7 +73,7 @@ $APPLICATION->IncludeComponent("bitrix:socserv.auth.form",
 <?if($arResult["SECURE_AUTH"]):?>
 				<div class="bx-authform-psw-protected" id="bx_auth_secure" style="display:none"><div class="bx-authform-psw-protected-desc"><span></span><?echo GetMessage("AUTH_SECURE_NOTE")?></div></div>
 
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure').style.display = '';
 </script>
 <?endif?>
@@ -131,7 +131,7 @@ document.getElementById('bx_auth_secure').style.display = '';
 
 </div>
 
-<script type="text/javascript">
+<script>
 <?if (strlen($arResult["LAST_LOGIN"])>0):?>
 try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
 <?else:?>

@@ -95,7 +95,7 @@ class CJSPopup
 		if ($title == '')
 			$title = $this->title;
 ?>
-<script type="text/javascript">top.<?=$this->jsPopup?>.SetTitle('<?echo CUtil::JSEscape($title)?>');</script>
+<script>top.<?=$this->jsPopup?>.SetTitle('<?echo CUtil::JSEscape($title)?>');</script>
 <?
 	}
 
@@ -105,7 +105,7 @@ class CJSPopup
 
 		$this->bDescriptionStarted = true;
 ?>
-<script type="text/javascript"><?if ($icon):?>
+<script><?if ($icon):?>
 	<?if (strpos($icon, '/') === false):?>
 
 		<?=$this->jsPopup?>.SetIcon('<?echo CUtil::JSEscape($icon)?>');
@@ -167,12 +167,12 @@ class CJSPopup
 
 			if ($this->bContentBuffered)
 			{
-?></div><script type="text/javascript">BX.ready(function() {<?=$this->jsPopup?>.SwapContent(BX('<?echo $this->cont_id?>'))});</script><?
+?></div><script>BX.ready(function() {<?=$this->jsPopup?>.SwapContent(BX('<?echo $this->cont_id?>'))});</script><?
 			}
 
 			if (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE == false)
 			{
-?><script type="text/javascript"><?echo "BX.adminFormTools.modifyFormElements(".$this->jsPopup.".DIV);"?></script><?
+?><script><?echo "BX.adminFormTools.modifyFormElements(".$this->jsPopup.".DIV);"?></script><?
 			}
 
 			$this->bContentStarted = false;
@@ -198,7 +198,7 @@ class CJSPopup
 			$buttons = ob_get_contents();
 			ob_end_clean();
 ?>
-		<script type="text/javascript"><?=$this->jsPopup?>.SetButtons('<?echo CUtil::JSEscape($buttons)?>');</script>
+		<script><?=$this->jsPopup?>.SetButtons('<?echo CUtil::JSEscape($buttons)?>');</script>
 <?
 			$this->bButtonsStarted = false;
 		}
@@ -222,7 +222,7 @@ class CJSPopup
 		$arButtons = array_values($arButtons);
 
 ?>
-<script type="text/javascript"><?=$this->jsPopup?>.SetButtons([<?
+<script><?=$this->jsPopup?>.SetButtons([<?
 	foreach ($arButtons as $key => $btn)
 		echo ($key ? ',' : '').$arSB[$btn];
 ?>]);</script><?

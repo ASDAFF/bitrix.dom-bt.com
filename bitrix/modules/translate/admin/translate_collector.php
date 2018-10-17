@@ -407,7 +407,7 @@ $tabControl->BeginNextTab();
 		}
 		?>
 		</select>
-		<script type="text/javascript">
+		<script>
 			function EncodeClicked()
 			{
 				document.form1.encoding.disabled = !document.form1.convert_encoding.checked;
@@ -489,7 +489,7 @@ $tabControl->Buttons();
 <?
 $tabControl->End();
 ?>
-<script type="text/javascript">
+<script>
 function showConvertCharset()
 {
 	var target = this,

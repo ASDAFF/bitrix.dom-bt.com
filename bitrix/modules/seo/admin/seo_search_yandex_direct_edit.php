@@ -1066,7 +1066,7 @@ if(!$bReadOnly):
 
 	<input type="hidden" name="ID" value="<?=$ID?>">
 
-<script type="text/javascript">
+<script>
 <?
 if($bAllowUpdate):
 ?>

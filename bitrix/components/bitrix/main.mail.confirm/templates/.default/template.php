@@ -61,7 +61,7 @@
 	</div>
 </div>
 
-<script type="text/javascript">
+<script>
 
 	BX.message({
 		MAIN_MAIL_CONFIRM_USER_FULL_NAME: '<?=\CUtil::jsEscape($arParams['USER_FULL_NAME']) ?>',

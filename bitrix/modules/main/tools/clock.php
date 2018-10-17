@@ -51,7 +51,7 @@ class CClock
 				?>
 				<input type="hidden" id="<?=$arParams['inputId']?>" name="<?=$arParams['inputName']?>"  value="<?=$arParams['initTime']?>" />
 				<div id="<?=$arParams['inputId']?>_clock"></div>
-				<script type="text/javascript">
+				<script>
 					if (!window.bxClockLoaders)
 					{
 						window.bxClockLoaders = [];

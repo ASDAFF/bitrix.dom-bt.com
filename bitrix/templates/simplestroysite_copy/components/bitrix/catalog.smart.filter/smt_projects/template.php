@@ -210,7 +210,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem) {
                                     <span class="bx-filter-parameters-box-hint"
                                         <?if ($arItem["FILTER_HINT"] <> ""):?>
                                             <i id="item_title_hint_<?echo $arItem["ID"]?>" class="fa fa-question-circle"></i>
-                                            <script type="text/javascript">
+                                            <script>
                                                 new top.BX.CHint({
                                                     parent: top.BX("item_title_hint_<?echo $arItem["ID"]?>"),
                                                     show_timeout: 10,
@@ -365,7 +365,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem) {
 							"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 						);
 						?>
-						<script type="text/javascript">
+						<script>
 							BX.ready(function(){
 								window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 							});
@@ -503,7 +503,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem) {
 							<span class="bx-filter-parameters-box-hint"><?=$arItem["NAME"]?>
 								<?if ($arItem["FILTER_HINT"] <> ""):?>
 									<i id="item_title_hint_<?echo $arItem["ID"]?>" class="fa fa-question-circle"></i>
-									<script type="text/javascript">
+									<script>
 										new top.BX.CHint({
 											parent: top.BX("item_title_hint_<?echo $arItem["ID"]?>"),
 											show_timeout: 10,
@@ -627,7 +627,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem) {
 										"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 									);
 									?>
-									<script type="text/javascript">
+									<script>
 										BX.ready(function(){
 											window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 										});
@@ -1032,7 +1032,7 @@ foreach($arResult["ITEMS"] as $key=>$arItem) {
 		</form>
 	</div>
 </div>
-<script type="text/javascript">
+<script>
 	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>', '<?=CUtil::JSEscape($arParams["FILTER_VIEW_MODE"])?>', <?=CUtil::PhpToJSObject($arResult["JS_FILTER_PARAMS"])?>);
 </script>
 <script>
@@ -1044,14 +1044,14 @@ foreach($arResult["ITEMS"] as $key=>$arItem) {
         });
     });
 </script>
-<script type="text/javascript">
+<script>
     $('.rg_as').bind('click', function(e){
         e.stopPropagation();
         return false;
         e.preventDefault();
     });
 </script>
-<script type="text/javascript">
+<script>
     $('#sl').on('click', function (e) {
         $('#rg_top_filter_wrapp .checkbox.hidden').removeClass('hidden');
         if (!$(this).hasClass('closed')) {

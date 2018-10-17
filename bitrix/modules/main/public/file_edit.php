@@ -35,7 +35,7 @@ while($arSiteTemplate = $rsSiteTemplates->Fetch())
 $io = CBXVirtualIo::GetInstance();
 
 $bVarsFromForm = false;	// if 'true' - we will get content  and variables from form, if 'false' - from saved file
-$bSessIDRefresh = false;	// флаг, указывающий, нужно ли обновлять ид сессии на клиенте
+$bSessIDRefresh = false;	// пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 $editor_name = (isset($_REQUEST['editor_name'])? $_REQUEST['editor_name'] : 'filesrc_pub');
 
 if (strlen($filename) > 0 && ($mess = CFileMan::CheckFileName($filename)) !== true)
@@ -411,7 +411,7 @@ if (CAutoSave::Allowed())
 {
 	echo CJSCore::Init(array('autosave'), true);
 	$AUTOSAVE->Init();
-?><script type="text/javascript">BX.WindowManager.Get().setAutosave();</script><?
+?><script>BX.WindowManager.Get().setAutosave();</script><?
 }
 ?>
 <?=bitrix_sessid_post()?>
@@ -735,7 +735,7 @@ else //if ($bDisableEditor)
 {
 	?>
 <textarea name="<?=htmlspecialcharsbx($editor_name)?>" id="<?=htmlspecialcharsbx($editor_name)?>" style="height: 99%; width: 100%;"><?=htmlspecialcharsex($filesrc)?></textarea>
-<script type="text/javascript">
+<script>
 var
 	border,
 	wnd = BX.WindowManager.Get();

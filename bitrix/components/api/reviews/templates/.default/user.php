@@ -59,7 +59,7 @@ $arParams['ID'] = intval($arResult['VARIABLES']['user_id']);
 <?
 ob_start();
 ?>
-	<script type="text/javascript">
+	<script>
 		jQuery(document).ready(function ($) {
 			$.fn.apiReviews();
 		});

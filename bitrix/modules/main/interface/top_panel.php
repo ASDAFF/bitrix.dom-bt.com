@@ -38,7 +38,7 @@ function _showTopPanelButtonsSection($arPanelButtons, $hkInstance, $section = nu
 		endif;
 
 		if ($bHasMenu || $item['TOOLTIP'] && $item['TOOLTIP_ID']):
-?><script type="text/javascript"><?
+?><script><?
 
 			if ($item['TOOLTIP']):
 				if ($item['TOOLTIP_ID']):
@@ -158,7 +158,7 @@ _showTopPanelButtonsSection($arPanelButtons, $hkInstance)
 ?></div><div class="adm-header-right"><?
 if($USER->IsAuthorized() && IsModuleInstalled("search")):
 
-?><div class="adm-header-search-block" id="bx-search-box"><input class="adm-header-search" id="bx-search-input" onfocus="if (this.value=='<?=GetMessage("top_panel_search_def")?>') {this.value=''; BX.addClass(this.parentNode,'adm-header-search-block-active');}" value="<?=GetMessage("top_panel_search_def")?>" onblur="if (this.value==''){this.value='<?=GetMessage("top_panel_search_def")?>'; BX.removeClass(this.parentNode,'adm-header-search-block-active');}" type="text" autocomplete="off" /><a href="#" onclick="BX('bx-search-input').value=''; BX('bx-search-input').onblur();" class="adm-header-search-block-btn"></a></div><script type="text/javascript">
+?><div class="adm-header-search-block" id="bx-search-box"><input class="adm-header-search" id="bx-search-input" onfocus="if (this.value=='<?=GetMessage("top_panel_search_def")?>') {this.value=''; BX.addClass(this.parentNode,'adm-header-search-block-active');}" value="<?=GetMessage("top_panel_search_def")?>" onblur="if (this.value==''){this.value='<?=GetMessage("top_panel_search_def")?>'; BX.removeClass(this.parentNode,'adm-header-search-block-active');}" type="text" autocomplete="off" /><a href="#" onclick="BX('bx-search-input').value=''; BX('bx-search-input').onblur();" class="adm-header-search-block-btn"></a></div><script>
 var jsControl = new JCAdminTitleSearch({
 	'AJAX_PAGE' : '/bitrix/admin/get_search.php?lang=<?=LANGUAGE_ID?>',
 	'CONTAINER_ID': 'bx-search-box',

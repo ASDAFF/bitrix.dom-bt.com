@@ -60,7 +60,7 @@ foreach($arParams["BUTTONS"] as $index=>$item):
 		if(!empty($item["MENU"])):
 ?>
 			<td>
-				<script type="text/javascript">
+				<script>
 				var jsMnu_<?=$arParams["TOOLBAR_ID"].'_'.$index?> = <?=CUtil::PhpToJSObject($item["MENU"])?>;
 				</script>
 				<a href="javascript:void(0);" hidefocus="true" 
@@ -98,7 +98,7 @@ endforeach;
 	</tr>
 </table>
 
-<script type="text/javascript">
+<script>
 var jsPopup_<?=$arParams["TOOLBAR_ID"]?> = new PopupMenu('Popup<?=$arParams["TOOLBAR_ID"]?>');
 </script>
 

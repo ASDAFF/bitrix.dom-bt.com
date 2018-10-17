@@ -209,7 +209,7 @@ class CSocServVKontakte extends CSocServAuth
 		}
 
 		echo '
-<script type="text/javascript">
+<script>
 if(window.opener)
 {
 	window.opener.location = \'' . CUtil::JSEscape($url) . '\';

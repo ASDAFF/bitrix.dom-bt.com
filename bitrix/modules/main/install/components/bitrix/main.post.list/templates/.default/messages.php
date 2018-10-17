@@ -30,7 +30,7 @@ if (!function_exists("__mpl_get_avatar"))
 	}
 }
 ?>
-<script type="text/javascript">
+<script>
 if (window.FCForm)
 	FCForm.onUCUsersAreWriting();
 <? if (IsModuleInstalled("im")): ?>

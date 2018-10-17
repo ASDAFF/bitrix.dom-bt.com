@@ -173,7 +173,7 @@ class CComponentAjax
 
 			$this->bWrongRedirect = true;
 
-			echo '<script type="text/javascript">'.($this->bIFrameMode ? 'top.' : 'window.').'location.href = \''.CUtil::JSEscape($url).'\'</script>';
+			echo '<script>'.($this->bIFrameMode ? 'top.' : 'window.').'location.href = \''.CUtil::JSEscape($url).'\'</script>';
 
 			require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_after.php");
 			exit();
@@ -575,11 +575,11 @@ top.bxcompajaxframeonload = function() {
 			}
 		}
 
-		$additional_data = '<script type="text/javascript" bxrunfirst="true">'."\n";
+		$additional_data = '<script bxrunfirst="true">'."\n";
 		$additional_data .= 'var arAjaxPageData = '.CUtil::PhpToJSObject($arAdditionalData).";\r\n";
 		$additional_data .= 'top.BX.ajax.UpdatePageData(arAjaxPageData)'.";\r\n";
 
-		$additional_data .= '</script><script type="text/javascript">';
+		$additional_data .= '</script><script>';
 
 		if (!$this->bIFrameMode && $this->bHistory)
 		{
@@ -622,10 +622,10 @@ top.bxcompajaxframeonload = function() {
 			if ($this->bHistory)
 			{
 				$data =
-					'<script type="text/javascript">if (window.location.hash != \'\' && window.location.hash != \'#\') top.BX.ajax.history.checkRedirectStart(\''.CUtil::JSEscape(BX_AJAX_PARAM_ID).'\', \''.CUtil::JSEscape($this->componentID).'\')</script>'
+					'<script>if (window.location.hash != \'\' && window.location.hash != \'#\') top.BX.ajax.history.checkRedirectStart(\''.CUtil::JSEscape(BX_AJAX_PARAM_ID).'\', \''.CUtil::JSEscape($this->componentID).'\')</script>'
 					.$data
-					.'<script type="text/javascript">if (top.BX.ajax.history.bHashCollision) top.BX.ajax.history.checkRedirectFinish(\''.CUtil::JSEscape(BX_AJAX_PARAM_ID).'\', \''.CUtil::JSEscape($this->componentID).'\');</script>'
-					.'<script type="text/javascript">top.BX.ready(BX.defer(function() {window.AJAX_PAGE_STATE = new top.BX.ajax.component(\'comp_'.$this->componentID.'\'); top.BX.ajax.history.init(window.AJAX_PAGE_STATE);}))</script>';
+					.'<script>if (top.BX.ajax.history.bHashCollision) top.BX.ajax.history.checkRedirectFinish(\''.CUtil::JSEscape(BX_AJAX_PARAM_ID).'\', \''.CUtil::JSEscape($this->componentID).'\');</script>'
+					.'<script>top.BX.ready(BX.defer(function() {window.AJAX_PAGE_STATE = new top.BX.ajax.component(\'comp_'.$this->componentID.'\'); top.BX.ajax.history.init(window.AJAX_PAGE_STATE);}))</script>';
 			}
 		}
 		else

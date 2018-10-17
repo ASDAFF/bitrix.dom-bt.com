@@ -39,7 +39,7 @@ if($useCore) {
 	CUtil::InitJSCore(array('api_alert','api_upload'));
 }
 
-//Лэнги полей
+//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 $arFieldTitle = array();
 foreach(ReviewsTable::getMap() as $key => $value) {
 	$arFieldTitle[ $key ] = $value['title'];
@@ -95,7 +95,7 @@ if($request->isPost() && $bUpdate && check_bitrix_sessid()) {
 	//$postFields['MODIFIED_BY'] = $USER->GetID();
 
 
-	//Удалим из формы данные по файлам, чтобы не затереть уже прикрепленные
+	//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	unset($postFields['VIDEOS'], $postFields['FILES']);
 
 
@@ -129,7 +129,7 @@ if($request->isPost() && $bUpdate && check_bitrix_sessid()) {
 				 'filter' => array('=ID' => $id),
 			));
 
-			//Добавим файлы в таблицу b_file
+			//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ b_file
 			$arFileId = ($review['FILES'] ? explode(',', $review['FILES']) : array());
 			$fileList = (array)$_SESSION['API_REVIEWS_FORM']['FILES'];
 			if($fileList) {
@@ -141,7 +141,7 @@ if($request->isPost() && $bUpdate && check_bitrix_sessid()) {
 			}
 
 
-			//Сначала добавим превью видео в таблицу b_file
+			//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ b_file
 			$videoList = (array)$_SESSION['API_REVIEWS_FORM']['VIDEOS'];
 			if($thumbList = (array)$_SESSION['API_REVIEWS_FORM']['VIDEOS_THUMBS']) {
 				foreach($thumbList as $key => $arFile) {
@@ -153,7 +153,7 @@ if($request->isPost() && $bUpdate && check_bitrix_sessid()) {
 				unset($thumbList, $arFile, $_SESSION['API_REVIEWS_FORM']['VIDEOS_THUMBS']);
 			}
 
-			//Добавим видео в таблицу api_reviews_video
+			//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ api_reviews_video
 			$arVideoId = ($review['VIDEOS'] ? explode(',', $review['VIDEOS']) : array());
 			if($videoList) {
 				foreach($videoList as $arVideo) {
@@ -171,7 +171,7 @@ if($request->isPost() && $bUpdate && check_bitrix_sessid()) {
 				unset($videoList, $arVideo, $rsVideo, $_SESSION['API_REVIEWS_FORM']['VIDEOS']);
 			}
 
-			//Обновим отзыв, запишем айдишники файлов и видео
+			//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 			if($arFileId || $arVideoId) {
 				ReviewsTable::update($id, array(
 					 'FILES'  => implode(',', $arFileId),
@@ -188,7 +188,7 @@ if($request->isPost() && $bUpdate && check_bitrix_sessid()) {
 			BXClearCache(true, '/' . $fields['SITE_ID'] . '/api/reviews.recent');
 
 
-			//Отправим ответ клиенту
+			//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			if($request->get('SEND_EVENT') == 'Y') {
 				Event::sendReply($id, $fields);
 			}
@@ -266,7 +266,7 @@ if($bSale) {
 
 
 
-//Кнопки = Добавить/Копировать/Удалить
+//пїЅпїЅпїЅпїЅпїЅпїЅ = пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 $aContext = array(
 	 array(
 			"TEXT" => Loc::getMessage('MAIN_ADMIN_MENU_LIST'),
@@ -307,11 +307,11 @@ $aTabs      = array(
 $tabControl = new CAdminForm("review_edit", $aTabs);
 
 
-//---------- Все данные по отзыву ----------//
+//---------- пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ----------//
 $fields = ($request->isPost()) ? $request->getPostList()->toArray() : $arReview;
 
 
-//---------- Все данные по инфоблоку/разделу/элементу ----------//
+//---------- пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ ----------//
 $arIblock  = array();
 $arElement = array();
 if($bIblock) {
@@ -326,7 +326,7 @@ if($bIblock) {
 
 
 
-//---------- Файлы и видео из БД ----------//
+//---------- пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ ----------//
 if($fields['FILES']) {
 	$arFiles = array();
 	if($arFileId = explode(',', $fields['FILES'])) {
@@ -391,7 +391,7 @@ if($fields['VIDEOS']) {
 }
 
 
-//---------- Файлы и видео из сессии ----------//
+//---------- пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ----------//
 $arResult['FILES'] = array();
 if(isset($_SESSION['API_REVIEWS_FORM']['FILES'])) {
 	$arResult['FILES'] = $_SESSION['API_REVIEWS_FORM']['FILES'];
@@ -641,7 +641,7 @@ $tabControl->BeginPrologContent();
 					});
 				}
 			});
-			//Удалит видео из сессии
+			//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 			review_form.on('click', '.api_video_remove', function () {
 				var videBtn = $(this);
 				var videId = $(this).data('id') || '';
@@ -665,12 +665,12 @@ $tabControl->BeginPrologContent();
 					$(videBtn).closest('.api_video_item').remove();
 				}
 			});
-			//Удалит видео из базы
+			//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
 			review_form.on('click', '.js-getVideoDelete', function (e) {
 				e.preventDefault();
 				API_fileDelete(this, videoDeleteLang, 'VIDEO_DELETE');
 			});
-			//Удалит файл из базы
+			//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
 			review_form.on('click','.js-getFileDelete',function(e){
 				e.preventDefault();
 				API_fileDelete(this,fileDeleteLang,'FILE_DELETE');
@@ -748,12 +748,12 @@ $tabControl->BeginEpilogContent();
 <?
 $tabControl->EndEpilogContent();
 
-//заголовки закладок
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 $tabControl->Begin(array('FORM_ACTION' => $APPLICATION->GetCurPage() . "?lang=" . $lang));
 
 
 //*********************************************************
-//                   первая закладка
+//                   пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //*********************************************************
 $tabControl->BeginNextFormTab();
 
@@ -867,7 +867,7 @@ $tabControl->BeginCustomField('FILES', $arFieldTitle['FILES']);
 					       multiple="">
 				</div>
 			</div>
-			<script type="text/javascript">
+			<script>
 				(function ($) {
 					$('#api_upload').apiUpload({
 						fileName: 'FILES',

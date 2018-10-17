@@ -22,7 +22,7 @@ while($zr = $z->Fetch())
 
 if($REQUEST_METHOD=="POST" && strlen($Update)>0 && $USER->IsAdmin() && check_bitrix_sessid())
 {
-	// установка прав групп
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	COption::SetOptionString($module_id, "GROUP_DEFAULT_TASK", $GROUP_DEFAULT_TASK, "Task for groups by default");
 	$letter = ($l = CTask::GetLetter($GROUP_DEFAULT_TASK)) ? $l : 'D';
 	COption::SetOptionString($module_id, "GROUP_DEFAULT_RIGHT", $letter, "Right for groups by default");
@@ -102,7 +102,7 @@ foreach($arGROUPS as $group):
 <tr>
 	<td>&nbsp;</td>
 	<td style="padding-bottom:10px;">
-<script type="text/javascript">
+<script>
 function settingsSetGroupID(el)
 {
 	var tr = jsUtils.FindParentObject(el, "tr");

@@ -79,7 +79,7 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 
-<script type="text/javascript">
+<script>
 	var listParams  = {
 		ajaxUrl: "<?=$arResult["AJAX_PATH"]?>"
 	};

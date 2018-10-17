@@ -27,7 +27,7 @@ BX.message({
 		?><?=htmlspecialcharsEx($arResult['TOTAL_VOTES'])?><?
 	?></div><?
 ?></div></span><?
-?><script type="text/javascript">
+?><script>
 BX.ready(function() {
 	var f = function() {
 		new RatingLikeComments(

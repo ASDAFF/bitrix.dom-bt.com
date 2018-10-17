@@ -111,7 +111,7 @@ else
 			)
 		)
 		{
-			?><script type="text/javascript">
+			?><script>
 				BX.tooltip(<?=$arResult["User"]["ID"]?>, "anchor_<?=$anchor_id?>", "<?=CUtil::JSEscape($arResult["ajax_page"])?>");
 			</script><?
 		}
@@ -129,7 +129,7 @@ else
 				|| $arResult["USE_TOOLTIP"]
 			)
 			{
-				?><script type="text/javascript">
+				?><script>
 				BX.tooltip(<?=$arResult["User"]["ID"]?>, "anchor_<?=$anchor_id?>", "<?=CUtil::JSEscape($arResult["ajax_page"])?>");
 			</script><?
 			}

@@ -24,7 +24,7 @@ if(($bShowStat || $bShowCacheStat) && !$USER->IsAuthorized())
 {
 	require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/init_admin.php");
 	$GLOBALS["APPLICATION"]->AddHeadString($GLOBALS["adminPage"]->ShowScript());
-	$GLOBALS["APPLICATION"]->AddHeadString('<script type="text/javascript" src="/bitrix/js/main/public_tools.js"></script>');
+	$GLOBALS["APPLICATION"]->AddHeadString('<script src="/bitrix/js/main/public_tools.js"></script>');
 	$GLOBALS["APPLICATION"]->AddHeadString('<link rel="stylesheet" type="text/css" href="/bitrix/themes/.default/pubstyles.css" />');
 }
 

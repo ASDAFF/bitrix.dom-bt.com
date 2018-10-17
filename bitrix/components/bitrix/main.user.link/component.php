@@ -487,7 +487,7 @@ if (strlen($arResult["FatalError"]) <= 0)
 
 						$strOnclick = "return BX.tooltip.openCallTo(".$arResult["User"]["ID"].");";
 						$strToolbar2 .= '<li id="im-video-call-button'.$arResult["User"]["ID"].'" class="bx-icon bx-icon-video"><span onmouseover="'.$strOnmouseover.'" onmouseout="'.$strOnmouseout.'" onclick="'.$strOnclick.'">'.GetMessage("MAIN_UL_TOOLBAR_VIDEO_CALL").'</span></li>';
-						$strToolbar2 .= '<script type="text/javascript">BX.ready(function() {BX.tooltip.checkCallTo(\'im-video-call-button'.$arResult["User"]["ID"].'\'); };</script>';
+						$strToolbar2 .= '<script>BX.ready(function() {BX.tooltip.checkCallTo(\'im-video-call-button'.$arResult["User"]["ID"].'\'); };</script>';
 					}
 				}
 				elseif (

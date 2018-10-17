@@ -22,7 +22,7 @@ function KHAYR_MAIN_COMMENT_ShowTree($arItem, $arParams, $arResult)
 					<?=GetMessage("KHAYR_MAIN_COMMENT_MARK")?>:
 					<?/*<div class="rateit" data-rateit-value="<?=$arItem["MARK"]?>" data-rateit-ispreset="true" data-rateit-readonly="true"></div>*/?>
 					<div class="rates" id="rate_<?=$arItem["ID"]?>_result"></div>
-					<script type="text/javascript">
+					<script>
 						$(function() {
 							$('#rate_<?=$arItem["ID"]?>_result').rateit({ value: <?=$arItem["MARK"]?>, ispreset: true, readonly: true });
 						});
@@ -124,7 +124,7 @@ function KHAYR_MAIN_COMMENT_ShowTree($arItem, $arParams, $arResult)
 								<div class="rateit" data-rateit-backingfld="#rate_<?=$arItem["ID"]?>" data-rateit-resetable="false" data-rateit-min="0" data-rateit-max="5"></div>*/?>
 								<input type="hidden" name="MARK" value="0" id="rate_<?=$arItem["ID"]?>" />
 								<div class="rates" id="rate_<?=$arItem["ID"]?>_control"></div>
-								<script type="text/javascript">
+								<script>
 									$(function() {
 										$('#rate_<?=$arItem["ID"]?>_control').rateit({ min: 0, max: 5, step: 1, backingfld: '#rate_<?=$arItem["ID"]?>', resetable: false });
 									});
@@ -197,7 +197,7 @@ function KHAYR_MAIN_COMMENT_ShowTree($arItem, $arParams, $arResult)
 					<div class="rateit" data-rateit-backingfld="#rate_0" data-rateit-resetable="false" data-rateit-min="0" data-rateit-max="5"></div>*/?>
 					<input type="hidden" name="MARK" value="0" id="rate_0" />
 					<div class="rates" id="rate_0_control"></div>
-					<script type="text/javascript">
+					<script>
 						$(function() {
 							$('#rate_0_control').rateit({ min: 0, max: 5, step: 1, backingfld: '#rate_0', resetable: false });
 						});

@@ -99,7 +99,7 @@ $obJSPopup = new CJSPopup(GetMessage("admin_lib_sett_tab_title"));
 $obJSPopup->ShowTitlebar(GetMessage("admin_lib_sett_tab_title"));
 $obJSPopup->StartContent();
 ?>
-<script type="text/javascript">
+<script>
 var arSystemTabsFields = <?echo CUtil::PhpToJSObject($arSystemTabsFields)?>;
 var arSystemTabs = <?echo CUtil::PhpToJSObject($arSystemTabs)?>;
 var arSystemFields = <?echo CUtil::PhpToJSObject($arSystemFields)?>;

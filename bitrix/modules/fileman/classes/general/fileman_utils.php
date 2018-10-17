@@ -43,7 +43,7 @@ class CFilemanUtils
 		}
 
 		?>
-		<script type="text/javascript" src="/bitrix/js/fileman/fileman_utils.js?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/fileman/fileman_utils.js')?>"></script>
+		<script src="/bitrix/js/fileman/fileman_utils.js?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/fileman/fileman_utils.js')?>"></script>
 
 		<script>
 		<?CFilemanUtils::AppendLangMessages($arLangArray);?>
@@ -647,7 +647,7 @@ CAdminFileDialog::ShowScript(Array
 );
 ?>
 		</div>
-		<script type="text/javascript">
+		<script>
 			function MakeArchivePathFromFolderPath(filename, path, site)
 			{
 				var

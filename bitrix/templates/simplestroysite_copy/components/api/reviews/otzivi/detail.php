@@ -112,7 +112,7 @@ if($arParams['INCLUDE_CSS'] == 'Y') {
 <?
 ob_start();
 ?>
-<script type="text/javascript">
+<script>
 	jQuery(document).ready(function ($) {
 		$.fn.apiReviews();
 	});

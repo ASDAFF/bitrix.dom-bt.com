@@ -7,7 +7,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 {
 	define("BX_GADGET_DEFAULT", true);
 
-	?><script type="text/javascript">
+	?><script>
 	var updateURL = '<?=CUtil::JSEscape(htmlspecialcharsback($arResult['UPD_URL']))?>';
 	var bxsessid = '<?=CUtil::JSEscape(bitrix_sessid())?>';
 	var langGDError1 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_ERR1"))?>';
@@ -36,7 +36,7 @@ if($arResult["PERMISSION"]>"R")
 			);
 	}
 
-	?><script type="text/javascript">
+	?><script>
 		var arGDGroups = <?=CUtil::PhpToJSObject($arResult["GROUPS"])?>;
 		new BXGadget('<?=$arResult["ID"]?>', <?=CUtil::PhpToJSObject($allGD)?>);
 	</script>

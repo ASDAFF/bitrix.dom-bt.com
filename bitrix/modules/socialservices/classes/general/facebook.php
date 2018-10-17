@@ -232,7 +232,7 @@ class CSocServFacebook extends CSocServAuth
 			$url .= ((strpos($url, "?") === false) ? '?' : '&')."current_fieldset=SOCSERV";
 		}
 ?>
-<script type="text/javascript">
+<script>
 if(window.opener)
 	window.opener.location = '<?=CUtil::JSEscape($url)?>';
 window.close();

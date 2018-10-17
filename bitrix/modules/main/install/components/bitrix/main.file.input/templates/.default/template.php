@@ -99,7 +99,7 @@ HTML;
 		}
 	}
 ?>
-<script type="text/javascript">
+<script>
 		BX.message(<?=CUtil::PhpToJSObject(array(
 			"MFI_THUMB" => $thumb,
 			"MFI_THUMB2" => $thumbForUploaded,

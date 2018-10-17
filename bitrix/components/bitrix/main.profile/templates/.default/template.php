@@ -15,7 +15,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 if ($arResult['DATA_SAVED'] == 'Y')
 	ShowNote(GetMessage('PROFILE_DATA_SAVED'));
 ?>
-<script type="text/javascript">
+<script>
 <!--
 var opened_sections = [<?
 $arResult["opened"] = $_COOKIE[$arResult["COOKIE_PREFIX"]."_user_profile_open"];
@@ -114,7 +114,7 @@ var cookie_prefix = '<?=$arResult["COOKIE_PREFIX"]?>';
 					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
 				</span>
 				</noscript>
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure').style.display = 'inline-block';
 </script>
 		</td>

@@ -416,7 +416,7 @@ class CFileInput
 				foreach(self::$curFiles as $ind => $arFile)
 					self::DisplayFile($arFile, $ind);
 		?>
-		<script type="text/javascript">new top.BX.file_input(<?= CUtil::PHPToJSObject($arConfig)?>);</script>
+		<script>new top.BX.file_input(<?= CUtil::PHPToJSObject($arConfig)?>);</script>
 		</div>
 		<?/* Used to refresh form content - workaround for IE bug (mantis:37969) */?>
 	<div id="<?= self::$jsId.'_ie_bogus_container'?>"><input type="hidden" value="" /></div>
@@ -510,7 +510,7 @@ class CFileInput
 		if ($hint != '')
 		{
 		?>
-		<script type="text/javascript">
+		<script>
 			new top.BX.CHint({
 				parent: top.BX("<?= $hintId?>"),
 				show_timeout: 10,

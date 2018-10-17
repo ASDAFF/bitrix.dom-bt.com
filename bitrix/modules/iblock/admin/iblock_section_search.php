@@ -451,7 +451,7 @@ $USER_FIELD_MANAGER->AddFindFields($entity_id, $arFindFields);
 $oFilter = new CAdminFilter($sTableID."_filter", $arFindFields);
 
 ?>
-<script type="text/javascript">
+<script>
 var blockedFilter = false;
 
 function applyFilter(el)

@@ -167,7 +167,7 @@ switch ($INPUT_TYPE):
                 $value = "";
             }
             ?>
-            <input type="hidden" class="form-control<?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"]):?> <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"])?><?endif?>" placeholder="<?=$label?>" name="PROPERTY[<?=$propertyID?>][<?=$i?>]" value="<?=$value?>" id="smt-order-form-field-<?=$arParams["FORM_SUFFIX"]?>-<?=strtolower($propertyID)?>" /><?
+            <input type="hidden" class="form-control<?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"]):?> <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"])?><?endif?>" name="PROPERTY[<?=$propertyID?>][<?=$i?>]" value="<?=$value?>" id="smt-order-form-field-<?=$arParams["FORM_SUFFIX"]?>-<?=strtolower($propertyID)?>" /><?
             ?><?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ICON"]):?><span class="form-control-feedback <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ICON"])?>"></span><?endif?>
             <?
         }
@@ -190,7 +190,7 @@ switch ($INPUT_TYPE):
             }
             ?>
             <input disabled="disabled" type="text" class="form-control<?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"]):?> <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"])?><?endif?>" value="<?=$arResult["PROPERTY_LIST_FULL"][$propertyID]["DISPLAY_VALUE"]?>" />
-            <input type="hidden" class="form-control<?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"]):?> <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"])?><?endif?>" placeholder="<?=$label?>" name="PROPERTY[<?=$propertyID?>][<?=$i?>]" value="<?=$value?>" id="smt-order-form-field-<?=$arParams["FORM_SUFFIX"]?>-<?=strtolower($propertyID)?>" /><?
+            <input type="hidden" class="form-control<?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"]):?> <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ADD_CLASS"])?><?endif?>" name="PROPERTY[<?=$propertyID?>][<?=$i?>]" value="<?=$value?>" id="smt-order-form-field-<?=$arParams["FORM_SUFFIX"]?>-<?=strtolower($propertyID)?>" /><?
             ?><?if($arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ICON"]):?><span class="form-control-feedback <?=implode(' ', $arResult["PROPERTY_LIST_FULL"][$propertyID]["SMT_ICON"])?>"></span><?endif?>
             <?
         }

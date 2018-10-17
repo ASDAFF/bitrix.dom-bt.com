@@ -11,7 +11,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	if($arResult['VOTE_AVAILABLE'] == 'Y'):
 		?><a href="#like" class="bx-ilike-text"><?=($arResult['USER_HAS_VOTED'] == 'N'? htmlspecialcharsbx($arResult['RATING_TEXT_LIKE_Y']): htmlspecialcharsbx($arResult['RATING_TEXT_LIKE_Y']))?></a><?
 	endif;?></span></span><span class="bx-ilike-wrap-block" id="bx-ilike-popup-cont-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" style="display:none;"><span class="bx-ilike-popup"><span class="bx-ilike-wait"></span></span></span></span>
-<script type="text/javascript">
+<script>
 BX.ready(function() {
 <?if ($arResult['AJAX_MODE'] == 'Y'):?>
 	BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/like/popup.css');

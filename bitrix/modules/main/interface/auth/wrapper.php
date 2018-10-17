@@ -91,7 +91,7 @@ if(!CMain::IsHTTPS() && COption::GetOptionString('main', 'use_encrypted_auth', '
 $sDocPath = $APPLICATION->GetCurPage();
 $authUrl = (defined('BX_ADMIN_SECTION_404') && BX_ADMIN_SECTION_404 == 'Y') ? '/bitrix/admin/' : $sDocPath;
 ?>
-<script type="text/javascript">
+<script>
 BX.message({
 	'admin_authorize_error': '<?=GetMessageJS("admin_authorize_error")?>',
 	'admin_forgot_password_error': '<?=GetMessageJS("admin_forgot_password_error")?>',

@@ -43,7 +43,7 @@ class filemanMedialibUpload
 		$name = $file["name"];
 		$pattern = defined('BX_UTF')
 			? "/[^\p{L}L0-9!\p{Z}\$&\(\)\[\]\{\}\-\.;=@\^_\~]/uis"
-			: "/[^A-Za-zÀ-ß¨à-ÿ¸0-9!\s\$&\(\)\[\]\{\}\-\.;=@\^_\~]/is";
+			: "/[^A-Za-zï¿½-ß¨ï¿½-ï¿½ï¿½0-9!\s\$&\(\)\[\]\{\}\-\.;=@\^_\~]/is";
 		$name = trim(preg_replace($pattern, "", $name));
 		if (strlen(trim(substr($name, 0, strpos($name, '.')))) <= 0)
 			$name = substr(md5(uniqid(rand(), true)), 0, 8).trim($name);
@@ -469,7 +469,7 @@ $options = (is_array($options) ? $options : array());
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
+<script>
 <?
 	$cols = array();
 	foreach ($trees['Collections'] as $col)

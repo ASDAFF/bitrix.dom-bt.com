@@ -274,7 +274,7 @@ class CSocServOffice365OAuth extends CSocServAuth
 		}
 
 		$JSScript = '
-		<script type="text/javascript">
+		<script>
 		'.$location.'
 		</script>
 		';

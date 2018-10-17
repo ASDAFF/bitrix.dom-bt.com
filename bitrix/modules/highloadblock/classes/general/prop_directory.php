@@ -138,7 +138,7 @@ class CIBlockPropertyDirectory
 		$directoryName = Loc::getMessage("HIBLOCK_PROP_DIRECTORY_NEW_NAME");
 		$directoryMore = Loc::getMessage("HIBLOCK_PROP_DIRECTORY_MORE");
 		return <<<"HIBSELECT"
-<script type="text/javascript">
+<script>
 function getTableHead()
 {
 	BX('hlb_directory_table').innerHTML = '<tr class="heading"><td></td><td>$headingName</td><td>$headingSort</td><td>$headingXmlId</td><td>$headingFile</td><td>$headingLink</td><td>$headingDef</td><td>$headingDescription</td><td>$headingFullDescription</td></tr>';
@@ -278,7 +278,7 @@ function getDirectoryTableHead(e)
 <tr id="hlb_directory_table_tr">
 	<td colspan="2" style="text-align: center;">
 		<table class="internal" id="hlb_directory_table" style="margin: 0 auto;">
-			<script type="text/javascript">getDirectoryTableRow('full');</script>
+			<script>getDirectoryTableRow('full');</script>
 		</table>
 	</td>
 </tr>

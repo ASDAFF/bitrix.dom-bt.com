@@ -187,7 +187,7 @@ $this->setFrameMode(true);
 	Array("MODE"=>"html")
 );?>
 </div>
-<script type="text/javascript">
+<script>
 	$('.smt-cart-item a.smt-map-collapse').click(function(event) {
 		event.preventDefault();
 		$(this).parent().addClass('active');

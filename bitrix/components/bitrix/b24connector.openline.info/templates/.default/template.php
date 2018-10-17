@@ -3,7 +3,7 @@
 $frame = $this->createFrame()->begin(false);
 ?>
 <!-- Bitrix24.LiveChat external config -->
-<script type="text/javascript">
+<script>
 	window.BxLiveChatInit = function() {
 		var config = <?=CUtil::PhpToJSObject($arResult['CONFIG'])?>;
 		config.firstMessage = config.firstMessage.replace('#VAR_HOST#', location.hostname).replace('#VAR_PAGE#', '[url='+location.href+']'+(document.title || location.href)+'[/url]');

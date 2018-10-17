@@ -156,7 +156,7 @@
 	),
 	false
 );?>
-        <style type="text/css">
+        <style>
             .smt-widget-project-list .smt-project-list div > div {
                 height: auto !important;
             }

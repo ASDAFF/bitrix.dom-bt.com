@@ -602,7 +602,7 @@ if(!CMain::IsHTTPS() && COption::GetOptionString('main', 'use_encrypted_auth', '
 					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
 				</span>
 				</noscript>
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure').style.display = 'inline-block';
 </script>
 <?endif?>
@@ -632,7 +632,7 @@ $tabControl->EndCustomField("PASSWORD");
 		<tr>
 		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
 		<td>
-<script type="text/javascript">
+<script>
 function BXAuthSwitch(val)
 {
 	BX('bx_user_info_event').disabled = (val != '');

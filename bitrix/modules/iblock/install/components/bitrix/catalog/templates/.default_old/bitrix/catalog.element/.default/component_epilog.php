@@ -16,7 +16,7 @@ if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_L
 	if ($loadCurrency)
 	{
 	?>
-	<script type="text/javascript">
+	<script>
 		BX.Currency.setCurrencies(<? echo $templateData['CURRENCIES']; ?>);
 	</script>
 <?
@@ -24,7 +24,7 @@ if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_L
 }
 if (isset($templateData['JS_OBJ']))
 {
-?><script type="text/javascript">
+?><script>
 BX.ready(BX.defer(function(){
 	if (!!window.<? echo $templateData['JS_OBJ']; ?>)
 	{

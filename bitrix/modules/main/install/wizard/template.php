@@ -175,7 +175,7 @@ class WizardTemplate extends CWizardTemplate
 			<p id="noscript">{$noscriptInfo}</p>
 		</noscript>
 		<link rel="stylesheet" href="/bitrix/images/install/installer_style.css">
-		<script type="text/javascript">
+		<script>
 		<!--
 			document.onkeydown = EnterKeyPress;
 
@@ -278,7 +278,7 @@ class WizardTemplate extends CWizardTemplate
 		</td>
 	</tr>
 </table>
-<script type="text/javascript">PreloadImages();</script>
+<script>PreloadImages();</script>
 <div class="instal-bg"><div class="instal-bg-inner"></div></div>
 </body>
 </html>

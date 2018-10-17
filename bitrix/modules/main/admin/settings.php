@@ -263,7 +263,7 @@ function renderLable($Option, array $listSite, $siteValue = "")
 	$isChoiceSites = array_key_exists(6, $Option) && $Option[6] == "Y" ? true : false;
 	?>
 	<?if ($isChoiceSites): ?>
-	<script type="text/javascript">
+	<script>
 		//TODO It is possible to modify the functions if necessary to clone different elements
 		function changeSite(el, fieldName)
 		{

@@ -56,7 +56,7 @@ if (!defined('ADMIN_SECTION_LOAD_AUTH') || !ADMIN_SECTION_LOAD_AUTH):
 <?
 else:
 ?>
-<script type="text/javascript">
+<script>
 <?
 	if ($aUserOpt['fix'] == 'on'):
 ?>
@@ -74,7 +74,7 @@ echo $adminPage->ShowScript();
 $APPLICATION->ShowHeadStrings();
 $APPLICATION->ShowHeadScripts();
 ?>
-<script type="text/javascript">
+<script>
 BX.message({MENU_ENABLE_TOOLTIP: <?=($aUserOptGlobal['start_menu_title'] <> 'N' ? 'true' : 'false')?>});
 BX.InitializeAdmin();
 </script>
@@ -130,7 +130,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/favorite_menu
 ?>
 			<td class="adm-left-side-wrap" id="menu_mirrors_cont">
 
-<script type="text/javascript">
+<script>
 BX.adminMenu.setMinimizedState(<?=$bOptMenuMinimized ? 'true' : 'false'?>);
 BX.adminMenu.setActiveSection('<?=$openedSection?>');
 BX.adminMenu.setOpenedSections('<?=CUtil::JSEscape($adminMenu->GetOpenedSections());?>');
@@ -236,7 +236,7 @@ BX.adminMenu.setOpenedSections('<?=CUtil::JSEscape($adminMenu->GetOpenedSections
 <?
 	if ($menuScripts != ""):
 ?>
-<script type="text/javascript"><?=$menuScripts?></script>
+<script><?=$menuScripts?></script>
 <?
 	endif;
 

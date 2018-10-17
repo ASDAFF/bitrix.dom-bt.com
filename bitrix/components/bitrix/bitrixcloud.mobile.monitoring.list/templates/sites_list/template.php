@@ -81,7 +81,7 @@ $APPLICATION->IncludeComponent(
 
 ?>
 
-<script type="text/javascript">
+<script>
 	var listMenuItems = { items: [] };
 
 	<?if(empty($arResult["DOMAINS_TO_ADD"])):?>

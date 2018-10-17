@@ -101,7 +101,7 @@ $showWait = "BX.addClass(this,'adm-nav-page-active');setTimeout(BX.delegate(func
 <?endif;?>
 
 <?if (!isset($_REQUEST['admin_history'])):?>
-<script type="text/javascript">
+<script>
 	top.BX.adminHistory.put(
 		'<?=CUtil::JSEscape($component->replaceUrlTemplate(($arResult["ALL_RECORDS"]? "all" : $arResult["CURRENT_PAGE"]), $arResult["PAGE_SIZE"]))?>',
 		top.BX.proxy(top.<?=$navFunction?>,	parent.<?=$arParams["TABLE_ID"]?>),

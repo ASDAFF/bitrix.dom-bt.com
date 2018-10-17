@@ -384,7 +384,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $STEP > 1 && check_bitrix_sessid())
 	</div>
 </div>
 
-<script type="text/javaScript">
+<script>
 top.BX.closeWait();
 var w = top.BX.WindowManager.Get();
 w.SetTitle('<?=CUtil::JSEscape(GetMessage("IBLOCK_ADM_EXP_PAGE_TITLE")." ".$STEP)?>');
@@ -573,7 +573,7 @@ if ($STEP == 2)
 				?>
 			</table>
 			<input type="hidden" name="count_checked" id="count_checked" value="<? echo $intCountChecked; ?>">
-			<script type="text/javascript">
+			<script>
 			function checkAll(obj,cnt)
 			{
 				var boolCheck = obj.checked;
@@ -667,7 +667,7 @@ endif;
 $tabControl->End();
 if (!$bPublicMode):
 ?>
-<script type="text/javaScript">
+<script>
 <!--
 BX.ready(function() {
 <?if ($STEP < 2):?>

@@ -1220,7 +1220,7 @@ else
 	{
 		CJSCore::Init(array('window','translit'));
 		?>
-		<script type="text/javascript">
+		<script>
 		var linked=<?if ($bLinked) echo 'true'; else echo 'false';?>;
 		function set_linked()
 		{
@@ -1439,7 +1439,7 @@ if (COption::GetOptionString("iblock", "show_xml_id", "N")=="Y")
 		$tabControl->BeginCustomField("SUB_XML_ID", GetMessage("IBLOCK_FIELD_XML_ID") . ":", $arIBlock["FIELDS"]["XML_ID"]["IS_REQUIRED"] === "Y");
 		?><tr id="tr_SUB_XML_ID">
 		<td><span id="hint_SUB_XML_ID"></span>
-			<script type="text/javascript">
+			<script>
 				BX.hint_replace(BX('hint_SUB_XML_ID'), '<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('IB_SE_FIELD_HINT_XML_ID')))?>');
 			</script> <?=$tabControl->GetCustomLabelHTML(); ?></td>
 		<td>

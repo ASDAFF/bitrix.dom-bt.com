@@ -40,7 +40,7 @@ $publicMode = isset($arParams["PUBLIC_MODE"]) && $arParams["PUBLIC_MODE"] === tr
 	?></table>
 
 <?if(\CCrmSipHelper::isEnabled()):?>
-<script type="text/javascript">
+<script>
 	BX.ready(
 		function()
 		{
@@ -80,7 +80,7 @@ $publicMode = isset($arParams["PUBLIC_MODE"]) && $arParams["PUBLIC_MODE"] === tr
 
 <? if (!$publicMode):?>
 	<?CJSCore::Init('tooltip');?>
-	<script type="text/javascript">
+	<script>
 		<?foreach ($arResult["VALUE"] as $entityType => $arEntity):?>
 		<?foreach ($arEntity as $entityId => $entity):?>
 		BX.tooltip(<?=$entityId?>, "balloon_<?=$entityType?>_<?=$entityId?>_<?=$_suf?>", "/bitrix/components/bitrix/crm.<?=strtolower($entityType)?>.show/card.ajax.php", "crm_balloon<?=($entityType == 'LEAD' || $entityType == 'DEAL'? '_no_photo': '_'.strtolower($entityType))?>", true);

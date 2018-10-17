@@ -401,7 +401,7 @@ if (!empty($errors))
 				</tbody>
 			</table>
 			<?\CUtil::InitJSCore(array('access'))?>
-			<script type="text/javascript">
+			<script>
 				var selected = <?= json_encode(array_fill_keys($accessCodes, true))?>;
 				var name = 'RIGHTS';
 				var tbl = BX(name + '_table');

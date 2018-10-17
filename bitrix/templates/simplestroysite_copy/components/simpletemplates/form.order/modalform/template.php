@@ -33,7 +33,7 @@ if ($arResult["ERRORS"]) {
 ?>
 <?if (strlen($arResult["MESSAGE"]) > 0):?>
 	<?if($arParams["REDIRECT_URL"]):?>
-	<script type="text/javascript">
+	<script>
 		window.location = '<?=htmlspecialcharsEx($arParams["REDIRECT_URL"])?>';
 	</script>
 	<?else:?>

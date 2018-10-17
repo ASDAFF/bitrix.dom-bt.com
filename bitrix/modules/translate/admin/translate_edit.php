@@ -494,7 +494,7 @@ $tabControl->BeginNextTab();
 	<tr>
 		<td valign="top" align="right" width="0%" nowrap colspan="2"><img src="/bitrix/images/1.gif" width="1" height="8"></td>
 	</tr>
-	<script type="text/javascript">
+	<script>
 	function SelectAllDelete()
 	{
 		var intShowCount = parseInt(BX('show_count').value);

@@ -543,7 +543,7 @@ if(CModule::IncludeModule("iblock")):
 				<option value="<?=$arLdap["ID"]?>"<?if ($ldapServer == $arLdap["ID"]): $indSelected = $i;?> selected<?endif?>><?=$arLdap["NAME"]?></option>
 			<?endwhile?>
 			</select>
-			<script type="text/javascript">
+			<script>
 				<?
 				$arMapFields = array();
 
@@ -758,7 +758,7 @@ $tabControl->Buttons();
 
 <iframe style="display:none;" id="progress" name="progress" src="javascript:''"></iframe>
 
-<script type="text/javascript">
+<script>
 <!--
 
 function Start(position, cntExecuted)

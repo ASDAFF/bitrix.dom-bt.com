@@ -916,7 +916,7 @@ else
 	unset($emptyProductProperties);
 }
 ?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogElement(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 BX.message({
 	ECONOMY_INFO_MESSAGE: '<? echo GetMessageJS('CT_BCE_CATALOG_ECONOMY_INFO'); ?>',

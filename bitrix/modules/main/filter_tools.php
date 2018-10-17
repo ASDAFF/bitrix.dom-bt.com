@@ -2,7 +2,7 @@
 IncludeModuleLangFile(__FILE__);
 
 /*********************************************************************
-							Фильтр
+							пїЅпїЅпїЅпїЅпїЅпїЅ
 *********************************************************************/
 
 function CheckFilterDates($date1, $date2, &$date1_wrong, &$date2_wrong, &$date2_less_date1)
@@ -139,10 +139,10 @@ function DelFilter($arName)
 
 function GetFilterHiddens($var = "filter_", $button = array("filter" => "Y", "set_filter" => "Y"))
 {
-	// если поступил не массив имен переменных то
+	// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
 	if (!is_array($var))
 	{
-		// получим имена переменных фильтра по префиксу
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		$arKeys = @array_merge(array_keys($_GET), array_keys($_POST));
 		if (is_array($arKeys) && count($arKeys)>0)
 		{
@@ -154,10 +154,10 @@ function GetFilterHiddens($var = "filter_", $button = array("filter" => "Y", "se
 	}
 	else $arrVars = $var;
 
-	// если получили массив переменных фильтра то
+	// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
 	if (is_array($arrVars) && count($arrVars)>0)
 	{
-		// соберем строку из URL параметров
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ URL пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		foreach ($arrVars as $var_name)
 		{
 			global $$var_name;
@@ -194,13 +194,13 @@ function GetFilterHiddens($var = "filter_", $button = array("filter" => "Y", "se
 
 function GetFilterParams($var="filter_", $bDoHtmlEncode=true, $button = array("filter" => "Y", "set_filter" => "Y"))
 {
-	$arrVars = array(); // массив имен переменных фильтра
-	$res=""; // результирующая строка
+	$arrVars = array(); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	$res=""; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-	// если поступил не массив имен переменных то
+	// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
 	if(!is_array($var))
 	{
-		// получим имена переменных фильтра по префиксу
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		$arKeys = @array_merge(array_keys($_GET), array_keys($_POST));
 		if(is_array($arKeys) && count($arKeys)>0)
 		{
@@ -213,10 +213,10 @@ function GetFilterParams($var="filter_", $bDoHtmlEncode=true, $button = array("f
 	else
 		$arrVars = $var;
 
-	// если получили массив переменных фильтра то
+	// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
 	if(is_array($arrVars) && count($arrVars)>0)
 	{
-		// соберем строку из URL параметров
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ URL пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		foreach($arrVars as $var_name)
 		{
 			global $$var_name;
@@ -253,7 +253,7 @@ function GetFilterParams($var="filter_", $bDoHtmlEncode=true, $button = array("f
 	//return ($bDoHtmlEncode) ? htmlspecialcharsbx($res) : $res;
 }
 
-// устаревшая функция, оставлена для совместимости
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 function GetFilterStr($arr, $button="set_filter")
 {
 	foreach ($arr as $var)
@@ -415,7 +415,7 @@ function BeginFilter($sID, $bFilterSet, $bShowStatus=true)
 	if(!$bFilterScriptShown)
 	{
 		$s .= '
-<script type="text/javascript">
+<script>
 <!--
 function showfilter(id)
 {
@@ -562,7 +562,7 @@ function EndFilter($sID="")
 		$fltval = $_COOKIE["flt_".$sID];
 
 	if($fltval[0]<>"Y")
-		$s .= '<script type="text/javascript">hidefilter(\''.CUtil::JSEscape($sID).'\');</script>'."\n";
+		$s .= '<script>hidefilter(\''.CUtil::JSEscape($sID).'\');</script>'."\n";
 	return $s;
 }
 
@@ -632,7 +632,7 @@ return $s;
 }
 
 /*********************************************************************
-							Сортировка
+							пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 *********************************************************************/
 
 function InitSorting($Path=false, $sByVar="by", $sOrderVar="order")
@@ -677,11 +677,11 @@ function SortingEx($By, $Path = false, $sByVar="by", $sOrderVar="order", $Anchor
 			$sImgDown = "<img src=\"".BX_ROOT."/images/icons/up-$$$.gif\" width=\"15\" height=\"15\" border=\"0\" alt=\"".GetMessage("ASC_ORDER")."\">";
 	}
 
-	//Если путь не задан, то будем брать текущий со всеми переменными
+	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	if($Path===false)
 		$Path = $APPLICATION->GetCurUri();
 
-	//Если нет переменных, то надо добавлять параметры через ?
+	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ?
 	$found = strpos($Path, "?");
 	if ($found === false) $strAdd2URL = "?";
 	else $strAdd2URL = "&";

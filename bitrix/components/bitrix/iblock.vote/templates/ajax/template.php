@@ -25,7 +25,7 @@ else
 ?>
 <div class="iblock-vote" id="vote_<?echo $arResult["ID"]?>">
 
-<script type="text/javascript">
+<script>
 if(!window.voteScript) window.voteScript =
 {
 	trace_vote: function(div, flag)

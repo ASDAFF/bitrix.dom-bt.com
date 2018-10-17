@@ -14,7 +14,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 {
 	define("BX_GADGET_DEFAULT", true);
 	?>
-	<script type="text/javascript">
+	<script>
 	var updateURL = '<?=CUtil::JSEscape(htmlspecialcharsback($arResult['UPD_URL']))?>';
 	var bxsessid = '<?=CUtil::JSEscape(bitrix_sessid())?>';
 	var language_id = '<?=CUtil::JSEscape(LANGUAGE_ID)?>';	
@@ -36,7 +36,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 	if ($arParams["MULTIPLE"] == "Y")
 	{
 		?>
-		<script type="text/javascript">
+		<script>
 		var desktopPage = '<?=CUtil::JSEscape(htmlspecialcharsback($arParams["DESKTOP_PAGE"]))?>';
 		var desktopBackurl = '<?=CUtil::JSEscape(htmlspecialcharsback($GLOBALS["APPLICATION"]->GetCurPageParam("", array("dt_page"))))?>';
 		</script>
@@ -44,8 +44,8 @@ if(!defined("BX_GADGET_DEFAULT"))
 	}
 
 	if($arResult["PERMISSION"] > "R"):?>
-		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script>
-		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>	
+		<script src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script>
+		<script src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>
 	<?endif?>
 	<?
 }
@@ -142,7 +142,7 @@ if($arResult["PERMISSION"] > "R"):
 
 	$mContext = new CAdminContextMenu(array());
 	?>
-	<script type="text/javascript">
+	<script>
 		var arGDGroups = <?=CUtil::PhpToJSObject($arResult["GROUPS"])?>;
 		new BX.AdminGadget('<?=$arResult["ID"]?>', <?=CUtil::PhpToJSObject($allGD)?>);
 	</script>

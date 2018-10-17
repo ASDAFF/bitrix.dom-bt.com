@@ -184,7 +184,7 @@ $modalId = $formId . '_modal';
 											))?>
 										</div>
 									</div>
-									<script type="text/javascript">
+									<script>
 										(function ($) {
 											$('#<?=$fieldId;?>').apiUpload({
 												fileName: '<?=$FIELD;?>',
@@ -396,7 +396,7 @@ $modalId = $formId . '_modal';
 	<?
 	ob_start();
 	?>
-	<script type="text/javascript">
+	<script>
 		jQuery(document).ready(function ($) {
 			$.fn.apiReviewsForm({
 				id:                   '<?=$modalId?>',

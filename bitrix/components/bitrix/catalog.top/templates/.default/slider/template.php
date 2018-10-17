@@ -438,7 +438,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 								);
 							}
 							?>
-								<script type="text/javascript">
+								<script>
 							var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 								</script>
 							<?
@@ -678,7 +678,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 								);
 							}
 							?>
-								<script type="text/javascript">
+								<script>
 							var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 								</script>
 							<?
@@ -746,7 +746,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 								);
 							}
 							?>
-								<script type="text/javascript">
+								<script>
 							var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 								</script>
 								<?
@@ -789,7 +789,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 			);
 		}
 		?>
-		<script type="text/javascript">
+		<script>
 			var ob<? echo $strContID; ?> = new JCCatalogTopSliderList(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script>
 		<?

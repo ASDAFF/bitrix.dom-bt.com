@@ -78,7 +78,7 @@ foreach($arHtml as $ID=>$provider):
 
 </div>
 
-<script type="text/javascript">
+<script>
 BX.Finder(BX('access_content_container'), 'Access', <?=CUtil::PhpToJsObject(array_keys($arHtml))?>, {'text-search-wait' : '<?=CUtil::JSEscape(GetMessage("acc_dialog_wait"))?>', 'text-search-no-result' : '<?=CUtil::JSEscape(GetMessage("acc_dialog_not_found"))?>'});
 BX.Access.SelectProvider('<?=$first?>');
 BX.Access.obProviderNames = <?=CUtil::PhpToJsObject($access->GetProviderNames())?>;

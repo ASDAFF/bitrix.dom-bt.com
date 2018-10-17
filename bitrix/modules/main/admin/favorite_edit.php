@@ -239,7 +239,7 @@ while($ar = $a->Fetch()):
 	<option value="<?echo htmlspecialcharsbx($ar["REFERENCE_ID"])?>"<?if($ar["REFERENCE_ID"] == $str_MODULE_ID) echo " selected"?>><?echo htmlspecialcharsbx($ar["REFERENCE"])?></option>
 <?endwhile?>
 </select>
-<script type="text/javascript">
+<script>
 function EnableControls(checked)
 {
 document.favform.USER_ID.disabled = document.favform.FindUser.disabled = checked;

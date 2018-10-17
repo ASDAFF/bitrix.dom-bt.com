@@ -80,7 +80,7 @@ foreach ($arResult['FILES'] as $file)
 ?>
 	</div>
 	<a class="mobile-grid-button file" href="#" id="diskuf-eventnode-<?=$arResult['UID']?>"><?=GetMessage("MPF_ADD")?></a>
-<script type="text/javascript">
+<script>
 BX.ready(function(){
 	BX.Disk.UFMobile.add({
 		UID : '<?=$arResult['UID']?>',

@@ -46,7 +46,7 @@ $this->setFrameMode(true);
 							<?else:?>
 								<span class="<?=implode(' ', $imageLinkClass)?>">
 							<?endif?>
-							<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image smt-img-thumbnail">
+							<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class="smt-image__image smt-img-thumbnail" alt="<?=$arItem["NAME"]?>">
 							<span class="smt-image__over"></span>
 							<?if($linkHref):?>
 								</a>

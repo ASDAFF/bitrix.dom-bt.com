@@ -28,7 +28,7 @@ else
 
 <div class="bx-interface-form">
 
-<script type="text/javascript">
+<script>
 var bxForm_<?=$arParams["FORM_ID"]?> = null;
 </script>
 
@@ -397,7 +397,7 @@ $variables = array(
 	"GRID_ID"=>$arParams["THEME_GRID_ID"],
 );
 ?>
-<script type="text/javascript">
+<script>
 var formSettingsDialog<?=$arParams["FORM_ID"]?>;
 
 bxForm_<?=$arParams["FORM_ID"]?> = new BxInterfaceForm('<?=$arParams["FORM_ID"]?>', <?=CUtil::PhpToJsObject(array_keys($arResult["TABS"]))?>);

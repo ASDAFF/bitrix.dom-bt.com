@@ -264,7 +264,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 					'EMPTY_PROPS' => $emptyProductProperties
 				)
 			);
-			?><script type="text/javascript">
+			?><script>
 		  var <? echo $strObName; ?> = new JCCatalogTopBanner(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script><?
 		}
@@ -301,7 +301,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 			);
 		}
 		?>
-		<script type="text/javascript">
+		<script>
 		  var ob<? echo $strContID; ?> = new JCCatalogTopBannerList(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script>
 		<?

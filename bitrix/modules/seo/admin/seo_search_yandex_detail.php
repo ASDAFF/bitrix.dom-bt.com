@@ -204,7 +204,7 @@ $tabControl->BeginNextTab();
 <?
 $tabControl->End();
 ?>
-<script type="text/javascript">
+<script>
 
 function BXLoadInfo(action)
 {

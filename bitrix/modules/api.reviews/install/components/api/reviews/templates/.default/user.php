@@ -29,13 +29,13 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
  * @var CMain                    $APPLICATION
  */
 
-//$this - объект шаблона
-//$component - объект компонента
+//$this - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//$component - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 //$this->GetFolder()
 //$tplId = $this->GetEditAreaId($arResult['ID']);
 
-//Объект родительского компонента
+//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //$parent = $component->getParent();
 //$parentPath = $parent->getPath();
 
@@ -59,7 +59,7 @@ $arParams['ID'] = intval($arResult['VARIABLES']['user_id']);
 <?
 ob_start();
 ?>
-	<script type="text/javascript">
+	<script>
 		jQuery(document).ready(function ($) {
 			$.fn.apiReviews();
 		});

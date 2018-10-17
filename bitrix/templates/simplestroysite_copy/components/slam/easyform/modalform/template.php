@@ -230,6 +230,6 @@ $WITH_FORM = strlen($arParams['WIDTH_FORM']) > 0 ? 'style="max-width:'.$arParams
     <?endif;?>
 </div>
 
-<script type="text/javascript">
+<script>
     var easyForm = new JCEasyForm(<?echo CUtil::PhpToJSObject($arParams)?>);
 </script>

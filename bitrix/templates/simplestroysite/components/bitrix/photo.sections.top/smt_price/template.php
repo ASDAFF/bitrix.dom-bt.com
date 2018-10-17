@@ -72,7 +72,7 @@ $this->setFrameMode(true);
 <?$countSection += 1;?>
 <?endforeach;?>
 </div>
-<script type="text/javascript">
+<script>
     +function ($) {
         'use strict';
 

@@ -82,7 +82,7 @@ echo '</div>';
 	{
 		$this->EndTab();
 		echo '
-<script type="text/javascript">
+<script>
 ';
 		$s = "";
 		foreach($this->tabs as $tab)

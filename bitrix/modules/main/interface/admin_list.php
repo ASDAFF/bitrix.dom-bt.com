@@ -857,7 +857,7 @@ class CAdminList
 
 		$tbl = CUtil::JSEscape($this->table_id);
 ?>
-<script type="text/javascript">
+<script>
 window['<?=$tbl?>'] = new BX.adminList('<?=$tbl?>', <?=CUtil::PhpToJsObject($arParams)?>);
 BX.adminChain.addItems("<?=$tbl?>_navchain_div");
 </script>
@@ -956,7 +956,7 @@ BX.adminChain.addItems("<?=$tbl?>_navchain_div");
 			if($_REQUEST["mode"]=='frame')
 			{
 ?>
-<html><head></head><body><?=$string?><script type="text/javascript">
+<html><head></head><body><?=$string?><script>
 top.bxcompajaxframeonload = function() {
 	top.BX.adminPanel.closeWait();
 	top.<?=$this->table_id?>.Destroy(false);
@@ -977,7 +977,7 @@ top.BX.ajax.UpdatePageData({});
 			{
 				if(isset($this->onLoadScript)):
 ?>
-<script type="text/javascript"><?=$this->onLoadScript?></script>
+<script><?=$this->onLoadScript?></script>
 <?
 				endif;
 

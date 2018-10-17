@@ -97,7 +97,7 @@ class CSelectSiteWizardStep extends CWizardStep
 		
 		
 $this->content = 
-'<script type="text/javascript">
+'<script>
 function SelectCreateSite(element, solutionId)
 {
 	var container = document.getElementById("solutions-container");
@@ -315,7 +315,7 @@ class CSelectThemeWizardStep extends CWizardStep
 		}
 
 		$this->content = 
-'<script type="text/javascript">
+'<script>
 function SelectTheme(element, solutionId, imageUrl)
 {
 	var container = document.getElementById("solutions-container");
@@ -523,7 +523,7 @@ class CDataInstallWizardStep extends CWizardStep
 		$NextStepVarName = $wizard->GetRealName("nextStep");
 
 		$this->content .= '
-		<script type="text/javascript">
+		<script>
 			var ajaxForm = new CAjaxForm("'.$formName.'", "iframe-post-form", "'.$NextStepVarName.'");
 			ajaxForm.Post("'.$firstService.'", "'.$stage.'", "'.$status.'");
 		</script>';
