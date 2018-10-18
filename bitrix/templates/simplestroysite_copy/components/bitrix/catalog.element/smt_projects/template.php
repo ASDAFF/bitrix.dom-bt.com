@@ -116,9 +116,9 @@ $this->setFrameMode(true);
                         <?foreach ($arResult['GALLERY1'] as $arItemGallery):?>
                             <a class="smt-image" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
 	                            <?php
-                                    $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер2';
+		                            $wsalt = ($arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"]) ? $arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"] : 'слайдер '.$arItemGallery["DETAIL_PICTURE"]["ID"];
 		                            //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
-		                            $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                            $arr = explode('/', $arItemGallery["PREVIEW_PICTURE"]["SRC"]);
 		                            $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
 		                            $restored = implode('/', $coded); // Собрать перекодированный url обратно
                                 ?>
@@ -151,9 +151,9 @@ $this->setFrameMode(true);
                     <?foreach ($arResult['GALLERY1'] as $arItemGallery):?>
                         <a class="smt-image smt-image-inline-block" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
 	                        <?php
-                                $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер4';
+		                        $wsalt = ($arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"]) ? $arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"] : 'слайдер '.$arItemGallery["DETAIL_PICTURE"]["ID"];
 		                        //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
-		                        $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                        $arr = explode('/', $arItemGallery["PREVIEW_PICTURE"]["SRC"]);
 		                        $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
 		                        $restored = implode('/', $coded); // Собрать перекодированный url обратно
                                 ?>
@@ -372,12 +372,13 @@ $this->setFrameMode(true);
                             <?foreach ($arResult['GALLERY2'] as $arItemGallery):?>
                                 <a class="smt-image smt-image-inline-block" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
 	                                <?php
-                                        $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер5';
+                                        $wsalt = ($arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"]) ? $arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"] : 'слайдер '.$arItemGallery["DETAIL_PICTURE"]["ID"];
 		                                //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
-		                                $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                                $arr = explode('/', $arItemGallery["PREVIEW_PICTURE"]["SRC"]);
 		                                $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
 		                                $restored = implode('/', $coded); // Собрать перекодированный url обратно
                                         ?>
+                                    <!-- <pre><?php print_r($arItemGallery);  ?></pre>  -->
                                     <img src="<?=$restored?>" class="smt-image__image" alt="<?=$wsalt?>">
                                     <span class="smt-image__over"></span>
                                 </a>
@@ -389,9 +390,9 @@ $this->setFrameMode(true);
                         <?foreach ($arResult['GALLERY2'] as $arItemGallery):?>
                             <a class="smt-image smt-image-inline-block" href="<?=$arItemGallery["DETAIL_PICTURE"]["SRC"]?>">
 	                            <?php
-                                    $wsalt = ($arResult["PROPERTIES"]["LABEL"]["VALUE"]) ? $arResult["PROPERTIES"]["LABEL"]["VALUE"] : 'слайдер6';
+		                            $wsalt = ($arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"]) ? $arItemGallery["DETAIL_PICTURE"]["ORIGINAL_NAME"] : 'слайдер '.$arItemGallery["DETAIL_PICTURE"]["ID"];
 		                            //$url = parse_url($arResult["PREVIEW_PICTURE"]["SRC"]);
-		                            $arr = explode('/', $arResult["PREVIEW_PICTURE"]["SRC"]);
+		                            $arr = explode('/', $arItemGallery["PREVIEW_PICTURE"]["SRC"]);
 		                            $coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
 		                            $restored = implode('/', $coded); // Собрать перекодированный url обратно
 	                            ?>
