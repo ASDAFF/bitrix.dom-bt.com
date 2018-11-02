@@ -66,7 +66,7 @@ $this->setFrameMode(true);
 						$coded = array_map('rawurlencode', $arr); // Обработать массив функцией rawurlencode
 						$restored = implode('/', $coded); // Собрать перекодированный url обратно
 						?>
-						<img src="<?=$restored?>" class="smt-image__image" alt="<?=$arItem["NAME"]?>">
+						<img src="<?=$restored?>" class="smt-image__image" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>">
 						<div class="smt-image__over"></div>
 						<?if($arParams["DISPLAY_IMAGE_NAME"] == "Y" || $arParams["DISPLAY_IMAGE_PREVIEW_TEXT"] == "Y"):?>
 							<span class="smt-image__over-text">

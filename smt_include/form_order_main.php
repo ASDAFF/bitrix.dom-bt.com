@@ -38,6 +38,8 @@
 			2 => "165",
 			3 => "166",
 			4 => "167",
+			5 => "210",
+			6 => "211",
 		),
 		"PROPERTY_CODES_REQUIRED" => array(
 			0 => "163",
@@ -56,7 +58,7 @@
 		"USE_CAPTCHA" => "N",
 		"CUSTOM_TITLE_102" => " ",
 		"COMPONENT_TEMPLATE" => ".default",
-		"FIELDS_ORDER" => "NAME,163,164,165,167,169,168,166",
+		"FIELDS_ORDER" => "163,164,165,167,210,211,166",
 		"DISPLAY_ICON" => "Y",
 		"FORMS_DISABLE_AGREEMENT" => "N",
 		"COMPOSITE_FRAME_MODE" => "A",
@@ -68,9 +70,11 @@
 		"CUSTOM_TITLE_164" => "",
 		"CUSTOM_TITLE_165" => "",
 		"CUSTOM_TITLE_166" => " ",
-		"CUSTOM_TITLE_167" => "",
+		"CUSTOM_TITLE_167" => "Прикрепите файлы проекта",
 		"CUSTOM_TITLE_168" => "",
-		"CUSTOM_TITLE_169" => ""
+		"CUSTOM_TITLE_169" => "",
+		"CUSTOM_TITLE_210" => " ",
+		"CUSTOM_TITLE_211" => " "
 	),
 	false
 );?>

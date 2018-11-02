@@ -38,6 +38,6 @@ $MESS["DAY_OF_WEEK_3"] = "Среда";
 $MESS["DAY_OF_WEEK_4"] = "Четверг";
 $MESS["DAY_OF_WEEK_5"] = "Пятница";
 $MESS["DAY_OF_WEEK_6"] = "Суббота";
-$MESS["lang_edit_culture"] = "Региональные настройки:";
-$MESS["lang_edit_culture_edit"] = "Изменить выбранные настройки";
+$MESS["lang_edit_culture"] = "Региональные настройки:";
+$MESS["lang_edit_culture_edit"] = "Изменить выбранные настройки";
 ?>

@@ -12,10 +12,10 @@ Loc::loadLanguageFile(__FILE__);
 
 // START WebSEO.kz Michael Nossov:
 	$wsasset = \Bitrix\Main\Page\Asset::getInstance();
-	//$wscanonical = 'https://' . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $APPLICATION->GetCurPage(true));
+	$wscanonical = 'https://' . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $APPLICATION->GetCurPage(true));
 	$wspagenum = '';
 	if(isset($_REQUEST['PAGEN_1']) && !empty($_REQUEST['PAGEN_1']) && intval($_REQUEST['PAGEN_1']) > 1){
-		//$wscanonical .= '?PAGEN_1='.$_REQUEST['PAGEN_1'];
+		$wscanonical .= '?PAGEN_1='.$_REQUEST['PAGEN_1'];
 		// Если эта страница с пагинацией, то добавляем в Title и Description фразу "Страница 2", "Страница 3" и т.д. (кроме первой страницы)
 		$wspagenum = ' → Страница '.$_REQUEST['PAGEN_1'];
 		$wsdesc = $APPLICATION->GetProperty('description');
@@ -24,12 +24,16 @@ Loc::loadLanguageFile(__FILE__);
         }
 	}
     // ко всем страницам сайта длбавляем канонический URL
-    // $wsasset->addString('<link rel="canonical" href="' . $wscanonical . '">');
+    $wsasset->addString('<link rel="canonical" href="' . $wscanonical . '">');
+	if ($curPage == SITE_DIR."index.php"){
+	    // Микроразметка компании для главной страницы
+     
+    }
 // END WebSEO.kz
 
 ?>
 <!DOCTYPE html>
-<html lang="ru"<?if($APPLICATION->GetProperty("smt_sticky_footer")):?> class="smt-sticky-footer"<?endif?>>
+<html lang="ru" prefix="og: http://ogp.me/ns#"<?if($APPLICATION->GetProperty("smt_sticky_footer")):?> class="smt-sticky-footer"<?endif?>>
 <head>
     <title><?$APPLICATION->ShowTitle()?><?=$wspagenum?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,6 +99,52 @@ Loc::loadLanguageFile(__FILE__);
     <?$assetInstance->addJs(SITE_TEMPLATE_PATH . '/assets/js/custom.js')?>
     <link rel="shortcut icon" href="<?=SITE_DIR?>favicon.ico" type="image/x-icon">
     <?$assetInstance->addString('<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet">');?>
+
+    <?if ($curPage == SITE_DIR."index.php"):?>
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "mainEntityOfPage": {
+               "@type": "WebPage",
+               "@id": "https://dom-bt.com/"
+            },
+            "name": "Европейский Дом",
+            "description": "Загородное строительство каркасных домов, домов из профилированного бруса.",
+            "url": "https://dom-bt.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Санкт-Петербург",
+                "addressRegion": "RU",
+                "streetAddress": "ул. Афонская, д. 2, оф. 3-216"
+            },
+            "image": "https://dom-bt.com/smt_images/logo.png",
+            "priceRange": "$$",
+            "email": "zakaz@dom-bt.com",
+            "telephone": "+7(921)575-52-29"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WPHeader",
+            "headline": "Строительная компания «Европейский Дом»",
+            "description": "Строительство каркасных домов, домов из бруса в Санкт-Петербурге и Ленинградской области."
+        }
+        </script>
+        <meta property="og:locale" content="ru_RU">
+        <meta property="og:title" content="Строительная компания «Европейский Дом»">
+        <meta property="og:url" content="https://dom-bt.com/">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Строительство каркасных домов, домов из бруса в Санкт-Петербурге и Ленинградской области">
+        <meta property="og:site_name" content="dom-bt.com">
+        <meta property="og:image" content="https://dom-bt.com/og-img.jpeg">
+        <meta property="og:image:secure_url" content="https://dom-bt.com/og-img.jpeg">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+    <?endif?>
+    
 </head>
 <body<?if($USER->IsAuthorized()):?> class="smt-admin-panel"<?endif?>>
 <?if($USER->IsAuthorized()):?>

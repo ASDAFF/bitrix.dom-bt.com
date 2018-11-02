@@ -1,11 +1,11 @@
-/*#rg_adaptive_slider {
-    display: none;
-}
-@media (max-width: 1024px) {
-    #rg_adaptive_static {
-        display: none;
-    }
-    #rg_adaptive_slider {
-        display: block;
-    }
+/*#rg_adaptive_slider {
+    display: none;
+}
+@media (max-width: 1024px) {
+    #rg_adaptive_static {
+        display: none;
+    }
+    #rg_adaptive_slider {
+        display: block;
+    }
 }*/

@@ -1,3 +1,3 @@
-<?
-
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/admin/fileman_folder.php");?>
+<?
+
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/admin/fileman_folder.php");?>

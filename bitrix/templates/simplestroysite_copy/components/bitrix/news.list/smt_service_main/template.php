@@ -60,12 +60,12 @@ $this->setFrameMode(true);
 						<span class="smt-service-item__icon">
 							<?if($linkHref):?>
 							<a class="smt-image-box smt-image-box_limit-height smt-image-box_hover" href="<?=$linkHref?>">
-								<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" class="smt-image-box__image">
+								<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" class="smt-image-box__image">
 								<span class="smt-image-box__over"></span>
 							</a>
 							<?else:?>
 							<span class="smt-image-box smt-image-box_limit-height smt-image-box_hover">
-								<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" class="smt-image-box__image">
+								<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" class="smt-image-box__image">
 								<span class="smt-image-box__over"></span>
 							</span>
 							<?endif?>

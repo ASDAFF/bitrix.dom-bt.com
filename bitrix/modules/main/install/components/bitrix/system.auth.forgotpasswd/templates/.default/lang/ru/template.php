@@ -6,5 +6,5 @@ $MESS ['AUTH_AUTH'] = "Авторизация";
 $MESS ['AUTH_LOGIN'] = "Логин:";
 $MESS ['AUTH_OR'] = "или";
 $MESS ['AUTH_EMAIL'] = "E-Mail:";
-$MESS["system_auth_captcha"] = "Введите символы с картинки:";
+$MESS["system_auth_captcha"] = "Введите символы с картинки:";
 ?>

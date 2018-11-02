@@ -23,7 +23,7 @@ $MESS ['MAIN_AGENT_DEL_RECORD'] = "Удалить";
 $MESS ['MAIN_AGENT_DEL_RECORD_TITLE'] = "Удалить агента";
 $MESS ['MAIN_AGENT_DELETE_RECORD_CONF'] = "Вы уверенны что хотите удалить данного агента?";
 $MESS ['MAIN_AGENT_DEL_EXEC'] = "Агент был удален после успешного выполнения либо в результате ошибки!";
-$MESS["MAIN_AGENT_PERIODICAL1"] = "Периодичность выполнения:";
-$MESS["MAIN_AGENT_PERIODICAL_INTERVAL"] = "через заданный интервал";
-$MESS["MAIN_AGENT_PERIODICAL_TIME"] = "точно в указанное время";
+$MESS["MAIN_AGENT_PERIODICAL1"] = "Периодичность выполнения:";
+$MESS["MAIN_AGENT_PERIODICAL_INTERVAL"] = "через заданный интервал";
+$MESS["MAIN_AGENT_PERIODICAL_TIME"] = "точно в указанное время";
 ?>

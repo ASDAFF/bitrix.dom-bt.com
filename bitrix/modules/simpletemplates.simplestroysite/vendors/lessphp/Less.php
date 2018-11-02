@@ -4447,74 +4447,74 @@ class Less_VisitorReplacing extends Less_Visitor{
 }
 
 
- 
-
-/**
- * Configurable
- *
- * @package Less
- * @subpackage Core
- */
-abstract class Less_Configurable {
-
-	/**
-	 * Array of options
-	 *
-	 * @var array
-	 */
-	protected $options = array();
-
-	/**
-	 * Array of default options
-	 *
-	 * @var array
-	 */
-	protected $defaultOptions = array();
-
-
-	/**
-	 * Set options
-	 *
-	 * If $options is an object it will be converted into an array by called
-	 * it's toArray method.
-	 *
-	 * @throws Exception
-	 * @param array|object $options
-	 *
-	 */
-	public function setOptions($options){
-		$options = array_intersect_key($options,$this->defaultOptions);
-		$this->options = array_merge($this->defaultOptions, $this->options, $options);
-	}
-
-
-	/**
-	 * Get an option value by name
-	 *
-	 * If the option is empty or not set a NULL value will be returned.
-	 *
-	 * @param string $name
-	 * @param mixed $default Default value if confiuration of $name is not present
-	 * @return mixed
-	 */
-	public function getOption($name, $default = null){
-		if(isset($this->options[$name])){
-			return $this->options[$name];
-		}
-		return $default;
-	}
-
-
-	/**
-	 * Set an option
-	 *
-	 * @param string $name
-	 * @param mixed $value
-	 */
-	public function setOption($name, $value){
-		$this->options[$name] = $value;
-	}
-
+ 
+
+/**
+ * Configurable
+ *
+ * @package Less
+ * @subpackage Core
+ */
+abstract class Less_Configurable {
+
+	/**
+	 * Array of options
+	 *
+	 * @var array
+	 */
+	protected $options = array();
+
+	/**
+	 * Array of default options
+	 *
+	 * @var array
+	 */
+	protected $defaultOptions = array();
+
+
+	/**
+	 * Set options
+	 *
+	 * If $options is an object it will be converted into an array by called
+	 * it's toArray method.
+	 *
+	 * @throws Exception
+	 * @param array|object $options
+	 *
+	 */
+	public function setOptions($options){
+		$options = array_intersect_key($options,$this->defaultOptions);
+		$this->options = array_merge($this->defaultOptions, $this->options, $options);
+	}
+
+
+	/**
+	 * Get an option value by name
+	 *
+	 * If the option is empty or not set a NULL value will be returned.
+	 *
+	 * @param string $name
+	 * @param mixed $default Default value if confiuration of $name is not present
+	 * @return mixed
+	 */
+	public function getOption($name, $default = null){
+		if(isset($this->options[$name])){
+			return $this->options[$name];
+		}
+		return $default;
+	}
+
+
+	/**
+	 * Set an option
+	 *
+	 * @param string $name
+	 * @param mixed $value
+	 */
+	public function setOption($name, $value){
+		$this->options[$name] = $value;
+	}
+
 } 
 
 /**
@@ -9512,465 +9512,465 @@ class Less_Visitor_toCSS extends Less_VisitorReplacing{
 	}
 }
 
- 
-
-/**
- * Parser Exception
- *
- * @package Less
- * @subpackage exception
- */
-class Less_Exception_Parser extends Exception{
-
-	/**
-	 * The current file
-	 *
-	 * @var Less_ImportedFile
-	 */
-	public $currentFile;
-
-	/**
-	 * The current parser index
-	 *
-	 * @var integer
-	 */
-	public $index;
-
-	protected $input;
-
-	protected $details = array();
-
-
-	/**
-	 * Constructor
-	 *
-	 * @param string $message
-	 * @param Exception $previous Previous exception
-	 * @param integer $index The current parser index
-	 * @param Less_FileInfo|string $currentFile The file
-	 * @param integer $code The exception code
-	 */
-	public function __construct($message = null, Exception $previous = null, $index = null, $currentFile = null, $code = 0){
-
-		if (PHP_VERSION_ID < 50300) {
-			$this->previous = $previous;
-			parent::__construct($message, $code);
-		} else {
-			parent::__construct($message, $code, $previous);
-		}
-
-		$this->currentFile = $currentFile;
-		$this->index = $index;
-
-		$this->genMessage();
-	}
-
-
-	protected function getInput(){
-
-		if( !$this->input && $this->currentFile && $this->currentFile['filename'] && file_exists($this->currentFile['filename']) ){
-			$this->input = file_get_contents( $this->currentFile['filename'] );
-		}
-	}
-
-
-
-	/**
-	 * Converts the exception to string
-	 *
-	 * @return string
-	 */
-	public function genMessage(){
-
-		if( $this->currentFile && $this->currentFile['filename'] ){
-			$this->message .= ' in '.basename($this->currentFile['filename']);
-		}
-
-		if( $this->index !== null ){
-			$this->getInput();
-			if( $this->input ){
-				$line = self::getLineNumber();
-				$this->message .= ' on line '.$line.', column '.self::getColumn();
-
-				$lines = explode("\n",$this->input);
-
-				$count = count($lines);
-				$start_line = max(0, $line-3);
-				$last_line = min($count, $start_line+6);
-				$num_len = strlen($last_line);
-				for( $i = $start_line; $i < $last_line; $i++ ){
-					$this->message .= "\n".str_pad($i+1,$num_len,'0',STR_PAD_LEFT).'| '.$lines[$i];
-				}
-			}
-		}
-
-	}
-
-	/**
-	 * Returns the line number the error was encountered
-	 *
-	 * @return integer
-	 */
-	public function getLineNumber(){
-		if( $this->index ){
-			// https://bugs.php.net/bug.php?id=49790
-			if (ini_get("mbstring.func_overload")) {
-				return substr_count(substr($this->input, 0, $this->index), "\n") + 1;
-			} else {
-				return substr_count($this->input, "\n", 0, $this->index) + 1;
-			}
-		}
-		return 1;
-	}
-
-
-	/**
-	 * Returns the column the error was encountered
-	 *
-	 * @return integer
-	 */
-	public function getColumn(){
-
-		$part = substr($this->input, 0, $this->index);
-		$pos = strrpos($part,"\n");
-		return $this->index - $pos;
-	}
-
-}
- 
-
-/**
- * Chunk Exception
- *
- * @package Less
- * @subpackage exception
- */
-class Less_Exception_Chunk extends Less_Exception_Parser{
-
-
-	protected $parserCurrentIndex = 0;
-
-	protected $emitFrom = 0;
-
-	protected $input_len;
-
-
-	/**
-	 * Constructor
-	 *
-	 * @param string $input
-	 * @param Exception $previous Previous exception
-	 * @param integer $index The current parser index
-	 * @param Less_FileInfo|string $currentFile The file
-	 * @param integer $code The exception code
-	 */
-	public function __construct($input, Exception $previous = null, $index = null, $currentFile = null, $code = 0){
-
-		$this->message = 'ParseError: Unexpected input'; //default message
-
-		$this->index = $index;
-
-		$this->currentFile = $currentFile;
-
-		$this->input = $input;
-		$this->input_len = strlen($input);
-
-		$this->Chunks();
-		$this->genMessage();
-	}
-
-
-	/**
-	 * See less.js chunks()
-	 * We don't actually need the chunks
-	 *
-	 */
-	protected function Chunks(){
-		$level = 0;
-		$parenLevel = 0;
-		$lastMultiCommentEndBrace = null;
-		$lastOpening = null;
-		$lastMultiComment = null;
-		$lastParen = null;
-
-		for( $this->parserCurrentIndex = 0; $this->parserCurrentIndex < $this->input_len; $this->parserCurrentIndex++ ){
-			$cc = $this->CharCode($this->parserCurrentIndex);
-			if ((($cc >= 97) && ($cc <= 122)) || ($cc < 34)) {
-				// a-z or whitespace
-				continue;
-			}
-
-			switch ($cc) {
-
-				// (
-				case 40:
-					$parenLevel++;
-					$lastParen = $this->parserCurrentIndex;
-					continue;
-
-				// )
-				case 41:
-					$parenLevel--;
-					if( $parenLevel < 0 ){
-						return $this->fail("missing opening `(`");
-					}
-					continue;
-
-				// ;
-				case 59:
-					//if (!$parenLevel) { $this->emitChunk();	}
-					continue;
-
-				// {
-				case 123:
-					$level++;
-					$lastOpening = $this->parserCurrentIndex;
-					continue;
-
-				// }
-				case 125:
-					$level--;
-					if( $level < 0 ){
-						return $this->fail("missing opening `{`");
-
-					}
-					//if (!$level && !$parenLevel) { $this->emitChunk(); }
-					continue;
-				// \
-				case 92:
-					if ($this->parserCurrentIndex < $this->input_len - 1) { $this->parserCurrentIndex++; continue; }
-					return $this->fail("unescaped `\\`");
-
-				// ", ' and `
-				case 34:
-				case 39:
-				case 96:
-					$matched = 0;
-					$currentChunkStartIndex = $this->parserCurrentIndex;
-					for ($this->parserCurrentIndex = $this->parserCurrentIndex + 1; $this->parserCurrentIndex < $this->input_len; $this->parserCurrentIndex++) {
-						$cc2 = $this->CharCode($this->parserCurrentIndex);
-						if ($cc2 > 96) { continue; }
-						if ($cc2 == $cc) { $matched = 1; break; }
-						if ($cc2 == 92) {        // \
-							if ($this->parserCurrentIndex == $this->input_len - 1) {
-								return $this->fail("unescaped `\\`");
-							}
-							$this->parserCurrentIndex++;
-						}
-					}
-					if ($matched) { continue; }
-					return $this->fail("unmatched `" . chr($cc) . "`", $currentChunkStartIndex);
-
-				// /, check for comment
-				case 47:
-					if ($parenLevel || ($this->parserCurrentIndex == $this->input_len - 1)) { continue; }
-					$cc2 = $this->CharCode($this->parserCurrentIndex+1);
-					if ($cc2 == 47) {
-						// //, find lnfeed
-						for ($this->parserCurrentIndex = $this->parserCurrentIndex + 2; $this->parserCurrentIndex < $this->input_len; $this->parserCurrentIndex++) {
-							$cc2 = $this->CharCode($this->parserCurrentIndex);
-							if (($cc2 <= 13) && (($cc2 == 10) || ($cc2 == 13))) { break; }
-						}
-					} else if ($cc2 == 42) {
-						// /*, find */
-						$lastMultiComment = $currentChunkStartIndex = $this->parserCurrentIndex;
-						for ($this->parserCurrentIndex = $this->parserCurrentIndex + 2; $this->parserCurrentIndex < $this->input_len - 1; $this->parserCurrentIndex++) {
-							$cc2 = $this->CharCode($this->parserCurrentIndex);
-							if ($cc2 == 125) { $lastMultiCommentEndBrace = $this->parserCurrentIndex; }
-							if ($cc2 != 42) { continue; }
-							if ($this->CharCode($this->parserCurrentIndex+1) == 47) { break; }
-						}
-						if ($this->parserCurrentIndex == $this->input_len - 1) {
-							return $this->fail("missing closing `*/`", $currentChunkStartIndex);
-						}
-					}
-					continue;
-
-				// *, check for unmatched */
-				case 42:
-					if (($this->parserCurrentIndex < $this->input_len - 1) && ($this->CharCode($this->parserCurrentIndex+1) == 47)) {
-						return $this->fail("unmatched `/*`");
-					}
-					continue;
-			}
-		}
-
-		if( $level !== 0 ){
-			if( ($lastMultiComment > $lastOpening) && ($lastMultiCommentEndBrace > $lastMultiComment) ){
-				return $this->fail("missing closing `}` or `*/`", $lastOpening);
-			} else {
-				return $this->fail("missing closing `}`", $lastOpening);
-			}
-		} else if ( $parenLevel !== 0 ){
-			return $this->fail("missing closing `)`", $lastParen);
-		}
-
-
-		//chunk didn't fail
-
-
-		//$this->emitChunk(true);
-	}
-
-	public function CharCode($pos){
-		return ord($this->input[$pos]);
-	}
-
-
-	public function fail( $msg, $index = null ){
-
-		if( !$index ){
-			$this->index = $this->parserCurrentIndex;
-		}else{
-			$this->index = $index;
-		}
-		$this->message = 'ParseError: '.$msg;
-	}
-
-
-	/*
-	function emitChunk( $force = false ){
-		$len = $this->parserCurrentIndex - $this->emitFrom;
-		if ((($len < 512) && !$force) || !$len) {
-			return;
-		}
-		$chunks[] = substr($this->input, $this->emitFrom, $this->parserCurrentIndex + 1 - $this->emitFrom );
-		$this->emitFrom = $this->parserCurrentIndex + 1;
-	}
-	*/
-
-}
- 
-
-/**
- * Compiler Exception
- *
- * @package Less
- * @subpackage exception
- */
-class Less_Exception_Compiler extends Less_Exception_Parser{
-
-} 
-
-/**
- * Parser output with source map
- *
- * @package Less
- * @subpackage Output
- */
-class Less_Output_Mapped extends Less_Output {
-
-	/**
-	 * The source map generator
-	 *
-	 * @var Less_SourceMap_Generator
-	 */
-	protected $generator;
-
-	/**
-	 * Current line
-	 *
-	 * @var integer
-	 */
-	protected $lineNumber = 0;
-
-	/**
-	 * Current column
-	 *
-	 * @var integer
-	 */
-	protected $column = 0;
-
-	/**
-	 * Array of contents map (file and its content)
-	 *
-	 * @var array
-	 */
-	protected $contentsMap = array();
-
-	/**
-	 * Constructor
-	 *
-	 * @param array $contentsMap Array of filename to contents map
-	 * @param Less_SourceMap_Generator $generator
-	 */
-	public function __construct(array $contentsMap, $generator){
-		$this->contentsMap = $contentsMap;
-		$this->generator = $generator;
-	}
-
-	/**
-	 * Adds a chunk to the stack
-	 * The $index for less.php may be different from less.js since less.php does not chunkify inputs
-	 *
-	 * @param string $chunk
-	 * @param string $fileInfo
-	 * @param integer $index
-	 * @param mixed $mapLines
-	 */
-	public function add($chunk, $fileInfo = null, $index = 0, $mapLines = null){
-
-		//ignore adding empty strings
-		if( $chunk === '' ){
-			return;
-		}
-
-
-		$sourceLines = array();
-		$sourceColumns = ' ';
-
-
-		if( $fileInfo ){
-
-			$url = $fileInfo['currentUri'];
-
-			if( isset($this->contentsMap[$url]) ){
-				$inputSource = substr($this->contentsMap[$url], 0, $index);
-				$sourceLines = explode("\n", $inputSource);
-				$sourceColumns = end($sourceLines);
-			}else{
-				throw new Exception('Filename '.$url.' not in contentsMap');
-			}
-
-		}
-
-		$lines = explode("\n", $chunk);
-		$columns = end($lines);
-
-		if($fileInfo){
-
-			if(!$mapLines){
-				$this->generator->addMapping(
-						$this->lineNumber + 1,					// generated_line
-						$this->column,							// generated_column
-						count($sourceLines),					// original_line
-						strlen($sourceColumns),					// original_column
-						$fileInfo
-				);
-			}else{
-				for($i = 0, $count = count($lines); $i < $count; $i++){
-					$this->generator->addMapping(
-						$this->lineNumber + $i + 1,				// generated_line
-						$i === 0 ? $this->column : 0,			// generated_column
-						count($sourceLines) + $i,				// original_line
-						$i === 0 ? strlen($sourceColumns) : 0, 	// original_column
-						$fileInfo
-					);
-				}
-			}
-		}
-
-		if(count($lines) === 1){
-			$this->column += strlen($columns);
-		}else{
-			$this->lineNumber += count($lines) - 1;
-			$this->column = strlen($columns);
-		}
-
-		// add only chunk
-		parent::add($chunk);
-	}
-
+ 
+
+/**
+ * Parser Exception
+ *
+ * @package Less
+ * @subpackage exception
+ */
+class Less_Exception_Parser extends Exception{
+
+	/**
+	 * The current file
+	 *
+	 * @var Less_ImportedFile
+	 */
+	public $currentFile;
+
+	/**
+	 * The current parser index
+	 *
+	 * @var integer
+	 */
+	public $index;
+
+	protected $input;
+
+	protected $details = array();
+
+
+	/**
+	 * Constructor
+	 *
+	 * @param string $message
+	 * @param Exception $previous Previous exception
+	 * @param integer $index The current parser index
+	 * @param Less_FileInfo|string $currentFile The file
+	 * @param integer $code The exception code
+	 */
+	public function __construct($message = null, Exception $previous = null, $index = null, $currentFile = null, $code = 0){
+
+		if (PHP_VERSION_ID < 50300) {
+			$this->previous = $previous;
+			parent::__construct($message, $code);
+		} else {
+			parent::__construct($message, $code, $previous);
+		}
+
+		$this->currentFile = $currentFile;
+		$this->index = $index;
+
+		$this->genMessage();
+	}
+
+
+	protected function getInput(){
+
+		if( !$this->input && $this->currentFile && $this->currentFile['filename'] && file_exists($this->currentFile['filename']) ){
+			$this->input = file_get_contents( $this->currentFile['filename'] );
+		}
+	}
+
+
+
+	/**
+	 * Converts the exception to string
+	 *
+	 * @return string
+	 */
+	public function genMessage(){
+
+		if( $this->currentFile && $this->currentFile['filename'] ){
+			$this->message .= ' in '.basename($this->currentFile['filename']);
+		}
+
+		if( $this->index !== null ){
+			$this->getInput();
+			if( $this->input ){
+				$line = self::getLineNumber();
+				$this->message .= ' on line '.$line.', column '.self::getColumn();
+
+				$lines = explode("\n",$this->input);
+
+				$count = count($lines);
+				$start_line = max(0, $line-3);
+				$last_line = min($count, $start_line+6);
+				$num_len = strlen($last_line);
+				for( $i = $start_line; $i < $last_line; $i++ ){
+					$this->message .= "\n".str_pad($i+1,$num_len,'0',STR_PAD_LEFT).'| '.$lines[$i];
+				}
+			}
+		}
+
+	}
+
+	/**
+	 * Returns the line number the error was encountered
+	 *
+	 * @return integer
+	 */
+	public function getLineNumber(){
+		if( $this->index ){
+			// https://bugs.php.net/bug.php?id=49790
+			if (ini_get("mbstring.func_overload")) {
+				return substr_count(substr($this->input, 0, $this->index), "\n") + 1;
+			} else {
+				return substr_count($this->input, "\n", 0, $this->index) + 1;
+			}
+		}
+		return 1;
+	}
+
+
+	/**
+	 * Returns the column the error was encountered
+	 *
+	 * @return integer
+	 */
+	public function getColumn(){
+
+		$part = substr($this->input, 0, $this->index);
+		$pos = strrpos($part,"\n");
+		return $this->index - $pos;
+	}
+
+}
+ 
+
+/**
+ * Chunk Exception
+ *
+ * @package Less
+ * @subpackage exception
+ */
+class Less_Exception_Chunk extends Less_Exception_Parser{
+
+
+	protected $parserCurrentIndex = 0;
+
+	protected $emitFrom = 0;
+
+	protected $input_len;
+
+
+	/**
+	 * Constructor
+	 *
+	 * @param string $input
+	 * @param Exception $previous Previous exception
+	 * @param integer $index The current parser index
+	 * @param Less_FileInfo|string $currentFile The file
+	 * @param integer $code The exception code
+	 */
+	public function __construct($input, Exception $previous = null, $index = null, $currentFile = null, $code = 0){
+
+		$this->message = 'ParseError: Unexpected input'; //default message
+
+		$this->index = $index;
+
+		$this->currentFile = $currentFile;
+
+		$this->input = $input;
+		$this->input_len = strlen($input);
+
+		$this->Chunks();
+		$this->genMessage();
+	}
+
+
+	/**
+	 * See less.js chunks()
+	 * We don't actually need the chunks
+	 *
+	 */
+	protected function Chunks(){
+		$level = 0;
+		$parenLevel = 0;
+		$lastMultiCommentEndBrace = null;
+		$lastOpening = null;
+		$lastMultiComment = null;
+		$lastParen = null;
+
+		for( $this->parserCurrentIndex = 0; $this->parserCurrentIndex < $this->input_len; $this->parserCurrentIndex++ ){
+			$cc = $this->CharCode($this->parserCurrentIndex);
+			if ((($cc >= 97) && ($cc <= 122)) || ($cc < 34)) {
+				// a-z or whitespace
+				continue;
+			}
+
+			switch ($cc) {
+
+				// (
+				case 40:
+					$parenLevel++;
+					$lastParen = $this->parserCurrentIndex;
+					continue;
+
+				// )
+				case 41:
+					$parenLevel--;
+					if( $parenLevel < 0 ){
+						return $this->fail("missing opening `(`");
+					}
+					continue;
+
+				// ;
+				case 59:
+					//if (!$parenLevel) { $this->emitChunk();	}
+					continue;
+
+				// {
+				case 123:
+					$level++;
+					$lastOpening = $this->parserCurrentIndex;
+					continue;
+
+				// }
+				case 125:
+					$level--;
+					if( $level < 0 ){
+						return $this->fail("missing opening `{`");
+
+					}
+					//if (!$level && !$parenLevel) { $this->emitChunk(); }
+					continue;
+				// \
+				case 92:
+					if ($this->parserCurrentIndex < $this->input_len - 1) { $this->parserCurrentIndex++; continue; }
+					return $this->fail("unescaped `\\`");
+
+				// ", ' and `
+				case 34:
+				case 39:
+				case 96:
+					$matched = 0;
+					$currentChunkStartIndex = $this->parserCurrentIndex;
+					for ($this->parserCurrentIndex = $this->parserCurrentIndex + 1; $this->parserCurrentIndex < $this->input_len; $this->parserCurrentIndex++) {
+						$cc2 = $this->CharCode($this->parserCurrentIndex);
+						if ($cc2 > 96) { continue; }
+						if ($cc2 == $cc) { $matched = 1; break; }
+						if ($cc2 == 92) {        // \
+							if ($this->parserCurrentIndex == $this->input_len - 1) {
+								return $this->fail("unescaped `\\`");
+							}
+							$this->parserCurrentIndex++;
+						}
+					}
+					if ($matched) { continue; }
+					return $this->fail("unmatched `" . chr($cc) . "`", $currentChunkStartIndex);
+
+				// /, check for comment
+				case 47:
+					if ($parenLevel || ($this->parserCurrentIndex == $this->input_len - 1)) { continue; }
+					$cc2 = $this->CharCode($this->parserCurrentIndex+1);
+					if ($cc2 == 47) {
+						// //, find lnfeed
+						for ($this->parserCurrentIndex = $this->parserCurrentIndex + 2; $this->parserCurrentIndex < $this->input_len; $this->parserCurrentIndex++) {
+							$cc2 = $this->CharCode($this->parserCurrentIndex);
+							if (($cc2 <= 13) && (($cc2 == 10) || ($cc2 == 13))) { break; }
+						}
+					} else if ($cc2 == 42) {
+						// /*, find */
+						$lastMultiComment = $currentChunkStartIndex = $this->parserCurrentIndex;
+						for ($this->parserCurrentIndex = $this->parserCurrentIndex + 2; $this->parserCurrentIndex < $this->input_len - 1; $this->parserCurrentIndex++) {
+							$cc2 = $this->CharCode($this->parserCurrentIndex);
+							if ($cc2 == 125) { $lastMultiCommentEndBrace = $this->parserCurrentIndex; }
+							if ($cc2 != 42) { continue; }
+							if ($this->CharCode($this->parserCurrentIndex+1) == 47) { break; }
+						}
+						if ($this->parserCurrentIndex == $this->input_len - 1) {
+							return $this->fail("missing closing `*/`", $currentChunkStartIndex);
+						}
+					}
+					continue;
+
+				// *, check for unmatched */
+				case 42:
+					if (($this->parserCurrentIndex < $this->input_len - 1) && ($this->CharCode($this->parserCurrentIndex+1) == 47)) {
+						return $this->fail("unmatched `/*`");
+					}
+					continue;
+			}
+		}
+
+		if( $level !== 0 ){
+			if( ($lastMultiComment > $lastOpening) && ($lastMultiCommentEndBrace > $lastMultiComment) ){
+				return $this->fail("missing closing `}` or `*/`", $lastOpening);
+			} else {
+				return $this->fail("missing closing `}`", $lastOpening);
+			}
+		} else if ( $parenLevel !== 0 ){
+			return $this->fail("missing closing `)`", $lastParen);
+		}
+
+
+		//chunk didn't fail
+
+
+		//$this->emitChunk(true);
+	}
+
+	public function CharCode($pos){
+		return ord($this->input[$pos]);
+	}
+
+
+	public function fail( $msg, $index = null ){
+
+		if( !$index ){
+			$this->index = $this->parserCurrentIndex;
+		}else{
+			$this->index = $index;
+		}
+		$this->message = 'ParseError: '.$msg;
+	}
+
+
+	/*
+	function emitChunk( $force = false ){
+		$len = $this->parserCurrentIndex - $this->emitFrom;
+		if ((($len < 512) && !$force) || !$len) {
+			return;
+		}
+		$chunks[] = substr($this->input, $this->emitFrom, $this->parserCurrentIndex + 1 - $this->emitFrom );
+		$this->emitFrom = $this->parserCurrentIndex + 1;
+	}
+	*/
+
+}
+ 
+
+/**
+ * Compiler Exception
+ *
+ * @package Less
+ * @subpackage exception
+ */
+class Less_Exception_Compiler extends Less_Exception_Parser{
+
+} 
+
+/**
+ * Parser output with source map
+ *
+ * @package Less
+ * @subpackage Output
+ */
+class Less_Output_Mapped extends Less_Output {
+
+	/**
+	 * The source map generator
+	 *
+	 * @var Less_SourceMap_Generator
+	 */
+	protected $generator;
+
+	/**
+	 * Current line
+	 *
+	 * @var integer
+	 */
+	protected $lineNumber = 0;
+
+	/**
+	 * Current column
+	 *
+	 * @var integer
+	 */
+	protected $column = 0;
+
+	/**
+	 * Array of contents map (file and its content)
+	 *
+	 * @var array
+	 */
+	protected $contentsMap = array();
+
+	/**
+	 * Constructor
+	 *
+	 * @param array $contentsMap Array of filename to contents map
+	 * @param Less_SourceMap_Generator $generator
+	 */
+	public function __construct(array $contentsMap, $generator){
+		$this->contentsMap = $contentsMap;
+		$this->generator = $generator;
+	}
+
+	/**
+	 * Adds a chunk to the stack
+	 * The $index for less.php may be different from less.js since less.php does not chunkify inputs
+	 *
+	 * @param string $chunk
+	 * @param string $fileInfo
+	 * @param integer $index
+	 * @param mixed $mapLines
+	 */
+	public function add($chunk, $fileInfo = null, $index = 0, $mapLines = null){
+
+		//ignore adding empty strings
+		if( $chunk === '' ){
+			return;
+		}
+
+
+		$sourceLines = array();
+		$sourceColumns = ' ';
+
+
+		if( $fileInfo ){
+
+			$url = $fileInfo['currentUri'];
+
+			if( isset($this->contentsMap[$url]) ){
+				$inputSource = substr($this->contentsMap[$url], 0, $index);
+				$sourceLines = explode("\n", $inputSource);
+				$sourceColumns = end($sourceLines);
+			}else{
+				throw new Exception('Filename '.$url.' not in contentsMap');
+			}
+
+		}
+
+		$lines = explode("\n", $chunk);
+		$columns = end($lines);
+
+		if($fileInfo){
+
+			if(!$mapLines){
+				$this->generator->addMapping(
+						$this->lineNumber + 1,					// generated_line
+						$this->column,							// generated_column
+						count($sourceLines),					// original_line
+						strlen($sourceColumns),					// original_column
+						$fileInfo
+				);
+			}else{
+				for($i = 0, $count = count($lines); $i < $count; $i++){
+					$this->generator->addMapping(
+						$this->lineNumber + $i + 1,				// generated_line
+						$i === 0 ? $this->column : 0,			// generated_column
+						count($sourceLines) + $i,				// original_line
+						$i === 0 ? strlen($sourceColumns) : 0, 	// original_column
+						$fileInfo
+					);
+				}
+			}
+		}
+
+		if(count($lines) === 1){
+			$this->column += strlen($columns);
+		}else{
+			$this->lineNumber += count($lines) - 1;
+			$this->column = strlen($columns);
+		}
+
+		// add only chunk
+		parent::add($chunk);
+	}
+
 } 
 
 /**
@@ -10158,368 +10158,368 @@ class Less_SourceMap_Base64VLQ {
 	}
 
 }
- 
-
-/**
- * Source map generator
- *
- * @package Less
- * @subpackage Output
- */
-class Less_SourceMap_Generator extends Less_Configurable {
-
-	/**
-	 * What version of source map does the generator generate?
-	 */
-	const VERSION = 3;
-
-	/**
-	 * Array of default options
-	 *
-	 * @var array
-	 */
-	protected $defaultOptions = array(
-			// an optional source root, useful for relocating source files
-			// on a server or removing repeated values in the 'sources' entry.
-			// This value is prepended to the individual entries in the 'source' field.
-			'sourceRoot'			=> '',
-
-			// an optional name of the generated code that this source map is associated with.
-			'sourceMapFilename'		=> null,
-
-			// url of the map
-			'sourceMapURL'			=> null,
-
-			// absolute path to a file to write the map to
-			'sourceMapWriteTo'		=> null,
-
-			// output source contents?
-			'outputSourceFiles'		=> false,
-
-			// base path for filename normalization
-			'sourceMapRootpath'		=> '',
-
-			// base path for filename normalization
-			'sourceMapBasepath'   => ''
-	);
-
-	/**
-	 * The base64 VLQ encoder
-	 *
-	 * @var Less_SourceMap_Base64VLQ
-	 */
-	protected $encoder;
-
-	/**
-	 * Array of mappings
-	 *
-	 * @var array
-	 */
-	protected $mappings = array();
-
-	/**
-	 * The root node
-	 *
-	 * @var Less_Tree_Ruleset
-	 */
-	protected $root;
-
-	/**
-	 * Array of contents map
-	 *
-	 * @var array
-	 */
-	protected $contentsMap = array();
-
-	/**
-	 * File to content map
-	 *
-	 * @var array
-	 */
-	protected $sources = array();
-	protected $source_keys = array();
-
-	/**
-	 * Constructor
-	 *
-	 * @param Less_Tree_Ruleset $root The root node
-	 * @param array $options Array of options
-	 */
-	public function __construct(Less_Tree_Ruleset $root, $contentsMap, $options = array()){
-		$this->root = $root;
-		$this->contentsMap = $contentsMap;
-		$this->encoder = new Less_SourceMap_Base64VLQ();
-
-		$this->SetOptions($options);
-		
-		$this->options['sourceMapRootpath'] = $this->fixWindowsPath($this->options['sourceMapRootpath'], true);
-		$this->options['sourceMapBasepath'] = $this->fixWindowsPath($this->options['sourceMapBasepath'], true);
-	}
-
-	/**
-	 * Generates the CSS
-	 *
-	 * @return string
-	 */
-	public function generateCSS(){
-		$output = new Less_Output_Mapped($this->contentsMap, $this);
-
-		// catch the output
-		$this->root->genCSS($output);
-
-
-		$sourceMapUrl				= $this->getOption('sourceMapURL');
-		$sourceMapFilename			= $this->getOption('sourceMapFilename');
-		$sourceMapContent			= $this->generateJson();
-		$sourceMapWriteTo			= $this->getOption('sourceMapWriteTo');
-
-		if( !$sourceMapUrl && $sourceMapFilename ){
-			$sourceMapUrl = $this->normalizeFilename($sourceMapFilename);
-		}
-
-		// write map to a file
-		if( $sourceMapWriteTo ){
-			$this->saveMap($sourceMapWriteTo, $sourceMapContent);
-		}
-
-		// inline the map
-		if( !$sourceMapUrl ){
-			$sourceMapUrl = sprintf('data:application/json,%s', Less_Functions::encodeURIComponent($sourceMapContent));
-		}
-
-		if( $sourceMapUrl ){
-			$output->add( sprintf('/*# sourceMappingURL=%s */', $sourceMapUrl) );
-		}
-
-		return $output->toString();
-	}
-
-	/**
-	 * Saves the source map to a file
-	 *
-	 * @param string $file The absolute path to a file
-	 * @param string $content The content to write
-	 * @throws Exception If the file could not be saved
-	 */
-	protected function saveMap($file, $content){
-		$dir = dirname($file);
-		// directory does not exist
-		if( !is_dir($dir) ){
-			// FIXME: create the dir automatically?
-			throw new Exception(sprintf('The directory "%s" does not exist. Cannot save the source map.', $dir));
-		}
-		// FIXME: proper saving, with dir write check!
-		if(file_put_contents($file, $content) === false){
-			throw new Exception(sprintf('Cannot save the source map to "%s"', $file));
-		}
-		return true;
-	}
-
-	/**
-	 * Normalizes the filename
-	 *
-	 * @param string $filename
-	 * @return string
-	 */
-	protected function normalizeFilename($filename){
-
-		$filename = $this->fixWindowsPath($filename);
-
-		$rootpath = $this->getOption('sourceMapRootpath');
-		$basePath = $this->getOption('sourceMapBasepath');
-
-		// "Trim" the 'sourceMapBasepath' from the output filename.
-		if (strpos($filename, $basePath) === 0) {
-			$filename = substr($filename, strlen($basePath));
-		}
-
-		// Remove extra leading path separators.
-		if(strpos($filename, '\\') === 0 || strpos($filename, '/') === 0){
-			$filename = substr($filename, 1);
-		}
-
-		return $rootpath . $filename;
-	}
-
-	/**
-	 * Adds a mapping
-	 *
-	 * @param integer $generatedLine The line number in generated file
-	 * @param integer $generatedColumn The column number in generated file
-	 * @param integer $originalLine The line number in original file
-	 * @param integer $originalColumn The column number in original file
-	 * @param string $sourceFile The original source file
-	 */
-	public function addMapping($generatedLine, $generatedColumn, $originalLine, $originalColumn, $fileInfo ){
-
-		$this->mappings[] = array(
-			'generated_line' => $generatedLine,
-			'generated_column' => $generatedColumn,
-			'original_line' => $originalLine,
-			'original_column' => $originalColumn,
-			'source_file' => $fileInfo['currentUri']
-		);
-
-		$this->sources[$fileInfo['currentUri']] = $fileInfo['filename'];
-	}
-
-
-	/**
-	 * Generates the JSON source map
-	 *
-	 * @return string
-	 * @see https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#
-	 */
-	protected function generateJson(){
-
-		$sourceMap = array();
-		$mappings = $this->generateMappings();
-
-		// File version (always the first entry in the object) and must be a positive integer.
-		$sourceMap['version'] = self::VERSION;
-
-
-		// An optional name of the generated code that this source map is associated with.
-		$file = $this->getOption('sourceMapFilename');
-		if( $file ){
-			$sourceMap['file'] = $file;
-		}
-
-
-		// An optional source root, useful for relocating source files on a server or removing repeated values in the 'sources' entry.	This value is prepended to the individual entries in the 'source' field.
-		$root = $this->getOption('sourceRoot');
-		if( $root ){
-			$sourceMap['sourceRoot'] = $root;
-		}
-
-
-		// A list of original sources used by the 'mappings' entry.
-		$sourceMap['sources'] = array();
-		foreach($this->sources as $source_uri => $source_filename){
-			$sourceMap['sources'][] = $this->normalizeFilename($source_filename);
-		}
-
-
-		// A list of symbol names used by the 'mappings' entry.
-		$sourceMap['names'] = array();
-
-		// A string with the encoded mapping data.
-		$sourceMap['mappings'] = $mappings;
-
-		if( $this->getOption('outputSourceFiles') ){
-			// An optional list of source content, useful when the 'source' can't be hosted.
-			// The contents are listed in the same order as the sources above.
-			// 'null' may be used if some original sources should be retrieved by name.
-			$sourceMap['sourcesContent'] = $this->getSourcesContent();
-		}
-
-		// less.js compat fixes
-		if( count($sourceMap['sources']) && empty($sourceMap['sourceRoot']) ){
-			unset($sourceMap['sourceRoot']);
-		}
-
-		return json_encode($sourceMap);
-	}
-
-	/**
-	 * Returns the sources contents
-	 *
-	 * @return array|null
-	 */
-	protected function getSourcesContent(){
-		if(empty($this->sources)){
-			return;
-		}
-		$content = array();
-		foreach($this->sources as $sourceFile){
-			$content[] = file_get_contents($sourceFile);
-		}
-		return $content;
-	}
-
-	/**
-	 * Generates the mappings string
-	 *
-	 * @return string
-	 */
-	public function generateMappings(){
-
-		if( !count($this->mappings) ){
-			return '';
-		}
-
-		$this->source_keys = array_flip(array_keys($this->sources));
-
-
-		// group mappings by generated line number.
-		$groupedMap = $groupedMapEncoded = array();
-		foreach($this->mappings as $m){
-			$groupedMap[$m['generated_line']][] = $m;
-		}
-		ksort($groupedMap);
-
-		$lastGeneratedLine = $lastOriginalIndex = $lastOriginalLine = $lastOriginalColumn = 0;
-
-		foreach($groupedMap as $lineNumber => $line_map){
-			while(++$lastGeneratedLine < $lineNumber){
-				$groupedMapEncoded[] = ';';
-			}
-
-			$lineMapEncoded = array();
-			$lastGeneratedColumn = 0;
-
-			foreach($line_map as $m){
-				$mapEncoded = $this->encoder->encode($m['generated_column'] - $lastGeneratedColumn);
-				$lastGeneratedColumn = $m['generated_column'];
-
-				// find the index
-				if( $m['source_file'] ){
-					$index = $this->findFileIndex($m['source_file']);
-					if( $index !== false ){
-						$mapEncoded .= $this->encoder->encode($index - $lastOriginalIndex);
-						$lastOriginalIndex = $index;
-
-						// lines are stored 0-based in SourceMap spec version 3
-						$mapEncoded .= $this->encoder->encode($m['original_line'] - 1 - $lastOriginalLine);
-						$lastOriginalLine = $m['original_line'] - 1;
-
-						$mapEncoded .= $this->encoder->encode($m['original_column'] - $lastOriginalColumn);
-						$lastOriginalColumn = $m['original_column'];
-					}
-				}
-
-				$lineMapEncoded[] = $mapEncoded;
-			}
-
-			$groupedMapEncoded[] = implode(',', $lineMapEncoded) . ';';
-		}
-
-		return rtrim(implode($groupedMapEncoded), ';');
-	}
-
-	/**
-	 * Finds the index for the filename
-	 *
-	 * @param string $filename
-	 * @return integer|false
-	 */
-	protected function findFileIndex($filename){
-		return $this->source_keys[$filename];
-	}
-
-	/**
-	 * fix windows paths
-	 * @param  string $path
-	 * @return string      
-	 */
-	public function fixWindowsPath($path, $addEndSlash = false){
-		$slash = ($addEndSlash) ? '/' : '';
-		if( !empty($path) ){
-			$path = str_replace('\\', '/', $path);
-			$path = rtrim($path,'/') . $slash;
-		}
-
-		return $path;
-	}
-
+ 
+
+/**
+ * Source map generator
+ *
+ * @package Less
+ * @subpackage Output
+ */
+class Less_SourceMap_Generator extends Less_Configurable {
+
+	/**
+	 * What version of source map does the generator generate?
+	 */
+	const VERSION = 3;
+
+	/**
+	 * Array of default options
+	 *
+	 * @var array
+	 */
+	protected $defaultOptions = array(
+			// an optional source root, useful for relocating source files
+			// on a server or removing repeated values in the 'sources' entry.
+			// This value is prepended to the individual entries in the 'source' field.
+			'sourceRoot'			=> '',
+
+			// an optional name of the generated code that this source map is associated with.
+			'sourceMapFilename'		=> null,
+
+			// url of the map
+			'sourceMapURL'			=> null,
+
+			// absolute path to a file to write the map to
+			'sourceMapWriteTo'		=> null,
+
+			// output source contents?
+			'outputSourceFiles'		=> false,
+
+			// base path for filename normalization
+			'sourceMapRootpath'		=> '',
+
+			// base path for filename normalization
+			'sourceMapBasepath'   => ''
+	);
+
+	/**
+	 * The base64 VLQ encoder
+	 *
+	 * @var Less_SourceMap_Base64VLQ
+	 */
+	protected $encoder;
+
+	/**
+	 * Array of mappings
+	 *
+	 * @var array
+	 */
+	protected $mappings = array();
+
+	/**
+	 * The root node
+	 *
+	 * @var Less_Tree_Ruleset
+	 */
+	protected $root;
+
+	/**
+	 * Array of contents map
+	 *
+	 * @var array
+	 */
+	protected $contentsMap = array();
+
+	/**
+	 * File to content map
+	 *
+	 * @var array
+	 */
+	protected $sources = array();
+	protected $source_keys = array();
+
+	/**
+	 * Constructor
+	 *
+	 * @param Less_Tree_Ruleset $root The root node
+	 * @param array $options Array of options
+	 */
+	public function __construct(Less_Tree_Ruleset $root, $contentsMap, $options = array()){
+		$this->root = $root;
+		$this->contentsMap = $contentsMap;
+		$this->encoder = new Less_SourceMap_Base64VLQ();
+
+		$this->SetOptions($options);
+		
+		$this->options['sourceMapRootpath'] = $this->fixWindowsPath($this->options['sourceMapRootpath'], true);
+		$this->options['sourceMapBasepath'] = $this->fixWindowsPath($this->options['sourceMapBasepath'], true);
+	}
+
+	/**
+	 * Generates the CSS
+	 *
+	 * @return string
+	 */
+	public function generateCSS(){
+		$output = new Less_Output_Mapped($this->contentsMap, $this);
+
+		// catch the output
+		$this->root->genCSS($output);
+
+
+		$sourceMapUrl				= $this->getOption('sourceMapURL');
+		$sourceMapFilename			= $this->getOption('sourceMapFilename');
+		$sourceMapContent			= $this->generateJson();
+		$sourceMapWriteTo			= $this->getOption('sourceMapWriteTo');
+
+		if( !$sourceMapUrl && $sourceMapFilename ){
+			$sourceMapUrl = $this->normalizeFilename($sourceMapFilename);
+		}
+
+		// write map to a file
+		if( $sourceMapWriteTo ){
+			$this->saveMap($sourceMapWriteTo, $sourceMapContent);
+		}
+
+		// inline the map
+		if( !$sourceMapUrl ){
+			$sourceMapUrl = sprintf('data:application/json,%s', Less_Functions::encodeURIComponent($sourceMapContent));
+		}
+
+		if( $sourceMapUrl ){
+			$output->add( sprintf('/*# sourceMappingURL=%s */', $sourceMapUrl) );
+		}
+
+		return $output->toString();
+	}
+
+	/**
+	 * Saves the source map to a file
+	 *
+	 * @param string $file The absolute path to a file
+	 * @param string $content The content to write
+	 * @throws Exception If the file could not be saved
+	 */
+	protected function saveMap($file, $content){
+		$dir = dirname($file);
+		// directory does not exist
+		if( !is_dir($dir) ){
+			// FIXME: create the dir automatically?
+			throw new Exception(sprintf('The directory "%s" does not exist. Cannot save the source map.', $dir));
+		}
+		// FIXME: proper saving, with dir write check!
+		if(file_put_contents($file, $content) === false){
+			throw new Exception(sprintf('Cannot save the source map to "%s"', $file));
+		}
+		return true;
+	}
+
+	/**
+	 * Normalizes the filename
+	 *
+	 * @param string $filename
+	 * @return string
+	 */
+	protected function normalizeFilename($filename){
+
+		$filename = $this->fixWindowsPath($filename);
+
+		$rootpath = $this->getOption('sourceMapRootpath');
+		$basePath = $this->getOption('sourceMapBasepath');
+
+		// "Trim" the 'sourceMapBasepath' from the output filename.
+		if (strpos($filename, $basePath) === 0) {
+			$filename = substr($filename, strlen($basePath));
+		}
+
+		// Remove extra leading path separators.
+		if(strpos($filename, '\\') === 0 || strpos($filename, '/') === 0){
+			$filename = substr($filename, 1);
+		}
+
+		return $rootpath . $filename;
+	}
+
+	/**
+	 * Adds a mapping
+	 *
+	 * @param integer $generatedLine The line number in generated file
+	 * @param integer $generatedColumn The column number in generated file
+	 * @param integer $originalLine The line number in original file
+	 * @param integer $originalColumn The column number in original file
+	 * @param string $sourceFile The original source file
+	 */
+	public function addMapping($generatedLine, $generatedColumn, $originalLine, $originalColumn, $fileInfo ){
+
+		$this->mappings[] = array(
+			'generated_line' => $generatedLine,
+			'generated_column' => $generatedColumn,
+			'original_line' => $originalLine,
+			'original_column' => $originalColumn,
+			'source_file' => $fileInfo['currentUri']
+		);
+
+		$this->sources[$fileInfo['currentUri']] = $fileInfo['filename'];
+	}
+
+
+	/**
+	 * Generates the JSON source map
+	 *
+	 * @return string
+	 * @see https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#
+	 */
+	protected function generateJson(){
+
+		$sourceMap = array();
+		$mappings = $this->generateMappings();
+
+		// File version (always the first entry in the object) and must be a positive integer.
+		$sourceMap['version'] = self::VERSION;
+
+
+		// An optional name of the generated code that this source map is associated with.
+		$file = $this->getOption('sourceMapFilename');
+		if( $file ){
+			$sourceMap['file'] = $file;
+		}
+
+
+		// An optional source root, useful for relocating source files on a server or removing repeated values in the 'sources' entry.	This value is prepended to the individual entries in the 'source' field.
+		$root = $this->getOption('sourceRoot');
+		if( $root ){
+			$sourceMap['sourceRoot'] = $root;
+		}
+
+
+		// A list of original sources used by the 'mappings' entry.
+		$sourceMap['sources'] = array();
+		foreach($this->sources as $source_uri => $source_filename){
+			$sourceMap['sources'][] = $this->normalizeFilename($source_filename);
+		}
+
+
+		// A list of symbol names used by the 'mappings' entry.
+		$sourceMap['names'] = array();
+
+		// A string with the encoded mapping data.
+		$sourceMap['mappings'] = $mappings;
+
+		if( $this->getOption('outputSourceFiles') ){
+			// An optional list of source content, useful when the 'source' can't be hosted.
+			// The contents are listed in the same order as the sources above.
+			// 'null' may be used if some original sources should be retrieved by name.
+			$sourceMap['sourcesContent'] = $this->getSourcesContent();
+		}
+
+		// less.js compat fixes
+		if( count($sourceMap['sources']) && empty($sourceMap['sourceRoot']) ){
+			unset($sourceMap['sourceRoot']);
+		}
+
+		return json_encode($sourceMap);
+	}
+
+	/**
+	 * Returns the sources contents
+	 *
+	 * @return array|null
+	 */
+	protected function getSourcesContent(){
+		if(empty($this->sources)){
+			return;
+		}
+		$content = array();
+		foreach($this->sources as $sourceFile){
+			$content[] = file_get_contents($sourceFile);
+		}
+		return $content;
+	}
+
+	/**
+	 * Generates the mappings string
+	 *
+	 * @return string
+	 */
+	public function generateMappings(){
+
+		if( !count($this->mappings) ){
+			return '';
+		}
+
+		$this->source_keys = array_flip(array_keys($this->sources));
+
+
+		// group mappings by generated line number.
+		$groupedMap = $groupedMapEncoded = array();
+		foreach($this->mappings as $m){
+			$groupedMap[$m['generated_line']][] = $m;
+		}
+		ksort($groupedMap);
+
+		$lastGeneratedLine = $lastOriginalIndex = $lastOriginalLine = $lastOriginalColumn = 0;
+
+		foreach($groupedMap as $lineNumber => $line_map){
+			while(++$lastGeneratedLine < $lineNumber){
+				$groupedMapEncoded[] = ';';
+			}
+
+			$lineMapEncoded = array();
+			$lastGeneratedColumn = 0;
+
+			foreach($line_map as $m){
+				$mapEncoded = $this->encoder->encode($m['generated_column'] - $lastGeneratedColumn);
+				$lastGeneratedColumn = $m['generated_column'];
+
+				// find the index
+				if( $m['source_file'] ){
+					$index = $this->findFileIndex($m['source_file']);
+					if( $index !== false ){
+						$mapEncoded .= $this->encoder->encode($index - $lastOriginalIndex);
+						$lastOriginalIndex = $index;
+
+						// lines are stored 0-based in SourceMap spec version 3
+						$mapEncoded .= $this->encoder->encode($m['original_line'] - 1 - $lastOriginalLine);
+						$lastOriginalLine = $m['original_line'] - 1;
+
+						$mapEncoded .= $this->encoder->encode($m['original_column'] - $lastOriginalColumn);
+						$lastOriginalColumn = $m['original_column'];
+					}
+				}
+
+				$lineMapEncoded[] = $mapEncoded;
+			}
+
+			$groupedMapEncoded[] = implode(',', $lineMapEncoded) . ';';
+		}
+
+		return rtrim(implode($groupedMapEncoded), ';');
+	}
+
+	/**
+	 * Finds the index for the filename
+	 *
+	 * @param string $filename
+	 * @return integer|false
+	 */
+	protected function findFileIndex($filename){
+		return $this->source_keys[$filename];
+	}
+
+	/**
+	 * fix windows paths
+	 * @param  string $path
+	 * @return string      
+	 */
+	public function fixWindowsPath($path, $addEndSlash = false){
+		$slash = ($addEndSlash) ? '/' : '';
+		if( !empty($path) ){
+			$path = str_replace('\\', '/', $path);
+			$path = rtrim($path,'/') . $slash;
+		}
+
+		return $path;
+	}
+
 } 

@@ -54,7 +54,7 @@ $MESS ['ATTACHMENT_PRESET_LIST_DELETE'] = "Удалить";
 $MESS ['ATTACHMENT_DYNAMIC'] = "Из полей почтового события";
 $MESS ['AVAILABLE_FIELDS_ATTACHMENT'] = "Доступные изображения из вложения:";
 $MESS ['MSG_SITE_TEMPLATE_ID'] = "Тема оформления:";
-$MESS["main_mess_edit_lang"] = "Язык:";
-$MESS["main_mess_edit_lang_not_set"] = "(не установлен)";
-$MESS["main_mess_edit_fields"] = "Поля письма";
+$MESS["main_mess_edit_lang"] = "Язык:";
+$MESS["main_mess_edit_lang_not_set"] = "(не установлен)";
+$MESS["main_mess_edit_fields"] = "Поля письма";
 ?>

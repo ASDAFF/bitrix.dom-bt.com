@@ -1,1 +1,1 @@
-<img src="/smt_images/logo.png" alt="" />
+<img src="/smt_images/logo.png" alt="лого" title="Европейский Дом" />

@@ -124,7 +124,7 @@
             </div>
         </div>
     </div>
-    <div class="smt-copyright">
+    <div class="smt-copyright" itemscope itemtype="http://schema.org/WPFooter">
         <?$APPLICATION->IncludeFile(
             SITE_DIR."smt_include/footer_copyright.php",
             Array(),

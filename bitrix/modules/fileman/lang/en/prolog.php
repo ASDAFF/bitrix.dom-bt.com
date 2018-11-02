@@ -1,3 +1,3 @@
-<?
-$MESS["FILEMAN_ICON_ALT"] = "Site Explorer";
-?>
+<?
+$MESS["FILEMAN_ICON_ALT"] = "Site Explorer";
+?>

@@ -104,9 +104,9 @@ $MESS["interface_grid_filters_save_title"] = "Сохранить текущий 
 $MESS["interface_grid_common"] = "Общие настройки";
 $MESS["interface_grid_common_default"] = "Установить данные настройки по умолчанию";
 $MESS["interface_grid_common_default_apply"] = "Заменить все настройки пользователей данными настройками";
-$MESS["interface_grid_name_btn"] = "Название";
-$MESS["interface_grid_name_btn_title"] = "Переименовать колонку";
-$MESS["interface_grid_name_def"] = "Название по умолчанию:";
-$MESS["interface_grid_name_new"] = "Новое название:";
-$MESS["interface_grid_name_title"] = "Название колонки";
+$MESS["interface_grid_name_btn"] = "Название";
+$MESS["interface_grid_name_btn_title"] = "Переименовать колонку";
+$MESS["interface_grid_name_def"] = "Название по умолчанию:";
+$MESS["interface_grid_name_new"] = "Новое название:";
+$MESS["interface_grid_name_title"] = "Название колонки";
 ?>

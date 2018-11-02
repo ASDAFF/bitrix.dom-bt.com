@@ -35,10 +35,10 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 		}
 		$wsasset->addString('<link rel="prev" href="' . $wsuri . $wspprev.'">');
 		
-		$wsasset->addString('<link rel="canonical" href="' . $wsuri . '?PAGEN_'.$arResult["NavNum"].'='.$arResult["NavPageNomer"].'">');
+		//$wsasset->addString('<link rel="canonical" href="' . $wsuri . '?PAGEN_'.$arResult["NavNum"].'='.$arResult["NavPageNomer"].'">');
 	}
 	else{
-		$wsasset->addString('<link rel="canonical" href="' . $wsuri . '">');
+		//$wsasset->addString('<link rel="canonical" href="' . $wsuri . '">');
     }
 	if($arResult["NavPageNomer"] != $arResult["NavPageCount"]) {
 		// если это не последняя страница, то добавляем метатег rel=next

@@ -1,3 +1,3 @@
-<?
-require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/api.reviews/admin/edit.php");
+<?
+require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/api.reviews/admin/edit.php");
 ?>

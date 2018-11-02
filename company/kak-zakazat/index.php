@@ -45,12 +45,12 @@ $APPLICATION->SetTitle("Как заказать дом?");
 		</p>
 	</div>
 	<div class="col-md-5">
- <img src="http://europadom.ru/images/office/01.jpg" class="fill">
+ <img src="/images/office/01.jpg" class="fill">
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-5">
- <img src="http://europadom.ru/images/office/02.jpg" class="fill">
+ <img src="/images/office/02.jpg" class="fill">
 	</div>
 	<div class="col-md-7">
 		<h2 class="txtblue">Приезжайте к нам в офис!</h2>
@@ -64,12 +64,12 @@ $APPLICATION->SetTitle("Как заказать дом?");
 		<h2 class="txtblue">Мы поможем подобрать проект Вашей Мечты!</h2>
 	</div>
 	<div class="col-md-5">
- <img src="http://europadom.ru/images/office/03.jpg" class="fill">
+ <img src="/images/office/03.jpg" class="fill">
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-5">
- <img src="http://europadom.ru/images/office/04.jpg" class="fill">
+ <img src="/images/office/04.jpg" class="fill">
 	</div>
 	<div class="col-md-7">
 		<h2 class="txtblue">Проконсультируем по планировкам и любым другим вопросам</h2>
@@ -86,12 +86,12 @@ $APPLICATION->SetTitle("Как заказать дом?");
 		</p>
 	</div>
 	<div class="col-md-5">
- <img src="http://europadom.ru/images/office/05.jpg" class="fill">
+ <img src="/images/office/05.jpg" class="fill">
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-5">
- <img src="http://europadom.ru/images/office/06.jpg" class="fill">
+ <img src="/images/office/06.jpg" class="fill">
 	</div>
 	<div class="col-md-7">
 		<h2 class="txtblue">А также спланировать его расположение на участке</h2>
@@ -187,23 +187,23 @@ $APPLICATION->SetTitle("Как заказать дом?");
 <h2>Дома, построенные по индивидуальным проектам:</h2>
 <div class="row">
 	<div class="col-md-6">
- <a href="/gallery"><img src="http://europadom.ru/images/office/p2.jpg" class="fill"></a>
+ <a href="/gallery"><img src="/images/office/p2.jpg" class="fill"></a>
 	</div>
 	<div class="col-md-6">
- <a href="/gallery"><img src="http://europadom.ru/images/office/p3.jpg" class="fill"></a>
+ <a href="/gallery"><img src="/images/office/p3.jpg" class="fill"></a>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
- <a href="/gallery"><img src="http://europadom.ru/images/office/p1.jpg" class="fill" style="margin: 30px 0px;"></a>
+ <a href="/gallery"><img src="/images/office/p1.jpg" class="fill" style="margin: 30px 0px;"></a>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-6">
- <a href="/gallery"><img src="http://europadom.ru/images/office/p4.jpg" class="fill"></a>
+ <a href="/gallery"><img src="/images/office/p4.jpg" class="fill"></a>
 	</div>
 	<div class="col-md-6">
- <a href="/gallery"><img src="http://europadom.ru/images/office/p5.jpg" class="fill"></a>
+ <a href="/gallery"><img src="/images/office/p5.jpg" class="fill"></a>
 	</div>
 </div>
 <div class="special-block center">

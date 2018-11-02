@@ -17,8 +17,8 @@ $MESS["AUTH_REMEMBER_SHORT"] = "Запомнить меня";
 $MESS["socserv_as_user_form"] = "Войти как пользователь:";
 $MESS["AUTH_SECURE_NOTE"]="Перед отправкой формы авторизации пароль будет зашифрован в браузере. Это позволит избежать передачи пароля в открытом виде.";
 $MESS["AUTH_NONSECURE_NOTE"]="Пароль будет отправлен в открытом виде. Включите JavaScript в браузере, чтобы зашифровать пароль перед отправкой.";
-$MESS["auth_form_comp_otp"] = "Одноразовый пароль:";
-$MESS["auth_form_comp_otp_remember_title"] = "Запомнить код на этом компьютере";
-$MESS["auth_form_comp_otp_remember"] = "Запомнить код";
-$MESS["auth_form_comp_auth"] = "Авторизация";
+$MESS["auth_form_comp_otp"] = "Одноразовый пароль:";
+$MESS["auth_form_comp_otp_remember_title"] = "Запомнить код на этом компьютере";
+$MESS["auth_form_comp_otp_remember"] = "Запомнить код";
+$MESS["auth_form_comp_auth"] = "Авторизация";
 ?>

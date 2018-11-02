@@ -34,5 +34,5 @@ $MESS["DAY_OF_WEEK_5"] = "Пятница";
 $MESS["DAY_OF_WEEK_6"] = "Суббота";
 $MESS["culture_code"] = "Символьный код:";
 $MESS["culture_id"] = "Идентификатор:";
-$MESS["culture_edit_other"] = "Другой";
+$MESS["culture_edit_other"] = "Другой";
 ?>

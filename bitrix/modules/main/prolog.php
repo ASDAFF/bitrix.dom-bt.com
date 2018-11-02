@@ -1,3 +1,3 @@
-<?
-define('ADMIN_MODULE_NAME', 'main');
+<?
+define('ADMIN_MODULE_NAME', 'main');
 ?>

@@ -1717,7 +1717,7 @@ class Asset
 
 			if(!empty($assetList))
 			{
-				$res .= '<script>'."BX.setJSList(['".implode("','", array_map(array($this, "getAssetPath"), $assetList))."']); </script>\n";
+				$res .= '<script data-skip-moving="true">'."BX.setJSList(['".implode("','", array_map(array($this, "getAssetPath"), $assetList))."']); </script>\n";
 			}
 		}
 

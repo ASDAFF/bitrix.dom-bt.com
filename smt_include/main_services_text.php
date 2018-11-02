@@ -1,5 +1,5 @@
 <div class="smt-image-border">
- <img src="/smt_images/about1.jpg" class="img-responsive">
+ <img alt="Деревянный дом" src="/smt_images/about1.jpg" title="Деревянный дом с террасой" class="img-responsive">
 </div>
 <h2 class="h2 smt-header smt-header-underline-left">О компании</h2>
 <p>
