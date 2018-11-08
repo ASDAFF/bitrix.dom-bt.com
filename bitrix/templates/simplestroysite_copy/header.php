@@ -97,7 +97,13 @@ Loc::loadLanguageFile(__FILE__);
     <?$assetInstance->addJs(SITE_TEMPLATE_PATH . '/assets/js/init.js')?>
     <?$assetInstance->addJs(SITE_TEMPLATE_PATH . '/assets/js/bitrix.js')?>
     <?$assetInstance->addJs(SITE_TEMPLATE_PATH . '/assets/js/custom.js')?>
-    <link rel="shortcut icon" href="<?=SITE_DIR?>favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?=SITE_DIR?>apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?=SITE_DIR?>favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=SITE_DIR?>favicon-16x16.png">
+    <link rel="manifest" href="<?=SITE_DIR?>site.webmanifest">
+    <link rel="mask-icon" href="<?=SITE_DIR?>safari-pinned-tab.svg" color="#30abe2">
+    <meta name="msapplication-TileColor" content="#30abe2">
+    <meta name="theme-color" content="#ffffff">
     <?$assetInstance->addString('<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet">');?>
 
     <?if ($curPage == SITE_DIR."index.php"):?>
