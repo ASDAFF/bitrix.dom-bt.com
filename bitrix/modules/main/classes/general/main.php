@@ -13,9 +13,6 @@ use Bitrix\Main\Page\Asset;
 use Bitrix\Main\Page\AssetLocation;
 use Bitrix\Main\Page\AssetMode;
 
-define('BX_SPREAD_SITES', 2);
-define('BX_SPREAD_DOMAIN', 4);
-
 define('BX_RESIZE_IMAGE_PROPORTIONAL_ALT', 0);
 define('BX_RESIZE_IMAGE_PROPORTIONAL', 1);
 define('BX_RESIZE_IMAGE_EXACT', 2);
@@ -66,7 +63,6 @@ abstract class CAllMain
 	var $PanelShowed = false;
 	var $showPanelWasInvoked = false;
 
-	var $arrSPREAD_COOKIE = array();
 	var $buffer_content = array();
 	var $buffer_content_type = array();
 	var $buffer_man = false;
@@ -844,7 +840,7 @@ abstract class CAllMain
 	{
 		echo '<meta http-equiv="Content-Type" content="text/html; charset='.LANG_CHARSET.'"'.($bXhtmlStyle? ' /':'').'>'."\n";
 		$this->ShowMeta("robots", false, $bXhtmlStyle);
-		$this->ShowMeta("keywords", false, $bXhtmlStyle);
+		//$this->ShowMeta("keywords", false, $bXhtmlStyle);
 		$this->ShowMeta("description", false, $bXhtmlStyle);
 		$this->ShowLink("canonical", null, $bXhtmlStyle);
 		$this->ShowCSS(true, $bXhtmlStyle);
@@ -1115,79 +1111,18 @@ abstract class CAllMain
 
 	public static function OnChangeFileComponent($path, $site)
 	{
-		/** @global CMain $APPLICATION */
-		global $APPLICATION;
-
 		// kind of optimization
-		if(!HasScriptExtension($path))
-			return;
-
-		$docRoot = CSite::GetSiteDocRoot($site);
-
-		CUrlRewriter::Delete(
-			array("SITE_ID" => $site, "PATH" => $path, "ID" => "NULL")
-		);
-
-		if (class_exists("\\Bitrix\\Main\\Application", false))
+		if(HasScriptExtension($path))
 		{
-			\Bitrix\Main\Component\ParametersTable::deleteByFilter(
-				array("SITE_ID" => $site, "REAL_PATH" => $path)
-			);
-		}
-
-		$fileSrc = $APPLICATION->GetFileContent($docRoot.$path);
-		$arComponents = PHPParser::ParseScript($fileSrc);
-		for ($i = 0, $cnt = count($arComponents); $i < $cnt; $i++)
-		{
-			if (class_exists("\\Bitrix\\Main\\Application", false))
+			if($site === false)
 			{
-				$isSEF = (is_array($arComponents[$i]["DATA"]["PARAMS"]) && $arComponents[$i]["DATA"]["PARAMS"]["SEF_MODE"] == "Y");
-				\Bitrix\Main\Component\ParametersTable::add(
-					array(
-						'SITE_ID' => $site,
-						'COMPONENT_NAME' => $arComponents[$i]["DATA"]["COMPONENT_NAME"],
-						'TEMPLATE_NAME' => $arComponents[$i]["DATA"]["TEMPLATE_NAME"],
-						'REAL_PATH' => $path,
-						'SEF_MODE' => ($isSEF? \Bitrix\Main\Component\ParametersTable::SEF_MODE : \Bitrix\Main\Component\ParametersTable::NOT_SEF_MODE),
-						'SEF_FOLDER' => ($isSEF? $arComponents[$i]["DATA"]["PARAMS"]["SEF_FOLDER"] : null),
-						'START_CHAR' => $arComponents[$i]["START"],
-						'END_CHAR' => $arComponents[$i]["END"],
-						'PARAMETERS' => serialize($arComponents[$i]["DATA"]["PARAMS"]),
-					)
-				);
+				$site = SITE_ID;
 			}
+			$docRoot = CSite::GetSiteDocRoot($site);
 
-			if (isset($arComponents[$i]["DATA"]["PARAMS"]) && is_array($arComponents[$i]["DATA"]["PARAMS"]))
-			{
-				if (
-					array_key_exists("SEF_MODE", $arComponents[$i]["DATA"]["PARAMS"])
-					&& $arComponents[$i]["DATA"]["PARAMS"]["SEF_MODE"] == "Y"
-				)
-				{
-					if (array_key_exists("SEF_RULE", $arComponents[$i]["DATA"]["PARAMS"]))
-					{
-						$ruleMaker = new \Bitrix\Main\UrlRewriterRuleMaker;
-						$ruleMaker->process($arComponents[$i]["DATA"]["PARAMS"]["SEF_RULE"]);
-
-						CUrlRewriter::Add(array(
-							"SITE_ID" => $site,
-							"CONDITION" => $ruleMaker->getCondition(),
-							"RULE" => $ruleMaker->getRule(),
-							"ID" => $arComponents[$i]["DATA"]["COMPONENT_NAME"],
-							"PATH" => $path
-						));
-					}
-					else
-					{
-						CUrlRewriter::Add(array(
-							"SITE_ID" => $site,
-							"CONDITION" => "#^".$arComponents[$i]["DATA"]["PARAMS"]["SEF_FOLDER"]."#",
-							"ID" => $arComponents[$i]["DATA"]["COMPONENT_NAME"],
-							"PATH" => $path
-						));
-					}
-				}
-			}
+			Main\UrlRewriter::delete($site, array("PATH" => $path, "!ID" => ''));
+			Main\Component\ParametersTable::deleteByFilter(array("SITE_ID" => $site, "REAL_PATH" => $path));
+			Main\UrlRewriter::reindexFile($site, $docRoot, $path);
 		}
 	}
 	// <<<<< COMPONENTS 2.0
@@ -2765,116 +2700,84 @@ abstract class CAllMain
 		return (isset($_COOKIE[$name])? $_COOKIE[$name] : "");
 	}
 
-	/*
-	Sets a cookie and spreads it through domains
-
-	$name			: cookie name (without prefix)
-	$value			: value
-	$time			: expire date
-	$folder			: cookie dir
-	$domain			: cookie domain
-	$secure			: secure flag
-	$spread			: to spread or not to spread
-	$name_prefix	: name prefix (if not set get from options)
-	*/
+	/**
+	 * Sets a cookie and spreads it through domains.
+	 *
+	 * @deprecated Use \Bitrix\Main\HttpResponse::addCookie().
+	 *
+	 * @param string $name Cookie name (without prefix)
+	 * @param string $value value
+	 * @param bool|int $time expire date
+	 * @param string $folder cookie dir
+	 * @param bool|string $domain cookie domain
+	 * @param bool $secure secure flag
+	 * @param bool|int $spread to spread or not to spread
+	 * @param bool $name_prefix name prefix (if not set get from options)
+	 * @param bool $httpOnly
+	 */
 	public function set_cookie($name, $value, $time=false, $folder="/", $domain=false, $secure=false, $spread=true, $name_prefix=false, $httpOnly=false)
 	{
 		if($time === false)
-			$time = time()+60*60*24*30*12; // 30 days * 12 ~ 1 year
-		if($name_prefix===false)
-			$name = COption::GetOptionString("main", "cookie_name", "BITRIX_SM")."_".$name;
-		else
-			$name = $name_prefix."_".$name;
+		{
+			$time = null;
+		}
 
-		if($domain === false)
-			$domain = $this->GetCookieDomain();
+		$cookie = new Main\Web\Cookie($name, $value, $time);
+
+		if($name_prefix !== false)
+		{
+			$cookie->setName($name_prefix."_".$name);
+		}
+
+		if($domain !== false)
+		{
+			$cookie->setDomain($domain);
+		}
+		$cookie->setPath($folder);
+		$cookie->setSecure($secure);
+		$cookie->setHttpOnly($httpOnly);
 
 		if($spread === "Y" || $spread === true)
-			$spread_mode = BX_SPREAD_DOMAIN | BX_SPREAD_SITES;
+		{
+			$spread_mode = Main\Web\Cookie::SPREAD_DOMAIN | Main\Web\Cookie::SPREAD_SITES;
+		}
 		elseif($spread >= 1)
+		{
 			$spread_mode = $spread;
+		}
 		else
-			$spread_mode = BX_SPREAD_DOMAIN;
+		{
+			$spread_mode = Main\Web\Cookie::SPREAD_DOMAIN;
+		}
+		$cookie->setSpread($spread_mode);
 
-		//current domain only
-		if($spread_mode & BX_SPREAD_DOMAIN)
-			setcookie($name, $value, $time, $folder, $domain, $secure, $httpOnly);
-
-		//spread over sites
-		if($spread_mode & BX_SPREAD_SITES)
-			$this->arrSPREAD_COOKIE[$name] = array("V" => $value, "T" => $time, "F" => $folder, "D" => $domain, "S" => $secure, "H" => $httpOnly);
+		Main\Context::getCurrent()->getResponse()->addCookie($cookie);
 	}
 
+	/**
+	 * @deprecated Use \Bitrix\Main\Web\Cookie::getCookieDomain().
+	 * @return string
+	 */
 	public function GetCookieDomain()
 	{
-		static $bCache = false;
-		static $cache  = false;
-		if($bCache)
-			return $cache;
-
-		global $DB;
-		if(CACHED_b_lang_domain===false)
-		{
-			$strSql = "
-				SELECT
-					DOMAIN
-				FROM
-					b_lang_domain
-				WHERE
-					'".$DB->ForSql('.'.$_SERVER["HTTP_HOST"])."' like ".$DB->Concat("'%.'", "DOMAIN")."
-				ORDER BY
-					".$DB->Length("DOMAIN")."
-				";
-			$res = $DB->Query($strSql, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
-			if($ar = $res->Fetch())
-			{
-				$cache = $ar['DOMAIN'];
-			}
-		}
-		else
-		{
-			global $CACHE_MANAGER;
-			if($CACHE_MANAGER->Read(CACHED_b_lang_domain, "b_lang_domain", "b_lang_domain"))
-			{
-				$arLangDomain = $CACHE_MANAGER->Get("b_lang_domain");
-			}
-			else
-			{
-				$arLangDomain = array("DOMAIN"=>array(), "LID"=>array());
-				$res = $DB->Query("SELECT * FROM b_lang_domain ORDER BY ".$DB->Length("DOMAIN"));
-				while($ar = $res->Fetch())
-				{
-					$arLangDomain["DOMAIN"][]=$ar;
-					$arLangDomain["LID"][$ar["LID"]][]=$ar;
-				}
-				$CACHE_MANAGER->Set("b_lang_domain", $arLangDomain);
-			}
-			//$strSql = "'".$DB->ForSql($_SERVER["HTTP_HOST"])."' like ".$DB->Concat("'%.'", "DOMAIN")."";
-			foreach($arLangDomain["DOMAIN"] as $ar)
-			{
-				if(strcasecmp(substr('.'.$_SERVER["HTTP_HOST"], -(strlen($ar['DOMAIN'])+1)), ".".$ar['DOMAIN']) == 0)
-				{
-					$cache = $ar['DOMAIN'];
-					break;
-				}
-			}
-		}
-
-		$bCache = true;
-		return $cache;
+		return \Bitrix\Main\Web\Cookie::getCookieDomain();
 	}
 
 	public function StoreCookies()
 	{
-		if(
-			isset($_SESSION['SPREAD_COOKIE'])
-			&& is_array($_SESSION['SPREAD_COOKIE'])
-			&& !empty($_SESSION['SPREAD_COOKIE'])
-		)
+		$response = Main\Context::getCurrent()->getResponse();
+
+		if(is_array($_SESSION['SPREAD_COOKIE']))
 		{
-			$this->arrSPREAD_COOKIE += $_SESSION['SPREAD_COOKIE'];
+			foreach($_SESSION['SPREAD_COOKIE'] as $cookie)
+			{
+				if($cookie instanceof Main\Web\Cookie)
+				{
+					$response->addCookie($cookie, false);
+				}
+			}
 		}
-		$_SESSION['SPREAD_COOKIE'] = $this->arrSPREAD_COOKIE;
+		$_SESSION['SPREAD_COOKIE'] = $response->getCookies();
 
 		$this->HoldSpreadCookieHTML(true);
 	}
@@ -2922,19 +2825,37 @@ abstract class CAllMain
 		$res = array();
 		if(COption::GetOptionString("main", "ALLOW_SPREAD_COOKIE", "Y")=="Y")
 		{
-			if(isset($_SESSION['SPREAD_COOKIE']) && is_array($_SESSION['SPREAD_COOKIE']) && !empty($_SESSION['SPREAD_COOKIE']))
+			$response = Main\Context::getCurrent()->getResponse();
+
+			if(is_array($_SESSION['SPREAD_COOKIE']))
 			{
-				$this->arrSPREAD_COOKIE += $_SESSION['SPREAD_COOKIE'];
+				foreach($_SESSION['SPREAD_COOKIE'] as $cookie)
+				{
+					if($cookie instanceof Main\Web\Cookie)
+					{
+						$response->addCookie($cookie, false);
+					}
+				}
 				unset($_SESSION['SPREAD_COOKIE']);
 			}
 
-			if(!empty($this->arrSPREAD_COOKIE))
+			$cookies = $response->getCookies();
+
+			if(!empty($cookies))
 			{
 				$params = "";
-				foreach($this->arrSPREAD_COOKIE as $name => $ar)
+				foreach($cookies as $cookie)
 				{
-					$ar["D"] = ""; // domain must be empty
-					$params .= $name.chr(1).$ar["V"].chr(1).$ar["T"].chr(1).$ar["F"].chr(1).$ar["D"].chr(1).$ar["S"].chr(1).$ar["H"].chr(2);
+					if($cookie->getSpread() & Main\Web\Cookie::SPREAD_SITES)
+					{
+						$params .= $cookie->getName().chr(1).
+							$cookie->getValue().chr(1).
+							$cookie->getExpires().chr(1).
+							$cookie->getPath().chr(1).
+							chr(1). //domain is empty
+							$cookie->getSecure().chr(1).
+							$cookie->getHttpOnly().chr(2);
+					}
 				}
 				$salt = $_SERVER["REMOTE_ADDR"]."|".@filemtime($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/version.php")."|".LICENSE_KEY;
 				$params = "s=".urlencode(base64_encode($params))."&k=".urlencode(md5($params.$salt));
@@ -3118,7 +3039,7 @@ abstract class CAllMain
 
 		if ($start)
 		{
-			$this->AddBufferContent("trim", "");
+			$this->AddBufferContent("trim", ""); //Makes a placeholder after header.php
 			$index = count($this->buffer_content);
 			$view = $this->__view;
 
@@ -3134,6 +3055,12 @@ abstract class CAllMain
 		}
 		else
 		{
+			$autoCompositeArea = \Bitrix\Main\Composite\Internals\AutomaticArea::getCurrentArea();
+			if ($autoCompositeArea)
+			{
+				$autoCompositeArea->end();
+			}
+
 			$this->buffer_man = true;
 			ob_end_clean();
 			$this->buffer_man = false;
@@ -3148,7 +3075,7 @@ abstract class CAllMain
 			return true;
 		}
 	}
-	
+
 	public function AddBufferContent($callback)
 	{
 		$args = array();
@@ -3326,8 +3253,6 @@ abstract class CAllMain
 
 	public function CaptchaGetCode()
 	{
-		include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
-
 		$cpt = new CCaptcha();
 		$cpt->SetCode();
 
@@ -3336,8 +3261,6 @@ abstract class CAllMain
 
 	public function CaptchaCheckCode($captcha_word, $captcha_sid)
 	{
-		include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
-
 		$cpt = new CCaptcha();
 		if ($cpt->CheckCode($captcha_word, $captcha_sid))
 			return True;
@@ -3518,7 +3441,7 @@ abstract class CAllMain
 
 				CUtil::InitJSCore(array('ajax', 'ls'));
 
-				$jsMsg = '<script>'."\n".
+				$jsMsg = '<script type="text/javascript">'."\n".
 					($bShowMess? 'bxSession.mess.messSessExpired = \''.CUtil::JSEscape(GetMessage("MAIN_SESS_MESS", array("#TIMEOUT#"=>round($sessTimeout/60)))).'\';'."\n" : '').
 					'bxSession.Expand('.$sessTimeout.', \''.bitrix_sessid().'\', '.($bShowMess? 'true':'false').', \''.$key.'\');'."\n".
 					'</script>';
@@ -3558,11 +3481,18 @@ abstract class CAllMain
 		}
 	}
 
-	public static function FinalActions()
+	public static function FinalActions($response = "")
 	{
 		global $DB;
 
+		\Bitrix\Main\Context::getCurrent()->getResponse()->flush($response);
+
 		self::EpilogActions();
+
+		if (!defined('BX_WITH_ON_AFTER_EPILOG'))
+		{
+			define('BX_WITH_ON_AFTER_EPILOG', true);
+		}
 
 		foreach(GetModuleEvents("main", "OnAfterEpilog", true) as $arEvent)
 		{
@@ -3891,20 +3821,25 @@ class CAllSite
 		{
 			$isOK = false;
 			$check_templ = array();
+			$dupError = "";
 			foreach($arFields["TEMPLATE"] as $val)
 			{
 				if($val["TEMPLATE"] <> '' && getLocalPath("templates/".$val["TEMPLATE"], BX_PERSONAL_ROOT) !== false)
 				{
 					if(in_array($val["TEMPLATE"].", ".$val["CONDITION"], $check_templ))
-						$this->LAST_ERROR = GetMessage("MAIN_BAD_TEMPLATE_DUP");
+					{
+						$dupError = " ".GetMessage("MAIN_BAD_TEMPLATE_DUP");
+						$isOK = false;
+						break;
+					}
 					$check_templ[] = $val["TEMPLATE"].", ".$val["CONDITION"];
 					$isOK = true;
 				}
 			}
 			if(!$isOK)
 			{
-				$this->LAST_ERROR .= GetMessage("MAIN_BAD_TEMPLATE");
-				$arMsg[] = array("id"=>"SITE_TEMPLATE", "text"=> GetMessage("MAIN_BAD_TEMPLATE"));
+				$this->LAST_ERROR .= GetMessage("MAIN_BAD_TEMPLATE").$dupError;
+				$arMsg[] = array("id"=>"SITE_TEMPLATE", "text"=> GetMessage("MAIN_BAD_TEMPLATE").$dupError);
 			}
 		}
 
